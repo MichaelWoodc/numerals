@@ -1,0 +1,152 @@
+14.6755 	INFO 	Loaded monitor calibration from ['2026_03_09 14:21']
+14.7199 	WARNING 	User requested fullscreen with size [1440  900], but screen is actually [1920, 1080]. Using actual size
+17.2593 	INFO 	Using renderer 'Intel(R) UHD Graphics 620' for graphics
+17.2594 	INFO 	OpenGL version supported by driver is 4..
+18.2428 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000022DE6890310>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000022DE6890370>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=True, gamma=None, gammaErrorPolicy='raise', infoMsg=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000022DE0510D60>, multiSample=False, name='window1', numSamples=2, pos=[np.float64(0.0), np.float64(0.0)], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, title='PsychoPy', units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+18.2430 	EXP 	window1: backgroundImage = ''
+18.2430 	EXP 	window1: backgroundFit = 'none'
+18.9209 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+18.9209 	EXP 	window1: recordFrameIntervals = False
+19.1111 	EXP 	window1: recordFrameIntervals = True
+19.2407 	WARNING 	t of last frame was 30.00ms (=1/33)
+19.4002 	WARNING 	t of last frame was 22.92ms (=1/43)
+19.7525 	WARNING 	t of last frame was 24.85ms (=1/40)
+19.8979 	WARNING 	t of last frame was 37.14ms (=1/26)
+20.0608 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+20.8099 	EXP 	window1: recordFrameIntervals = False
+20.8099 	EXP 	Screen (0) actual frame rate measured at 59.99Hz
+21.0627 	INFO 	keyboard.Keyboard is using ptb backend.
+21.0628 	EXP 	numbers_ro: status = STARTED
+21.1094 	EXP 	Created image = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=np.False_, flipVert=np.False_, image='default.png', interpolate=True, mask=None, maskParams=None, name='image', opacity=1, ori=0.0, pos=array([0. , 0.2]), size=array([0.3, 0.3]), texRes=128.0, units='height', win=Window(...))
+21.7045 	EXP 	Created number_of_correct_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='number_of_correct_text', opacity=1, ori=0.0, pos=array([0.4, 0.4]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+21.7067 	EXP 	Created number_of_incorrect_text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='number_of_incorrect_text', opacity=1, ori=0.0, pos=array([-0.4,  0.4]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+21.7091 	EXP 	Created number_of_correct_text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='number_of_correct_text_2', opacity=1, ori=0.0, pos=array([0.4, 0.4]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+21.7114 	EXP 	Created number_of_incorrect_text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='number_of_incorrect_text_2', opacity=1, ori=0.0, pos=array([-0.4,  0.4]), rgb=UNKNOWN, text='', units='height', win=Window(...), wrapWidth=1)
+21.9512 	EXP 	Created text_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, draggable=False, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=np.float64(0.05), italic=False, languageStyle='LTR', name='text_3', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=' ', units='height', win=Window(...), wrapWidth=1)
+0.0101 	EXP 	Imported digit_paths_black.csv as conditions, 10 conditions, 8 params
+0.0112 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'digit': np.int64(0), 'arabic_path': 'digits_output/Arabic/0_Arabic_black.png', 'hindi_path': 'digits_output/Hindi/0_Hindi_black.png', 'mandarin_path': 'digits_output/Mandarin/0_Mandarin_black.png', 'correct_answer': np.int64(0), 'total_time': np.int64(20), 'routine_time': np.int64(5), 'min_time_for_incorrect': np.int64(2), 'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+0.0114 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+0.2069 	EXP 	image: image = 'digits_output/Arabic/0_Arabic_black.png'
+0.2069 	EXP 	number_of_correct_text: height = np.float64(0.05)
+0.2069 	EXP 	number_of_correct_text: height = np.float64(0.05)
+0.2069 	EXP 	number_of_correct_text: height = np.float64(0.05)
+0.2069 	EXP 	number_of_correct_text: text = 'Number correct: 0'
+0.2069 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+0.2069 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+0.2069 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+0.2069 	EXP 	number_of_incorrect_text: text = 'Number incorrect: 0'
+0.2069 	EXP 	image: autoDraw = True
+0.2069 	EXP 	number_of_correct_text: autoDraw = True
+0.2069 	EXP 	number_of_incorrect_text: autoDraw = True
+1.4454 	DATA 	Mouse: Left button down, pos=(816,570)
+1.6099 	DATA 	Mouse:  Left button up, pos=(816,570)
+2.3146 	DATA 	Mouse: Left button down, pos=(1000,485)
+2.3152 	DATA 	Mouse:  Left button up, pos=(1000,485)
+2.7175 	DATA 	Mouse: Left button down, pos=(952,482)
+2.7179 	DATA 	Mouse:  Left button up, pos=(952,482)
+2.7858 	DATA 	Mouse: Left button down, pos=(952,482)
+2.8143 	EXP 	image: autoDraw = False
+2.8143 	EXP 	number_of_correct_text: autoDraw = False
+2.8143 	EXP 	number_of_incorrect_text: autoDraw = False
+2.8143 	EXP 	number_of_correct_text_2: height = np.float64(0.05)
+2.8143 	EXP 	number_of_correct_text_2: height = np.float64(0.05)
+2.8143 	EXP 	number_of_correct_text_2: height = np.float64(0.05)
+2.8143 	EXP 	number_of_correct_text_2: text = 'Number correct: 0'
+2.8143 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+2.8143 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+2.8143 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+2.8143 	EXP 	number_of_incorrect_text_2: text = 'Number incorrect: 1'
+2.8143 	EXP 	number_of_correct_text_2: autoDraw = True
+2.8143 	EXP 	number_of_incorrect_text_2: autoDraw = True
+2.9093 	DATA 	Mouse:  Left button up, pos=(954,481)
+3.0456 	DATA 	Mouse: Left button down, pos=(956,477)
+3.0459 	DATA 	Mouse:  Left button up, pos=(956,477)
+7.8044 	EXP 	New trial (rep=1, index=0): <Trial 1 (0 in rep 1) data={'thisN': 1, 'thisTrialN': 0, 'thisRepN': 1}>
+7.8596 	EXP 	number_of_correct_text_2: autoDraw = False
+7.8596 	EXP 	number_of_incorrect_text_2: autoDraw = False
+7.8596 	EXP 	image: image = 'digits_output/Arabic/0_Arabic_black.png'
+7.8596 	EXP 	number_of_correct_text: text = 'Number correct: 0'
+7.8596 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+7.8596 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+7.8596 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+7.8596 	EXP 	number_of_incorrect_text: text = 'Number incorrect: 1'
+7.8596 	EXP 	image: autoDraw = True
+7.8596 	EXP 	number_of_correct_text: autoDraw = True
+7.8596 	EXP 	number_of_incorrect_text: autoDraw = True
+10.4922 	DATA 	Mouse: Left button down, pos=(398,454)
+10.4926 	DATA 	Mouse:  Left button up, pos=(398,454)
+10.7167 	DATA 	Mouse: Left button down, pos=(415,501)
+10.7168 	DATA 	Mouse:  Left button up, pos=(415,501)
+10.9278 	DATA 	Mouse: Left button down, pos=(415,501)
+10.9464 	EXP 	image: autoDraw = False
+10.9464 	EXP 	number_of_correct_text: autoDraw = False
+10.9464 	EXP 	number_of_incorrect_text: autoDraw = False
+10.9464 	EXP 	number_of_correct_text_2: text = 'Number correct: 0'
+10.9464 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+10.9464 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+10.9464 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+10.9464 	EXP 	number_of_incorrect_text_2: text = 'Number incorrect: 2'
+10.9464 	EXP 	number_of_correct_text_2: autoDraw = True
+10.9464 	EXP 	number_of_incorrect_text_2: autoDraw = True
+11.0206 	DATA 	Mouse:  Left button up, pos=(427,497)
+11.2023 	DATA 	Mouse: Left button down, pos=(418,482)
+11.2034 	DATA 	Mouse:  Left button up, pos=(418,482)
+15.9490 	EXP 	New trial (rep=2, index=0): <Trial 2 (0 in rep 2) data={'thisN': 2, 'thisTrialN': 0, 'thisRepN': 2}>
+15.9948 	EXP 	number_of_correct_text_2: autoDraw = False
+15.9948 	EXP 	number_of_incorrect_text_2: autoDraw = False
+15.9948 	EXP 	image: image = 'digits_output/Arabic/0_Arabic_black.png'
+15.9948 	EXP 	number_of_correct_text: text = 'Number correct: 0'
+15.9948 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+15.9948 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+15.9948 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+15.9948 	EXP 	number_of_incorrect_text: text = 'Number incorrect: 2'
+15.9948 	EXP 	image: autoDraw = True
+15.9948 	EXP 	number_of_correct_text: autoDraw = True
+15.9948 	EXP 	number_of_incorrect_text: autoDraw = True
+20.0382 	EXP 	image: autoDraw = False
+20.0382 	EXP 	number_of_correct_text: autoDraw = False
+20.0382 	EXP 	number_of_incorrect_text: autoDraw = False
+20.0382 	EXP 	number_of_correct_text_2: text = 'Number correct: 0'
+20.0382 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+20.0382 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+20.0382 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+20.0382 	EXP 	number_of_incorrect_text_2: text = 'Number incorrect: 3'
+20.0382 	EXP 	number_of_correct_text_2: autoDraw = False
+20.0382 	EXP 	number_of_incorrect_text_2: autoDraw = False
+20.0419 	EXP 	text_3: autoDraw = True
+20.1082 	DATA 	Mouse: Left button down, pos=(957,219)
+20.1092 	DATA 	Mouse:  Left button up, pos=(957,219)
+20.2006 	DATA 	Mouse: Left button down, pos=(957,219)
+20.2647 	DATA 	Mouse:  Left button up, pos=(956,248)
+21.0122 	EXP 	text_3: autoDraw = False
+0.0002 	EXP 	New trial (rep=0, index=1): <Trial 1 (1 in rep 0) data={'digit': np.int64(8), 'arabic_path': 'digits_output/Arabic/8_Arabic_black.png', 'hindi_path': 'digits_output/Hindi/8_Hindi_black.png', 'mandarin_path': 'digits_output/Mandarin/8_Mandarin_black.png', 'correct_answer': np.int64(8), 'total_time': np.int64(20), 'routine_time': np.int64(5), 'min_time_for_incorrect': np.int64(2), 'thisN': 1, 'thisTrialN': 1, 'thisRepN': 0}>
+0.0007 	EXP 	New trial (rep=0, index=0): <Trial 0 (0 in rep 0) data={'thisN': 0, 'thisTrialN': 0, 'thisRepN': 0}>
+0.0777 	EXP 	image: image = 'digits_output/Arabic/8_Arabic_black.png'
+0.0777 	EXP 	number_of_correct_text: text = 'Number correct: 0'
+0.0777 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+0.0777 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+0.0777 	EXP 	number_of_incorrect_text: height = np.float64(0.05)
+0.0777 	EXP 	number_of_incorrect_text: text = 'Number incorrect: 3'
+0.0777 	EXP 	image: autoDraw = True
+0.0777 	EXP 	number_of_correct_text: autoDraw = True
+0.0777 	EXP 	number_of_incorrect_text: autoDraw = True
+5.0198 	EXP 	image: autoDraw = False
+5.0198 	EXP 	number_of_correct_text: autoDraw = False
+5.0198 	EXP 	number_of_incorrect_text: autoDraw = False
+5.0198 	EXP 	number_of_correct_text_2: text = 'Number correct: 0'
+5.0198 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+5.0198 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+5.0198 	EXP 	number_of_incorrect_text_2: height = np.float64(0.05)
+5.0198 	EXP 	number_of_incorrect_text_2: text = 'Number incorrect: 4'
+5.0198 	EXP 	number_of_correct_text_2: autoDraw = True
+5.0198 	EXP 	number_of_incorrect_text_2: autoDraw = True
+5.7302 	EXP 	Device response: <KeyPress from None: t=5.694886700017378, value=escape, duration=None>
+5.7324 	DATA 	Keypress: escape
+5.9627 	EXP 	Device response: <KeyPress from None: t=5.694886700017378, value=escape, duration=0.261094200075604>
+5.9628 	EXP 	numbers_ro: status = STOPPED
+5.9789 	EXP 	number_of_correct_text_2: autoDraw = False
+5.9789 	EXP 	number_of_incorrect_text_2: autoDraw = False
+5.9791 	EXP 	numbers_ro: status = STOPPED
+6.0064 	INFO 	saved data to 'C:\\Users\\micha\\Desktop\\numerals\\data\\192964_numbers_ro_2026-03-23_14h28.42.394.csv'
+6.0084 	INFO 	saved data to C:\Users\micha\Desktop\numerals\data\192964_numbers_ro_2026-03-23_14h28.42.394.psydat
+7.7713 	WARNING 	Stopping key buffers but this could be dangerous ifother keyboards rely on the same.
