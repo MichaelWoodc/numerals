@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on March 23, 2026, at 14:35
+    on March 30, 2026, at 14:12
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -632,6 +632,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
+    number_of_correct_text_3 = visual.TextStim(win=win, name='number_of_correct_text_3',
+        text='',
+        font='Arial',
+        pos=(0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-1.0);
+    number_of_incorrect_text_3 = visual.TextStim(win=win, name='number_of_incorrect_text_3',
+        text='',
+        font='Arial',
+        pos=(-0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-2.0);
     
     # --- Initialize components for Routine "blank_screen" ---
     text_3 = visual.TextStim(win=win, name='text_3',
@@ -1788,11 +1802,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine roo
             roo = data.Routine(
                 name='roo',
-                components=[text_5],
+                components=[text_5, number_of_correct_text_3, number_of_incorrect_text_3],
             )
             roo.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
+            number_of_correct_text_3.setText(f"Number correct: {correct}")
+            number_of_incorrect_text_3.setText(f"Number incorrect: {incorrect}")
             # store start times for roo
             roo.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             roo.tStart = globalClock.getTime(format='float')
@@ -1816,7 +1832,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # --- Run Routine "roo" ---
             thisExp.currentRoutine = roo
             roo.forceEnded = routineForceEnded = not continueRoutine
-            while continueRoutine and routineTimer.getTime() < 5.0:
+            while continueRoutine:
                 # if trial has changed, end Routine now
                 if hasattr(thisInner_loop, 'status') and thisInner_loop.status == STOPPING:
                     continueRoutine = False
@@ -1865,6 +1881,42 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         text_5.status = FINISHED
                         text_5.setAutoDraw(False)
                 
+                # *number_of_correct_text_3* updates
+                
+                # if number_of_correct_text_3 is starting this frame...
+                if number_of_correct_text_3.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    number_of_correct_text_3.frameNStart = frameN  # exact frame index
+                    number_of_correct_text_3.tStart = t  # local t and not account for scr refresh
+                    number_of_correct_text_3.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(number_of_correct_text_3, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    number_of_correct_text_3.status = STARTED
+                    number_of_correct_text_3.setAutoDraw(True)
+                
+                # if number_of_correct_text_3 is active this frame...
+                if number_of_correct_text_3.status == STARTED:
+                    # update params
+                    pass
+                
+                # *number_of_incorrect_text_3* updates
+                
+                # if number_of_incorrect_text_3 is starting this frame...
+                if number_of_incorrect_text_3.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    number_of_incorrect_text_3.frameNStart = frameN  # exact frame index
+                    number_of_incorrect_text_3.tStart = t  # local t and not account for scr refresh
+                    number_of_incorrect_text_3.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(number_of_incorrect_text_3, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    number_of_incorrect_text_3.status = STARTED
+                    number_of_incorrect_text_3.setAutoDraw(True)
+                
+                # if number_of_incorrect_text_3 is active this frame...
+                if number_of_incorrect_text_3.status == STARTED:
+                    # update params
+                    pass
+                
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
                     thisExp.status = FINISHED
@@ -1907,13 +1959,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             roo.tStop = globalClock.getTime(format='float')
             roo.tStopRefresh = tThisFlipGlobal
             thisExp.addData('roo.stopped', roo.tStop)
-            # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-            if roo.maxDurationReached:
-                routineTimer.addTime(-roo.maxDuration)
-            elif roo.forceEnded:
-                routineTimer.reset()
-            else:
-                routineTimer.addTime(-5.000000)
+            # the Routine "roo" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             # mark thisInner_loop as finished
             if hasattr(thisInner_loop, 'status'):
                 thisInner_loop.status = FINISHED
