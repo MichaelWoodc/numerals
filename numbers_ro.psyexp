@@ -7,7 +7,7 @@
     <Param val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code" updates="None" name="Data filename"/>
     <Param val="True" valType="bool" updates="None" name="Enable Escape"/>
     <Param val="Thank you for your patience." valType="str" updates="None" name="End Message"/>
-    <Param val="{'participant': 'f&quot;{randint(0, 999999):06.0f}&quot;', 'session': '001', 'Language': '[&quot;arabic_path&quot;,&quot;hindi_path&quot;,&quot;mandarin_path&quot;]'}" valType="code" updates="None" name="Experiment info"/>
+    <Param val="{'participant': 'f&quot;{randint(0, 999999):06.0f}&quot;', 'Language': '[&quot;arabic_path&quot;,&quot;hindi_path&quot;,&quot;mandarin_path&quot;]', 'N_Trials': '001'}" valType="code" updates="None" name="Experiment info"/>
     <Param val="True" valType="bool" updates="None" name="Force stereo"/>
     <Param val="True" valType="bool" updates="None" name="Full-screen window"/>
     <Param val="" valType="str" updates="None" name="HTML path"/>
@@ -21,7 +21,7 @@
     <Param val="True" valType="bool" updates="None" name="Save psydat file"/>
     <Param val="True" valType="bool" updates="None" name="Save wide csv file"/>
     <Param val="1" valType="num" updates="None" name="Screen"/>
-    <Param val="False" valType="bool" updates="None" name="Show info dlg"/>
+    <Param val="True" valType="bool" updates="None" name="Show info dlg"/>
     <Param val="False" valType="bool" updates="None" name="Show mouse"/>
     <Param val="height" valType="str" updates="None" name="Units"/>
     <Param val="" valType="str" updates="None" name="Use version"/>
@@ -115,7 +115,7 @@
       <CodeComponent name="code_with_trials_end" plugin="None">
         <Param val="import random&amp;#10;&amp;#10;##trials_completed = 0&amp;#10;#if len(sys.argv) &gt;= 2:&amp;#10;#    number_trials = int(sys.argv[1])&amp;#10;#    language = sys.argv[2]&amp;#10;#    print(&quot;Number of trials:&quot;, number_trials)&amp;#10;#    correct = int(sys.argv[3])&amp;#10;#    incorrect = int(sys.argv[4])&amp;#10;#else:&amp;#10;#    print(&quot;Usage: python script.py &lt;number_of_trials&gt;&quot;)&amp;#10;#    number_trials = 3&amp;#10;#    language = &quot;arabic_path&quot;&amp;#10;#    correct = 0&amp;#10;#    incorrect = 0&amp;#10;##    expInfo['Language'] = &quot;arabic_path&quot;&amp;#10;##" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="digits = [0,1,2,3,4,5,6,7,8,9]&amp;#10;correct_digits = []&amp;#10;trials_completed = 0&amp;#10;#correct = 0&amp;#10;#incorrect = 0&amp;#10;print('In begin experiment section of trial routine')&amp;#10;import random&amp;#10;&amp;#10;#trials_completed = 0&amp;#10;if len(sys.argv) &gt;= 2:&amp;#10;    number_trials = int(sys.argv[1])&amp;#10;    language = sys.argv[2]&amp;#10;    print(&quot;Number of trials:&quot;, number_trials)&amp;#10;    correct = int(sys.argv[3])&amp;#10;    incorrect = int(sys.argv[4])&amp;#10;else:&amp;#10;    print(&quot;Usage: python script.py &lt;number_of_trials&gt;&quot;)&amp;#10;    number_trials = 3&amp;#10;    language = &quot;arabic_path&quot;&amp;#10;    correct = 100&amp;#10;    incorrect = 99&amp;#10;#    expInfo['Language'] = &quot;arabic_path&quot;&amp;#10;#" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="digits = [0,1,2,3,4,5,6,7,8,9]&amp;#10;correct_digits = []&amp;#10;trials_completed = 0&amp;#10;#correct = 0&amp;#10;#incorrect = 0&amp;#10;print('In begin experiment section of trial routine')&amp;#10;import random&amp;#10;number_trials = int(expInfo['N_Trials'])&amp;#10;language = expInfo['Language'] &amp;#10;correct = 0&amp;#10;incorrect = 0&amp;#10;##trials_completed = 0&amp;#10;#if len(sys.argv) &gt;= 2:&amp;#10;#    number_trials = int(sys.argv[1])&amp;#10;#    language = sys.argv[2]&amp;#10;#    print(&quot;Number of trials:&quot;, number_trials)&amp;#10;#    correct = int(sys.argv[3])&amp;#10;#    incorrect = int(sys.argv[4])&amp;#10;#else:&amp;#10;#    print(&quot;Usage: python script.py &lt;number_of_trials&gt;&quot;)&amp;#10;#    number_trials = 3&amp;#10;#    language = &quot;arabic_path&quot;&amp;#10;#    correct = 100&amp;#10;#    incorrect = 99&amp;#10;##    expInfo['Language'] = &quot;arabic_path&quot;&amp;#10;##" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="random.shuffle(digits)&amp;#10;response = None&amp;#10;point_subtracted = False&amp;#10;responded = False&amp;#10;started_routine_at = globalClock.getTime()&amp;#10;routineTimer.reset()" valType="extendedCode" updates="constant" name="Begin Routine"/>

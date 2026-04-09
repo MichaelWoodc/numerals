@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on March 31, 2026, at 18:36
+    on April 09, 2026, at 13:13
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -64,8 +64,8 @@ runAtExit = []
 # information about this experiment
 expInfo = {
     'participant': f"{randint(0, 999999):06.0f}",
-    'session': '001',
     'Language': ["arabic_path","hindi_path","mandarin_path"],
+    'N_Trials': '001',
     'date|hid': data.getDateStr(),
     'expName|hid': expName,
     'expVersion|hid': expVersion,
@@ -399,22 +399,25 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     #incorrect = 0
     print('In begin experiment section of trial routine')
     import random
-    
-    #trials_completed = 0
-    if len(sys.argv) >= 2:
-        number_trials = int(sys.argv[1])
-        language = sys.argv[2]
-        print("Number of trials:", number_trials)
-        correct = int(sys.argv[3])
-        incorrect = int(sys.argv[4])
-    else:
-        print("Usage: python script.py <number_of_trials>")
-        number_trials = 3
-        language = "arabic_path"
-        correct = 100
-        incorrect = 99
-    #    expInfo['Language'] = "arabic_path"
-    #
+    number_trials = int(expInfo['N_Trials'])
+    language = expInfo['Language'] 
+    correct = 0
+    incorrect = 0
+    ##trials_completed = 0
+    #if len(sys.argv) >= 2:
+    #    number_trials = int(sys.argv[1])
+    #    language = sys.argv[2]
+    #    print("Number of trials:", number_trials)
+    #    correct = int(sys.argv[3])
+    #    incorrect = int(sys.argv[4])
+    #else:
+    #    print("Usage: python script.py <number_of_trials>")
+    #    number_trials = 3
+    #    language = "arabic_path"
+    #    correct = 100
+    #    incorrect = 99
+    ##    expInfo['Language'] = "arabic_path"
+    ##
     image = visual.ImageStim(
         win=win,
         name='image', 
@@ -2400,6 +2403,7 @@ def quit(thisExp, win=None, thisSession=None):
 # if running this experiment as a script...
 if __name__ == '__main__':
     # call all functions in order
+    expInfo = showExpInfoDlg(expInfo=expInfo)
     thisExp = setupData(expInfo=expInfo)
     logFile = setupLogging(filename=thisExp.dataFileName)
     win = setupWindow(expInfo=expInfo)

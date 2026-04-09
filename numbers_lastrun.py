@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on March 31, 2026, at 18:37
+    on March 31, 2026, at 21:18
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -2173,20 +2173,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if text_5.status == STARTED:
             # update params
             pass
-        
-        # if text_5 is stopping this frame...
-        if text_5.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text_5.tStartRefresh + 1.0-frameTolerance:
-                # keep track of stop time/frame for later
-                text_5.tStop = t  # not accounting for scr refresh
-                text_5.tStopRefresh = tThisFlipGlobal  # on global time
-                text_5.frameNStop = frameN  # exact frame index
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'text_5.stopped')
-                # update status
-                text_5.status = FINISHED
-                text_5.setAutoDraw(False)
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
