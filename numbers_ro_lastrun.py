@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on April 09, 2026, at 13:13
+    on April 09, 2026, at 14:02
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -151,7 +151,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\micha\\OneDrive - Georgia Southern University\\numerals\\numbers_ro_lastrun.py',
+        originPath='C:\\Users\\micha\\OneDrive - Georgia Southern University\\4_RESEARCH\\ABA\\numbers\\numerals\\numbers_ro_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )

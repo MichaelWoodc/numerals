@@ -698,13 +698,13 @@
         <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
         <Param val="" valType="str" updates="constant" name="desc"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="5" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="True" valType="code" updates="None" name="forceNonSlip"/>
         <Param val="reprimand" valType="code" updates="None" name="name"/>
         <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="response == digit or globalClock.getTime()&gt;= total_time" valType="code" updates="constant" name="skipIf"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="5" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <CodeComponent name="debug_text_reprimand" plugin="None">
@@ -714,7 +714,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
-        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="Both" valType="str" updates="None" name="Code Type"/>
         <Param val="timer_lines = []&amp;#10;timer_lines.append(f&quot;Global: {globalClock.getTime():.2f}s&quot;)&amp;#10;&amp;#10;try:&amp;#10;    timer_lines.append(f&quot;Routine: {routineTimer.getTime():.2f}s&quot;)&amp;#10;except:&amp;#10;    timer_lines.append(&quot;Routine: N/A&quot;)&amp;#10;&amp;#10;#try:&amp;#10;#    timer_lines.append(f&quot;Inner: {innerClock.getTime():.2f}s&quot;)&amp;#10;#except:&amp;#10;#    timer_lines.append(&quot;Inner: N/A&quot;)&amp;#10;#&amp;#10;#try:&amp;#10;#    timer_lines.append(f&quot;Trial: {trialClock.getTime():.2f}s&quot;)&amp;#10;#except:&amp;#10;#    timer_lines.append(&quot;Trial: N/A&quot;)&amp;#10;&amp;#10;#try:&amp;#10;#    timer_lines.append(f&quot;Inner remaining: {inner_loop.nRemaining}&quot;)&amp;#10;#except:&amp;#10;#    timer_lines.append(&quot;Inner remaining: N/A&quot;)&amp;#10;&amp;#10;# Add the digit being shown this trial&amp;#10;try:&amp;#10;    timer_lines.append(f&quot;Digit: {digit}&quot;)&amp;#10;except:&amp;#10;    timer_lines.append(&quot;Digit: N/A&quot;)&amp;#10;&amp;#10;timer_display = &quot;\n&quot;.join(timer_lines)" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="timer_lines = [];&amp;#10;timer_lines.push(`Global: ${util.pad(Number.parseFloat(globalClock.getTime()).toFixed(2), 1)}s`);&amp;#10;try {&amp;#10;    timer_lines.push(`Routine: ${util.pad(Number.parseFloat(routineTimer.getTime()).toFixed(2), 1)}s`);&amp;#10;} catch(e) {&amp;#10;    timer_lines.push(&quot;Routine: N/A&quot;);&amp;#10;}&amp;#10;try {&amp;#10;    timer_lines.push(`Digit: ${digit}`);&amp;#10;} catch(e) {&amp;#10;    timer_lines.push(&quot;Digit: N/A&quot;);&amp;#10;}&amp;#10;timer_display = timer_lines.join(&quot;\n&quot;);&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
@@ -810,11 +810,11 @@
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="True" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="False" valType="code" updates="constant" name="draggable"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="Times" valType="str" updates="constant" name="font"/>
         <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
         <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
         <Param val="text_2" valType="code" updates="None" name="name"/>
@@ -977,6 +977,23 @@
       </TextComponent>
     </Routine>
     <Routine name="roo">
+      <CodeComponent name="debug_text_reprimand_2" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Both" valType="str" updates="None" name="Code Type"/>
+        <Param val="timer_lines = []&amp;#10;timer_lines.append(f&quot;Global: {globalClock.getTime():.2f}s&quot;)&amp;#10;&amp;#10;try:&amp;#10;    timer_lines.append(f&quot;Routine: {routineTimer.getTime():.2f}s&quot;)&amp;#10;except:&amp;#10;    timer_lines.append(&quot;Routine: N/A&quot;)&amp;#10;&amp;#10;#try:&amp;#10;#    timer_lines.append(f&quot;Inner: {innerClock.getTime():.2f}s&quot;)&amp;#10;#except:&amp;#10;#    timer_lines.append(&quot;Inner: N/A&quot;)&amp;#10;#&amp;#10;#try:&amp;#10;#    timer_lines.append(f&quot;Trial: {trialClock.getTime():.2f}s&quot;)&amp;#10;#except:&amp;#10;#    timer_lines.append(&quot;Trial: N/A&quot;)&amp;#10;&amp;#10;#try:&amp;#10;#    timer_lines.append(f&quot;Inner remaining: {inner_loop.nRemaining}&quot;)&amp;#10;#except:&amp;#10;#    timer_lines.append(&quot;Inner remaining: N/A&quot;)&amp;#10;&amp;#10;# Add the digit being shown this trial&amp;#10;try:&amp;#10;    timer_lines.append(f&quot;Digit: {digit}&quot;)&amp;#10;except:&amp;#10;    timer_lines.append(&quot;Digit: N/A&quot;)&amp;#10;&amp;#10;timer_display = &quot;\n&quot;.join(timer_lines)" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="timer_lines = [];&amp;#10;timer_lines.push(`Global: ${util.pad(Number.parseFloat(globalClock.getTime()).toFixed(2), 1)}s`);&amp;#10;try {&amp;#10;    timer_lines.push(`Routine: ${util.pad(Number.parseFloat(routineTimer.getTime()).toFixed(2), 1)}s`);&amp;#10;} catch(e) {&amp;#10;    timer_lines.push(&quot;Routine: N/A&quot;);&amp;#10;}&amp;#10;try {&amp;#10;    timer_lines.push(`Digit: ${digit}`);&amp;#10;} catch(e) {&amp;#10;    timer_lines.push(&quot;Digit: N/A&quot;);&amp;#10;}&amp;#10;timer_display = timer_lines.join(&quot;\n&quot;);&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="debug_text_reprimand_2" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <RoutineSettingsComponent name="roo" plugin="None">
         <Param val="none" valType="str" updates="None" name="backgroundFit"/>
         <Param val="" valType="str" updates="None" name="backgroundImg"/>
@@ -985,10 +1002,10 @@
         <Param val="" valType="str" updates="constant" name="desc"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="False" valType="code" updates="None" name="forceNonSlip"/>
+        <Param val="True" valType="code" updates="None" name="forceNonSlip"/>
         <Param val="roo" valType="code" updates="None" name="name"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="globalClock.getTime()&gt;= total_time" valType="code" updates="constant" name="skipIf"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="5" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
@@ -1001,7 +1018,7 @@
         <Param val="False" valType="code" updates="constant" name="draggable"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="Times" valType="str" updates="constant" name="font"/>
         <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
         <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
         <Param val="text_5" valType="code" updates="None" name="name"/>
@@ -1015,7 +1032,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="5" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val=" " valType="str" updates="constant" name="text"/>
+        <Param val="$timer_display&amp;#10;" valType="str" updates="set every frame" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
