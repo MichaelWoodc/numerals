@@ -100,7 +100,3 @@ else:
         start_new_session=True,
         close_fds=True
     )
-
-```plaintext
-date
-```
