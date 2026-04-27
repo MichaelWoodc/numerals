@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on April 20, 2026, at 14:35
+    on April 27, 2026, at 11:10
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -647,14 +647,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         depth=-1.0);
     
     # --- Initialize components for Routine "reprimand" ---
-    image_2 = visual.ImageStim(
-        win=win,
-        name='image_2', 
-        image='default.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0.2), draggable=False, size=(0.3, 0.3),
-        color=[1,1,1], colorSpace='rgb', opacity=None,
-        flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-2.0)
     button = visual.ButtonStim(win, 
         text='', font='Arvo',
         pos=(-.0, -.1),
@@ -669,7 +661,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button',
-        depth=-3
+        depth=-2
     )
     button.buttonClock = core.Clock()
     text_2 = visual.TextStim(win=win, name='text_2',
@@ -678,21 +670,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         pos=(0.2, 0.2), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-4.0);
+        depth=-3.0);
     number_of_correct_text_2 = visual.TextStim(win=win, name='number_of_correct_text_2',
         text='',
         font='Arial',
         pos=(0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-5.0);
+        depth=-4.0);
     number_of_incorrect_text_2 = visual.TextStim(win=win, name='number_of_incorrect_text_2',
         text='',
         font='Arial',
         pos=(-0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-6.0);
+        depth=-5.0);
     
     # --- Initialize components for Routine "end_of_experiment" ---
     text_6 = visual.TextStim(win=win, name='text_6',
@@ -739,7 +731,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # set up handler to look after randomisation of conditions etc
     trials = data.TrialHandler2(
         name='trials',
-        nReps=4.0, 
+        nReps=1, 
         method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
@@ -1953,6 +1945,306 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             routineTimer.reset()
         else:
             routineTimer.addTime(-0.100000)
+        
+        # set up handler to look after randomisation of conditions etc
+        trials_2 = data.TrialHandler2(
+            name='trials_2',
+            nReps=1, 
+            method='random', 
+            extraInfo=expInfo, 
+            originPath=-1, 
+            trialList=data.importConditions('digit_paths_black.csv'), 
+            seed=None, 
+            isTrials=True, 
+        )
+        thisExp.addLoop(trials_2)  # add the loop to the experiment
+        thisTrial_2 = trials_2.trialList[0]  # so we can initialise stimuli with some values
+        # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+        if thisTrial_2 != None:
+            for paramName in thisTrial_2:
+                globals()[paramName] = thisTrial_2[paramName]
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
+        
+        for thisTrial_2 in trials_2:
+            trials_2.status = STARTED
+            if hasattr(thisTrial_2, 'status'):
+                thisTrial_2.status = STARTED
+            currentLoop = trials_2
+            thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+            if thisSession is not None:
+                # if running in a Session with a Liaison client, send data up to now
+                thisSession.sendExperimentData()
+            # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
+            if thisTrial_2 != None:
+                for paramName in thisTrial_2:
+                    globals()[paramName] = thisTrial_2[paramName]
+            
+            # --- Prepare to start Routine "reprimand" ---
+            # create an object to store info about Routine reprimand
+            reprimand = data.Routine(
+                name='reprimand',
+                components=[button, text_2, number_of_correct_text_2, number_of_incorrect_text_2],
+            )
+            reprimand.status = NOT_STARTED
+            continueRoutine = True
+            # update component parameters for each repeat
+            # Run 'Begin Routine' code from code_reprimand
+            print('In begin routine of reprimand section')
+            #if response == None:
+            #    if (ended_routine_at - min_time_for_incorrect) >= (started_routine_at):
+            #        counted_skipped_incorrect = True
+            #        incorrect += 1
+            #        
+            button.setText(digit)
+            # reset button to account for continued clicks & clear times on/off
+            button.reset()
+            number_of_correct_text_2.setText(f"Number correct: {correct}")
+            number_of_incorrect_text_2.setText(f"Number incorrect: {incorrect}")
+            # store start times for reprimand
+            reprimand.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+            reprimand.tStart = globalClock.getTime(format='float')
+            reprimand.status = STARTED
+            reprimand.maxDuration = 5
+            # skip Routine reprimand if its 'Skip if' condition is True
+            reprimand.skipped = continueRoutine and not (response == digit or globalClock.getTime()>= total_time)
+            continueRoutine = reprimand.skipped
+            # keep track of which components have finished
+            reprimandComponents = reprimand.components
+            for thisComponent in reprimand.components:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            frameN = -1
+            
+            # --- Run Routine "reprimand" ---
+            thisExp.currentRoutine = reprimand
+            reprimand.forceEnded = routineForceEnded = not continueRoutine
+            while continueRoutine and routineTimer.getTime() < 5.0:
+                # if trial has changed, end Routine now
+                if hasattr(thisTrial_2, 'status') and thisTrial_2.status == STOPPING:
+                    continueRoutine = False
+                # get current time
+                t = routineTimer.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                # is it time to end the Routine? (based on local clock)
+                if tThisFlip > reprimand.maxDuration-frameTolerance:
+                    reprimand.maxDurationReached = True
+                    continueRoutine = False
+                # Run 'Each Frame' code from debug_text_reprimand
+                timer_lines = []
+                timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+                
+                try:
+                    timer_lines.append(f"Routine: {routineTimer.getTime():.2f}s")
+                except:
+                    timer_lines.append("Routine: N/A")
+                
+                #try:
+                #    timer_lines.append(f"Inner: {innerClock.getTime():.2f}s")
+                #except:
+                #    timer_lines.append("Inner: N/A")
+                #
+                #try:
+                #    timer_lines.append(f"Trial: {trialClock.getTime():.2f}s")
+                #except:
+                #    timer_lines.append("Trial: N/A")
+                
+                #try:
+                #    timer_lines.append(f"Inner remaining: {inner_loop.nRemaining}")
+                #except:
+                #    timer_lines.append("Inner remaining: N/A")
+                
+                # Add the digit being shown this trial
+                try:
+                    timer_lines.append(f"Digit: {digit}")
+                except:
+                    timer_lines.append("Digit: N/A")
+                
+                timer_display = "\n".join(timer_lines)
+                # Run 'Each Frame' code from code_reprimand
+                
+                if globalClock.getTime() > total_time:
+                    print(f'Global Clock > {total_time} in each frame of reprimand routine')
+                    inner_loop.finished = True
+                    continueRoutine = False
+                # *button* updates
+                
+                # if button is starting this frame...
+                if button.status == NOT_STARTED and t >= 0-frameTolerance:
+                    # keep track of start time/frame for later
+                    button.frameNStart = frameN  # exact frame index
+                    button.tStart = t  # local t and not account for scr refresh
+                    button.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(button, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    button.status = STARTED
+                    win.callOnFlip(button.buttonClock.reset)
+                    button.setAutoDraw(True)
+                
+                # if button is active this frame...
+                if button.status == STARTED:
+                    # update params
+                    pass
+                    # check whether button has been pressed
+                    if button.isClicked:
+                        if not button.wasClicked:
+                            # if this is a new click, store time of first click and clicked until
+                            button.timesOn.append(routineTimer.getTime())
+                            button.timesOff.append(routineTimer.getTime())
+                        elif len(button.timesOff):
+                            # if click is continuing from last frame, update time of clicked until
+                            button.timesOff[-1] = routineTimer.getTime()
+                        if not button.wasClicked:
+                            # end routine when button is clicked
+                            continueRoutine = False
+                        if not button.wasClicked:
+                            # run callback code when button is clicked
+                            pass
+                # take note of whether button was clicked, so that next frame we know if clicks are new
+                button.wasClicked = button.isClicked and button.status == STARTED
+                
+                # *text_2* updates
+                
+                # if text_2 is starting this frame...
+                if text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    text_2.frameNStart = frameN  # exact frame index
+                    text_2.tStart = t  # local t and not account for scr refresh
+                    text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(text_2, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    text_2.status = STARTED
+                    text_2.setAutoDraw(True)
+                
+                # if text_2 is active this frame...
+                if text_2.status == STARTED:
+                    # update params
+                    text_2.setText(timer_display
+                    , log=False)
+                
+                # *number_of_correct_text_2* updates
+                
+                # if number_of_correct_text_2 is starting this frame...
+                if number_of_correct_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    number_of_correct_text_2.frameNStart = frameN  # exact frame index
+                    number_of_correct_text_2.tStart = t  # local t and not account for scr refresh
+                    number_of_correct_text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(number_of_correct_text_2, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    number_of_correct_text_2.status = STARTED
+                    number_of_correct_text_2.setAutoDraw(True)
+                
+                # if number_of_correct_text_2 is active this frame...
+                if number_of_correct_text_2.status == STARTED:
+                    # update params
+                    pass
+                
+                # *number_of_incorrect_text_2* updates
+                
+                # if number_of_incorrect_text_2 is starting this frame...
+                if number_of_incorrect_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    number_of_incorrect_text_2.frameNStart = frameN  # exact frame index
+                    number_of_incorrect_text_2.tStart = t  # local t and not account for scr refresh
+                    number_of_incorrect_text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(number_of_incorrect_text_2, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    number_of_incorrect_text_2.status = STARTED
+                    number_of_incorrect_text_2.setAutoDraw(True)
+                
+                # if number_of_incorrect_text_2 is active this frame...
+                if number_of_incorrect_text_2.status == STARTED:
+                    # update params
+                    pass
+                
+                # check for quit (typically the Esc key)
+                if defaultKeyboard.getKeys(keyList=["escape"]):
+                    thisExp.status = FINISHED
+                if thisExp.status == FINISHED or endExpNow:
+                    endExperiment(thisExp, win=win)
+                    return
+                # pause experiment here if requested
+                if thisExp.status == PAUSED:
+                    pauseExperiment(
+                        thisExp=thisExp, 
+                        win=win, 
+                        timers=[routineTimer, globalClock], 
+                        currentRoutine=reprimand,
+                    )
+                    # skip the frame we paused on
+                    continue
+                
+                # has a Component requested the Routine to end?
+                if not continueRoutine:
+                    reprimand.forceEnded = routineForceEnded = True
+                # has the Routine been forcibly ended?
+                if reprimand.forceEnded or routineForceEnded:
+                    break
+                # has every Component finished?
+                continueRoutine = False
+                for thisComponent in reprimand.components:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # --- Ending Routine "reprimand" ---
+            for thisComponent in reprimand.components:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            # store stop times for reprimand
+            reprimand.tStop = globalClock.getTime(format='float')
+            reprimand.tStopRefresh = tThisFlipGlobal
+            trials_2.addData('button.numClicks', button.numClicks)
+            if button.numClicks:
+               trials_2.addData('button.timesOn', button.timesOn)
+               trials_2.addData('button.timesOff', button.timesOff)
+            else:
+               trials_2.addData('button.timesOn', "")
+               trials_2.addData('button.timesOff', "")
+            # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+            if reprimand.maxDurationReached:
+                routineTimer.addTime(-reprimand.maxDuration)
+            elif reprimand.forceEnded:
+                routineTimer.reset()
+            else:
+                routineTimer.addTime(-5.000000)
+            # mark thisTrial_2 as finished
+            if hasattr(thisTrial_2, 'status'):
+                thisTrial_2.status = FINISHED
+            # if awaiting a pause, pause now
+            if trials_2.status == PAUSED:
+                thisExp.status = PAUSED
+                pauseExperiment(
+                    thisExp=thisExp, 
+                    win=win, 
+                    timers=[globalClock], 
+                )
+                # once done pausing, restore running status
+                trials_2.status = STARTED
+            thisExp.nextEntry()
+            
+        # completed 1 repeats of 'trials_2'
+        trials_2.status = FINISHED
+        
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         # mark thisTrial as finished
         if hasattr(thisTrial, 'status'):
             thisTrial.status = FINISHED
@@ -1968,274 +2260,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trials.status = STARTED
         thisExp.nextEntry()
         
-    # completed 4.0 repeats of 'trials'
+    # completed 1 repeats of 'trials'
     trials.status = FINISHED
     
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now
         thisSession.sendExperimentData()
-    
-    # --- Prepare to start Routine "reprimand" ---
-    # create an object to store info about Routine reprimand
-    reprimand = data.Routine(
-        name='reprimand',
-        components=[image_2, button, text_2, number_of_correct_text_2, number_of_incorrect_text_2],
-    )
-    reprimand.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    # Run 'Begin Routine' code from code_reprimand
-    print('In begin routine of reprimand section')
-    #if response == None:
-    #    if (ended_routine_at - min_time_for_incorrect) >= (started_routine_at):
-    #        counted_skipped_incorrect = True
-    #        incorrect += 1
-    #        
-    image_2.setImage(trials.thisTrial[language]
-    )
-    button.setText(digit)
-    # reset button to account for continued clicks & clear times on/off
-    button.reset()
-    number_of_correct_text_2.setText(f"Number correct: {correct}")
-    number_of_incorrect_text_2.setText(f"Number incorrect: {incorrect}")
-    # store start times for reprimand
-    reprimand.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    reprimand.tStart = globalClock.getTime(format='float')
-    reprimand.status = STARTED
-    reprimand.maxDuration = 5
-    # skip Routine reprimand if its 'Skip if' condition is True
-    reprimand.skipped = continueRoutine and not (response == digit or globalClock.getTime()>= total_time)
-    continueRoutine = reprimand.skipped
-    # keep track of which components have finished
-    reprimandComponents = reprimand.components
-    for thisComponent in reprimand.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "reprimand" ---
-    thisExp.currentRoutine = reprimand
-    reprimand.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine and routineTimer.getTime() < 5.0:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        # is it time to end the Routine? (based on local clock)
-        if tThisFlip > reprimand.maxDuration-frameTolerance:
-            reprimand.maxDurationReached = True
-            continueRoutine = False
-        # Run 'Each Frame' code from debug_text_reprimand
-        timer_lines = []
-        timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
-        
-        try:
-            timer_lines.append(f"Routine: {routineTimer.getTime():.2f}s")
-        except:
-            timer_lines.append("Routine: N/A")
-        
-        #try:
-        #    timer_lines.append(f"Inner: {innerClock.getTime():.2f}s")
-        #except:
-        #    timer_lines.append("Inner: N/A")
-        #
-        #try:
-        #    timer_lines.append(f"Trial: {trialClock.getTime():.2f}s")
-        #except:
-        #    timer_lines.append("Trial: N/A")
-        
-        #try:
-        #    timer_lines.append(f"Inner remaining: {inner_loop.nRemaining}")
-        #except:
-        #    timer_lines.append("Inner remaining: N/A")
-        
-        # Add the digit being shown this trial
-        try:
-            timer_lines.append(f"Digit: {digit}")
-        except:
-            timer_lines.append("Digit: N/A")
-        
-        timer_display = "\n".join(timer_lines)
-        # Run 'Each Frame' code from code_reprimand
-        
-        if globalClock.getTime() > total_time:
-            print(f'Global Clock > {total_time} in each frame of reprimand routine')
-            inner_loop.finished = True
-            continueRoutine = False
-        
-        # *image_2* updates
-        
-        # if image_2 is starting this frame...
-        if image_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            image_2.frameNStart = frameN  # exact frame index
-            image_2.tStart = t  # local t and not account for scr refresh
-            image_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(image_2, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            image_2.status = STARTED
-            image_2.setAutoDraw(True)
-        
-        # if image_2 is active this frame...
-        if image_2.status == STARTED:
-            # update params
-            pass
-        # *button* updates
-        
-        # if button is starting this frame...
-        if button.status == NOT_STARTED and t >= 0-frameTolerance:
-            # keep track of start time/frame for later
-            button.frameNStart = frameN  # exact frame index
-            button.tStart = t  # local t and not account for scr refresh
-            button.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(button, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            button.status = STARTED
-            win.callOnFlip(button.buttonClock.reset)
-            button.setAutoDraw(True)
-        
-        # if button is active this frame...
-        if button.status == STARTED:
-            # update params
-            pass
-            # check whether button has been pressed
-            if button.isClicked:
-                if not button.wasClicked:
-                    # if this is a new click, store time of first click and clicked until
-                    button.timesOn.append(routineTimer.getTime())
-                    button.timesOff.append(routineTimer.getTime())
-                elif len(button.timesOff):
-                    # if click is continuing from last frame, update time of clicked until
-                    button.timesOff[-1] = routineTimer.getTime()
-                if not button.wasClicked:
-                    # end routine when button is clicked
-                    continueRoutine = False
-                if not button.wasClicked:
-                    # run callback code when button is clicked
-                    pass
-        # take note of whether button was clicked, so that next frame we know if clicks are new
-        button.wasClicked = button.isClicked and button.status == STARTED
-        
-        # *text_2* updates
-        
-        # if text_2 is starting this frame...
-        if text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_2.frameNStart = frameN  # exact frame index
-            text_2.tStart = t  # local t and not account for scr refresh
-            text_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_2, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_2.status = STARTED
-            text_2.setAutoDraw(True)
-        
-        # if text_2 is active this frame...
-        if text_2.status == STARTED:
-            # update params
-            text_2.setText(timer_display
-            , log=False)
-        
-        # *number_of_correct_text_2* updates
-        
-        # if number_of_correct_text_2 is starting this frame...
-        if number_of_correct_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            number_of_correct_text_2.frameNStart = frameN  # exact frame index
-            number_of_correct_text_2.tStart = t  # local t and not account for scr refresh
-            number_of_correct_text_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(number_of_correct_text_2, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            number_of_correct_text_2.status = STARTED
-            number_of_correct_text_2.setAutoDraw(True)
-        
-        # if number_of_correct_text_2 is active this frame...
-        if number_of_correct_text_2.status == STARTED:
-            # update params
-            pass
-        
-        # *number_of_incorrect_text_2* updates
-        
-        # if number_of_incorrect_text_2 is starting this frame...
-        if number_of_incorrect_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            number_of_incorrect_text_2.frameNStart = frameN  # exact frame index
-            number_of_incorrect_text_2.tStart = t  # local t and not account for scr refresh
-            number_of_incorrect_text_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(number_of_incorrect_text_2, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            number_of_incorrect_text_2.status = STARTED
-            number_of_incorrect_text_2.setAutoDraw(True)
-        
-        # if number_of_incorrect_text_2 is active this frame...
-        if number_of_incorrect_text_2.status == STARTED:
-            # update params
-            pass
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer, globalClock], 
-                currentRoutine=reprimand,
-            )
-            # skip the frame we paused on
-            continue
-        
-        # has a Component requested the Routine to end?
-        if not continueRoutine:
-            reprimand.forceEnded = routineForceEnded = True
-        # has the Routine been forcibly ended?
-        if reprimand.forceEnded or routineForceEnded:
-            break
-        # has every Component finished?
-        continueRoutine = False
-        for thisComponent in reprimand.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "reprimand" ---
-    for thisComponent in reprimand.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for reprimand
-    reprimand.tStop = globalClock.getTime(format='float')
-    reprimand.tStopRefresh = tThisFlipGlobal
-    thisExp.addData('button.numClicks', button.numClicks)
-    if button.numClicks:
-       thisExp.addData('button.timesOn', button.timesOn)
-       thisExp.addData('button.timesOff', button.timesOff)
-    else:
-       thisExp.addData('button.timesOn', "")
-       thisExp.addData('button.timesOff', "")
-    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-    if reprimand.maxDurationReached:
-        routineTimer.addTime(-reprimand.maxDuration)
-    elif reprimand.forceEnded:
-        routineTimer.reset()
-    else:
-        routineTimer.addTime(-5.000000)
-    thisExp.nextEntry()
     
     # --- Prepare to start Routine "end_of_experiment" ---
     # create an object to store info about Routine end_of_experiment
