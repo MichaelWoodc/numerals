@@ -1,0 +1,5 @@
+digit,arabic_path,hindi_path,mandarin_path,correct_answer,total_time,routine_time,min_time_for_incorrect
+7,digits_output/Arabic/7_Arabic_black.png,digits_output/Hindi/7_Hindi_black.png,digits_output/Mandarin/7_Mandarin_black.png,7,20,5,2
+6,digits_output/Arabic/6_Arabic_black.png,digits_output/Hindi/6_Hindi_black.png,digits_output/Mandarin/6_Mandarin_black.png,6,20,5,2
+4,digits_output/Arabic/4_Arabic_black.png,digits_output/Hindi/4_Hindi_black.png,digits_output/Mandarin/4_Mandarin_black.png,4,20,5,2
+1,digits_output/Arabic/1_Arabic_black.png,digits_output/Hindi/1_Hindi_black.png,digits_output/Mandarin/1_Mandarin_black.png,1,20,5,2

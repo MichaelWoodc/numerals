@@ -113,9 +113,9 @@
         <Param val="debug_text_trial" valType="code" updates="None" name="name"/>
       </CodeComponent>
       <CodeComponent name="code" plugin="None">
-        <Param val="import random&amp;#10;total_time= 30" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="import random&amp;#10;#total_time= 90" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="digits = [0,1,2,3,4,5,6,7,8,9]&amp;#10;correct_digits = []&amp;#10;&amp;#10;correct = 0&amp;#10;incorrect = 0&amp;#10;print('In begin experiment section of trial routine')" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="digits = [0,1,2,3,4,5,6,7,8,9]&amp;#10;correct_digits = []&amp;#10;total_time= 90&amp;#10;correct = 0&amp;#10;incorrect = 0&amp;#10;print('In begin experiment section of trial routine')" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="random.shuffle(digits)&amp;#10;response = None&amp;#10;point_subtracted = False&amp;#10;responded = False&amp;#10;started_routine_at = globalClock.getTime()&amp;#10;routineTimer.reset()" valType="extendedCode" updates="constant" name="Begin Routine"/>
