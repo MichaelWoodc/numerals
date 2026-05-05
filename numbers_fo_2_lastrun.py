@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on May 04, 2026, at 14:36
+This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
+    on May 05, 2026, at 15:03
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -41,8 +41,8 @@ deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2026.1.1'
-expName = 'numbers'  # from the Builder filename that created this script
+psychopyVersion = '2026.1.3'
+expName = 'numbers_fo_2'  # from the Builder filename that created this script
 expVersion = ''
 # a list of functions to run when the experiment ends (starts off blank)
 runAtExit = []
@@ -379,6 +379,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "trial" ---
     # Run 'Begin Experiment' code from code
+    import time
+    exp_start_time = time.time()
+    print("Experiment start (system seconds):", exp_start_time)
+    
     digits = [0,1,2,3,4,5,6,7,8,9]
     correct_digits = []
     
@@ -993,21 +997,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_0 is clicked
                             response = digits[0]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
+                            
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1035,7 +1042,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_0 was clicked, so that next frame we know if clicks are new
                 button_0.wasClicked = button_0.isClicked and button_0.status == STARTED
@@ -1073,21 +1079,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_1 is clicked
                             response = digits[1]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
+                            
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1115,7 +1124,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_1 was clicked, so that next frame we know if clicks are new
                 button_1.wasClicked = button_1.isClicked and button_1.status == STARTED
@@ -1153,21 +1161,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_2 is clicked
                             response = digits[2]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
+                            
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1195,7 +1206,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_2 was clicked, so that next frame we know if clicks are new
                 button_2.wasClicked = button_2.isClicked and button_2.status == STARTED
@@ -1233,21 +1243,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_3 is clicked
                             response = digits[3]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
+                            
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1275,7 +1288,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_3 was clicked, so that next frame we know if clicks are new
                 button_3.wasClicked = button_3.isClicked and button_3.status == STARTED
@@ -1313,21 +1325,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_4 is clicked
                             response = digits[4]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1355,7 +1369,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_4 was clicked, so that next frame we know if clicks are new
                 button_4.wasClicked = button_4.isClicked and button_4.status == STARTED
@@ -1393,21 +1406,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_5 is clicked
                             response = digits[5]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1435,7 +1450,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_5 was clicked, so that next frame we know if clicks are new
                 button_5.wasClicked = button_5.isClicked and button_5.status == STARTED
@@ -1473,21 +1487,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_6 is clicked
                             response = digits[6]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1515,7 +1531,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_6 was clicked, so that next frame we know if clicks are new
                 button_6.wasClicked = button_6.isClicked and button_6.status == STARTED
@@ -1553,21 +1568,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_7 is clicked
                             response = digits[7]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1595,7 +1612,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_7 was clicked, so that next frame we know if clicks are new
                 button_7.wasClicked = button_7.isClicked and button_7.status == STARTED
@@ -1633,21 +1649,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_8 is clicked
                             response = digits[8]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1675,7 +1693,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_8 was clicked, so that next frame we know if clicks are new
                 button_8.wasClicked = button_8.isClicked and button_8.status == STARTED
@@ -1713,21 +1730,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_9 is clicked
                             response = digits[9]
                             print(response)
-                            
+                            thisExp.addData('Response',response)
                             if response == digit:
+                                thisExp.addData('This response','Correct')
                                 correct += 1
                                 print('incremented correct')
                                 print(correct)
                             
                             else:
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
                                 incorrect += 1
                                 print('incremented incorrect')
                                 print(incorrect)
                             
                                 # --- Build participant filename ---
                                 participant_id = expInfo['participant']
-                                outfile = f"{participant_id}.csv"
-                            
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
                                 # --- Explicit header order ---
                                 headers = [
                                     "digit",
@@ -1755,7 +1774,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             
                                     if write_header:
                                         writer.writeheader()
-                            
                                     writer.writerow(row)
                 # take note of whether button_9 was clicked, so that next frame we know if clicks are new
                 button_9.wasClicked = button_9.isClicked and button_9.status == STARTED
@@ -1953,6 +1971,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win.color = 'black'
         win.flip()
         
+        # Run 'Begin Routine' code from log_time_3
+        elapsed = time.time() - exp_start_time
+        print("Elapsed:", round(elapsed, 2))
+        thisExp.addData('Current time', round(elapsed, 2))
+        #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+        #
         # store start times for blank_screen
         blank_screen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         blank_screen.tStart = globalClock.getTime(format='float')
@@ -2120,6 +2144,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     gotValidClick = False  # until a click is received
     number_of_correct_text_5.setText(f"Number correct: {correct}")
     number_of_incorrect_text_5.setText(f"Number incorrect: {incorrect}")
+    # Run 'Begin Routine' code from log_time
+    elapsed = time.time() - exp_start_time
+    print("Elapsed:", round(elapsed, 2))
+    thisExp.addData('Trials 1 end time', round(elapsed, 2))
+    #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+    #
     # store start times for error_correction_notification
     error_correction_notification.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     error_correction_notification.tStart = globalClock.getTime(format='float')
@@ -2287,6 +2317,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisExp.addData('mouse_3.midButton', mouse_3.midButton)
     thisExp.addData('mouse_3.rightButton', mouse_3.rightButton)
     thisExp.addData('mouse_3.time', mouse_3.time)
+    # Run 'End Routine' code from log_time
+    elapsed = time.time() - exp_start_time
+    print("Elapsed:", round(elapsed, 2))
+    thisExp.addData('Trials 2 start time', round(elapsed, 2))
+    #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+    #
     thisExp.nextEntry()
     # the Routine "error_correction_notification" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2298,7 +2334,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
-        trialList=data.importConditions(f"{participant_id}.csv"), 
+        trialList=data.importConditions(f"{os.path.join('participant_conditions', os.path.basename(filename))}.csv"), 
         seed=None, 
         isTrials=True, 
     )
@@ -2353,9 +2389,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         error_correction.status = STARTED
         thisExp.addData('error_correction.started', error_correction.tStart)
         error_correction.maxDuration = None
-        # skip Routine error_correction if its 'Skip if' condition is True
-        error_correction.skipped = continueRoutine and not (response == digit or globalClock.getTime()>= total_time)
-        continueRoutine = error_correction.skipped
         # keep track of which components have finished
         error_correctionComponents = error_correction.components
         for thisComponent in error_correction.components:
@@ -2590,6 +2623,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     gotValidClick = False  # until a click is received
     number_of_correct_text_4.setText(f"Number correct: {correct}")
     number_of_incorrect_text_4.setText(f"Number incorrect: {incorrect}")
+    # Run 'Begin Routine' code from log_time_2
+    elapsed = time.time() - exp_start_time
+    print("Elapsed:", round(elapsed, 2))
+    thisExp.addData('Experiment End Time', round(elapsed, 2))
+    #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+    #
     # store start times for blank_for_next
     blank_for_next.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     blank_for_next.tStart = globalClock.getTime(format='float')
@@ -2643,7 +2682,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *mouse_2* updates
         
         # if mouse_2 is starting this frame...
-        if mouse_2.status == NOT_STARTED and t >= 30-frameTolerance:
+        if mouse_2.status == NOT_STARTED and t >= 10-frameTolerance:
             # keep track of start time/frame for later
             mouse_2.frameNStart = frameN  # exact frame index
             mouse_2.tStart = t  # local t and not account for scr refresh

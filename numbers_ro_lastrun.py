@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on April 28, 2026, at 17:41
+    on May 05, 2026, at 16:20
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -63,7 +63,7 @@ expVersion = ''
 runAtExit = []
 # information about this experiment
 expInfo = {
-    'participant': '*',
+    'participant': 'len(participant) > 0',
     'Language': ["arabic_path","hindi_path","mandarin_path"],
     'N_Trials': '001',
     'date|hid': data.getDateStr(),
@@ -391,6 +391,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Start Code - component code to be run after the window creation
     
     # --- Initialize components for Routine "trial" ---
+    mouse = event.Mouse(win=win)
+    x, y = [None, None]
+    mouse.mouseClock = core.Clock()
     # Run 'Begin Experiment' code from code_with_trials_end
     digits = [0,1,2,3,4,5,6,7,8,9]
     correct_digits = []
@@ -426,10 +429,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0.2), draggable=False, size=(0.3, 0.3),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-2.0)
-    mouse = event.Mouse(win=win)
-    x, y = [None, None]
-    mouse.mouseClock = core.Clock()
+        texRes=128.0, interpolate=True, depth=-3.0)
     button_0 = visual.ButtonStim(win, 
         text='', font='Arvo',
         pos=(-.5, -.1),
@@ -767,7 +767,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         originPath=-1, 
         trialList=data.importConditions('digit_paths_black.csv'), 
         seed=None, 
-        isTrials=True, 
+        isTrials=False, 
     )
     thisExp.addLoop(trials)  # add the loop to the experiment
     thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -775,9 +775,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if thisTrial != None:
         for paramName in thisTrial:
             globals()[paramName] = thisTrial[paramName]
-    if thisSession is not None:
-        # if running in a Session with a Liaison client, send data up to now
-        thisSession.sendExperimentData()
     
     for thisTrial in trials:
         trials.status = STARTED
@@ -785,9 +782,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisTrial.status = STARTED
         currentLoop = trials
         thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
-        if thisSession is not None:
-            # if running in a Session with a Liaison client, send data up to now
-            thisSession.sendExperimentData()
         # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
         if thisTrial != None:
             for paramName in thisTrial:
@@ -796,13 +790,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # set up handler to look after randomisation of conditions etc
         inner_loop = data.TrialHandler2(
             name='inner_loop',
-            nReps=15.0, 
+            nReps=40.0, 
             method='sequential', 
             extraInfo=expInfo, 
             originPath=-1, 
             trialList=[None], 
             seed=None, 
-            isTrials=False, 
+            isTrials=True, 
         )
         thisExp.addLoop(inner_loop)  # add the loop to the experiment
         thisInner_loop = inner_loop.trialList[0]  # so we can initialise stimuli with some values
@@ -810,6 +804,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisInner_loop != None:
             for paramName in thisInner_loop:
                 globals()[paramName] = thisInner_loop[paramName]
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
         for thisInner_loop in inner_loop:
             inner_loop.status = STARTED
@@ -817,6 +814,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisInner_loop.status = STARTED
             currentLoop = inner_loop
             thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+            if thisSession is not None:
+                # if running in a Session with a Liaison client, send data up to now
+                thisSession.sendExperimentData()
             # abbreviate parameter names if possible (e.g. rgb = thisInner_loop.rgb)
             if thisInner_loop != None:
                 for paramName in thisInner_loop:
@@ -826,11 +826,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine trial
             trial = data.Routine(
                 name='trial',
-                components=[image, mouse, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, text, number_of_correct_text, number_of_incorrect_text],
+                components=[mouse, image, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, text, number_of_correct_text, number_of_incorrect_text],
             )
             trial.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
+            # setup some python lists for storing info about the mouse
+            mouse.x = []
+            mouse.y = []
+            mouse.leftButton = []
+            mouse.midButton = []
+            mouse.rightButton = []
+            mouse.time = []
+            gotValidClick = False  # until a click is received
             # Run 'Begin Routine' code from code_with_trials_end
             random.shuffle(digits)
             response = None
@@ -842,14 +850,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             image.setImage(trials.thisTrial[language]
             )
-            # setup some python lists for storing info about the mouse
-            mouse.x = []
-            mouse.y = []
-            mouse.leftButton = []
-            mouse.midButton = []
-            mouse.rightButton = []
-            mouse.time = []
-            gotValidClick = False  # until a click is received
             button_0.setText(digits[0])
             # reset button_0 to account for continued clicks & clear times on/off
             button_0.reset()
@@ -915,6 +915,33 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                # *mouse* updates
+                
+                # if mouse is starting this frame...
+                if mouse.status == NOT_STARTED and t >= 0-frameTolerance:
+                    # keep track of start time/frame for later
+                    mouse.frameNStart = frameN  # exact frame index
+                    mouse.tStart = t  # local t and not account for scr refresh
+                    mouse.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(mouse, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    mouse.status = STARTED
+                    mouse.mouseClock.reset()
+                    prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
+                if mouse.status == STARTED:  # only update if started and not finished!
+                    buttons = mouse.getPressed()
+                    if buttons != prevButtonState:  # button state changed?
+                        prevButtonState = buttons
+                        if sum(buttons) > 0:  # state changed to a new click
+                            pass
+                            x, y = mouse.getPos()
+                            mouse.x.append(float(x))
+                            mouse.y.append(float(y))
+                            buttons = mouse.getPressed()
+                            mouse.leftButton.append(buttons[0])
+                            mouse.midButton.append(buttons[1])
+                            mouse.rightButton.append(buttons[2])
+                            mouse.time.append(mouse.mouseClock.getTime())
                 # Run 'Each Frame' code from debug_text_trial
                 timer_lines = []
                 timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
@@ -991,33 +1018,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if image.status == STARTED:
                     # update params
                     pass
-                # *mouse* updates
-                
-                # if mouse is starting this frame...
-                if mouse.status == NOT_STARTED and t >= 0-frameTolerance:
-                    # keep track of start time/frame for later
-                    mouse.frameNStart = frameN  # exact frame index
-                    mouse.tStart = t  # local t and not account for scr refresh
-                    mouse.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(mouse, 'tStartRefresh')  # time at next scr refresh
-                    # update status
-                    mouse.status = STARTED
-                    mouse.mouseClock.reset()
-                    prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
-                if mouse.status == STARTED:  # only update if started and not finished!
-                    buttons = mouse.getPressed()
-                    if buttons != prevButtonState:  # button state changed?
-                        prevButtonState = buttons
-                        if sum(buttons) > 0:  # state changed to a new click
-                            pass
-                            x, y = mouse.getPos()
-                            mouse.x.append(float(x))
-                            mouse.y.append(float(y))
-                            buttons = mouse.getPressed()
-                            mouse.leftButton.append(buttons[0])
-                            mouse.midButton.append(buttons[1])
-                            mouse.rightButton.append(buttons[2])
-                            mouse.time.append(mouse.mouseClock.getTime())
                 # *button_0* updates
                 
                 # if button_0 is starting this frame...
@@ -1578,6 +1578,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial.tStop = globalClock.getTime(format='float')
             trial.tStopRefresh = tThisFlipGlobal
             thisExp.addData('trial.stopped', trial.tStop)
+            # store data for inner_loop (TrialHandler)
+            inner_loop.addData('mouse.x', mouse.x)
+            inner_loop.addData('mouse.y', mouse.y)
+            inner_loop.addData('mouse.leftButton', mouse.leftButton)
+            inner_loop.addData('mouse.midButton', mouse.midButton)
+            inner_loop.addData('mouse.rightButton', mouse.rightButton)
+            inner_loop.addData('mouse.time', mouse.time)
             # Run 'End Routine' code from code_with_trials_end
             ended_routine_at = globalClock.getTime()
             
@@ -1595,13 +1602,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if (correct + incorrect)  >= number_trials:
                 inner_loop.finished = True
                 trials.finished = True
-            # store data for inner_loop (TrialHandler)
-            inner_loop.addData('mouse.x', mouse.x)
-            inner_loop.addData('mouse.y', mouse.y)
-            inner_loop.addData('mouse.leftButton', mouse.leftButton)
-            inner_loop.addData('mouse.midButton', mouse.midButton)
-            inner_loop.addData('mouse.rightButton', mouse.rightButton)
-            inner_loop.addData('mouse.time', mouse.time)
             inner_loop.addData('button_0.numClicks', button_0.numClicks)
             if button_0.numClicks:
                inner_loop.addData('button_0.timesOn', button_0.timesOn)
@@ -1672,7 +1672,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             else:
                inner_loop.addData('button_9.timesOn', "")
                inner_loop.addData('button_9.timesOff', "")
-            # Run 'End Routine' code from code_2
+            # Run 'End Routine' code from add_data_to_log
             thisExp.addData("Number_correct", correct)
             thisExp.addData("Number_incorrect", incorrect)
             
@@ -1711,7 +1711,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             error_correction.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             error_correction.tStart = globalClock.getTime(format='float')
             error_correction.status = STARTED
-            error_correction.maxDuration = 0.5
+            error_correction.maxDuration = 5
             # skip Routine error_correction if its 'Skip if' condition is True
             error_correction.skipped = continueRoutine and not (response == digit or globalClock.getTime()>= total_time)
             continueRoutine = error_correction.skipped
@@ -1732,7 +1732,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # --- Run Routine "error_correction" ---
             thisExp.currentRoutine = error_correction
             error_correction.forceEnded = routineForceEnded = not continueRoutine
-            while continueRoutine and routineTimer.getTime() < 0.5:
+            while continueRoutine and routineTimer.getTime() < 5.0:
                 # if trial has changed, end Routine now
                 if hasattr(thisInner_loop, 'status') and thisInner_loop.status == STOPPING:
                     continueRoutine = False
@@ -1746,7 +1746,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if tThisFlip > error_correction.maxDuration-frameTolerance:
                     error_correction.maxDurationReached = True
                     continueRoutine = False
-                # Run 'Each Frame' code from debug_text_reprimand
+                # Run 'Each Frame' code from debug_text_error_correction
                 timer_lines = []
                 timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
                 
@@ -1946,7 +1946,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             elif error_correction.forceEnded:
                 routineTimer.reset()
             else:
-                routineTimer.addTime(-0.500000)
+                routineTimer.addTime(-5.000000)
             
             # --- Prepare to start Routine "roo" ---
             # create an object to store info about Routine roo
@@ -1964,7 +1964,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             roo.tStart = globalClock.getTime(format='float')
             roo.status = STARTED
             thisExp.addData('roo.started', roo.tStart)
-            roo.maxDuration = 0.5
+            roo.maxDuration = 5
             # skip Routine roo if its 'Skip if' condition is True
             roo.skipped = continueRoutine and not (globalClock.getTime()>= total_time)
             continueRoutine = roo.skipped
@@ -1985,7 +1985,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # --- Run Routine "roo" ---
             thisExp.currentRoutine = roo
             roo.forceEnded = routineForceEnded = not continueRoutine
-            while continueRoutine and routineTimer.getTime() < 0.5:
+            while continueRoutine and routineTimer.getTime() < 5.0:
                 # if trial has changed, end Routine now
                 if hasattr(thisInner_loop, 'status') and thisInner_loop.status == STOPPING:
                     continueRoutine = False
@@ -2150,7 +2150,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             elif roo.forceEnded:
                 routineTimer.reset()
             else:
-                routineTimer.addTime(-0.500000)
+                routineTimer.addTime(-5.000000)
             # mark thisInner_loop as finished
             if hasattr(thisInner_loop, 'status'):
                 thisInner_loop.status = FINISHED
@@ -2164,9 +2164,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 )
                 # once done pausing, restore running status
                 inner_loop.status = STARTED
-        # completed 15.0 repeats of 'inner_loop'
+            thisExp.nextEntry()
+            
+        # completed 40.0 repeats of 'inner_loop'
         inner_loop.status = FINISHED
         
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
         # --- Prepare to start Routine "blank_screen" ---
         # create an object to store info about Routine blank_screen
@@ -2324,14 +2329,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             )
             # once done pausing, restore running status
             trials.status = STARTED
-        thisExp.nextEntry()
-        
     # completed 100.0 repeats of 'trials'
     trials.status = FINISHED
     
-    if thisSession is not None:
-        # if running in a Session with a Liaison client, send data up to now
-        thisSession.sendExperimentData()
     
     # --- Prepare to start Routine "end_of_experiment" ---
     # create an object to store info about Routine end_of_experiment

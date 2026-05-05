@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on May 04, 2026, at 14:33
+    on May 05, 2026, at 11:47
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -57,7 +57,7 @@ deviceManager = hardware.DeviceManager()
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
 psychopyVersion = '2026.1.1'
-expName = 'numbers'  # from the Builder filename that created this script
+expName = 'numbers_ro_2'  # from the Builder filename that created this script
 expVersion = ''
 # a list of functions to run when the experiment ends (starts off blank)
 runAtExit = []
@@ -65,7 +65,7 @@ runAtExit = []
 expInfo = {
     'participant': f"{randint(0, 999999):06.0f}",
     'Language': ["arabic_path","hindi_path","mandarin_path"],
-    'N_Trials': '001',
+    'N_Trials*': '',
     'date|hid': data.getDateStr(),
     'expName|hid': expName,
     'expVersion|hid': expVersion,
@@ -425,7 +425,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0.2), draggable=False, size=(0.3, 0.3),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-1.0)
+        texRes=128.0, interpolate=True, depth=-2.0)
     mouse = event.Mouse(win=win)
     x, y = [None, None]
     mouse.mouseClock = core.Clock()
@@ -443,7 +443,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_0',
-        depth=-3
+        depth=-4
     )
     button_0.buttonClock = core.Clock()
     button_1 = visual.ButtonStim(win, 
@@ -460,7 +460,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_1',
-        depth=-4
+        depth=-5
     )
     button_1.buttonClock = core.Clock()
     button_2 = visual.ButtonStim(win, 
@@ -477,7 +477,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_2',
-        depth=-5
+        depth=-6
     )
     button_2.buttonClock = core.Clock()
     button_3 = visual.ButtonStim(win, 
@@ -494,7 +494,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_3',
-        depth=-6
+        depth=-7
     )
     button_3.buttonClock = core.Clock()
     button_4 = visual.ButtonStim(win, 
@@ -511,7 +511,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_4',
-        depth=-7
+        depth=-8
     )
     button_4.buttonClock = core.Clock()
     button_5 = visual.ButtonStim(win, 
@@ -528,7 +528,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_5',
-        depth=-8
+        depth=-9
     )
     button_5.buttonClock = core.Clock()
     button_6 = visual.ButtonStim(win, 
@@ -545,7 +545,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_6',
-        depth=-9
+        depth=-10
     )
     button_6.buttonClock = core.Clock()
     button_7 = visual.ButtonStim(win, 
@@ -562,7 +562,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_7',
-        depth=-10
+        depth=-11
     )
     button_7.buttonClock = core.Clock()
     button_8 = visual.ButtonStim(win, 
@@ -579,7 +579,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_8',
-        depth=-11
+        depth=-12
     )
     button_8.buttonClock = core.Clock()
     button_9 = visual.ButtonStim(win, 
@@ -596,9 +596,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_9',
-        depth=-12
+        depth=-13
     )
     button_9.buttonClock = core.Clock()
+    text = visual.TextStim(win=win, name='text',
+        text='',
+        font='Arial',
+        pos=(0.2, 0.2), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-14.0);
     
     # --- Initialize components for Routine "roo" ---
     text_5 = visual.TextStim(win=win, name='text_5',
@@ -802,7 +809,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine trial
             trial = data.Routine(
                 name='trial',
-                components=[image, mouse, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9],
+                components=[image, mouse, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, text],
             )
             trial.status = NOT_STARTED
             continueRoutine = True
@@ -887,6 +894,37 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                # Run 'Each Frame' code from debug_text_trial
+                timer_lines = []
+                timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+                
+                try:
+                    timer_lines.append(f"Routine: {routineTimer.getTime():.2f}s")
+                except:
+                    timer_lines.append("Routine: N/A")
+                
+                #try:
+                #    timer_lines.append(f"Inner: {innerClock.getTime():.2f}s")
+                #except:
+                #    timer_lines.append("Inner: N/A")
+                #
+                #try:
+                #    timer_lines.append(f"Trial: {trialClock.getTime():.2f}s")
+                #except:
+                #    timer_lines.append("Trial: N/A")
+                
+                #try:
+                #    timer_lines.append(f"Inner remaining: {inner_loop.nRemaining}")
+                #except:
+                #    timer_lines.append("Inner remaining: N/A")
+                
+                # Add the digit being shown this trial
+                try:
+                    timer_lines.append(f"Digit: {digit}")
+                except:
+                    timer_lines.append("Digit: N/A")
+                
+                timer_display = "\n".join(timer_lines)
                 # Run 'Each Frame' code from code_with_trials_end
                 # -----------------------------
                 # SCORING + ROUTINE END LOGIC
@@ -1403,6 +1441,25 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 # take note of whether button_9 was clicked, so that next frame we know if clicks are new
                 button_9.wasClicked = button_9.isClicked and button_9.status == STARTED
                 
+                # *text* updates
+                
+                # if text is starting this frame...
+                if text.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    text.frameNStart = frameN  # exact frame index
+                    text.tStart = t  # local t and not account for scr refresh
+                    text.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    text.status = STARTED
+                    text.setAutoDraw(True)
+                
+                # if text is active this frame...
+                if text.status == STARTED:
+                    # update params
+                    text.setText(timer_display
+                    , log=False)
+                
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
                     thisExp.status = FINISHED
@@ -1914,6 +1971,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     gotValidClick = False  # until a click is received
     number_of_correct_text_5.setText(f"Number correct: {correct}")
     number_of_incorrect_text_5.setText(f"Number incorrect: {incorrect}")
+    # Run 'Begin Routine' code from code
+    logging.info(f"Current time {globalClock.getTime():.2f}s")
+    
+    thisExp.addData('Current Time', globalClock.getTime())
     # store start times for error_correction_notification
     error_correction_notification.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     error_correction_notification.tStart = globalClock.getTime(format='float')
@@ -2386,6 +2447,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     gotValidClick = False  # until a click is received
     number_of_correct_text_4.setText(f"Number correct: {correct}")
     number_of_incorrect_text_4.setText(f"Number incorrect: {incorrect}")
+    # Run 'Begin Routine' code from code_4
+    logging.info(f"Current time {globalClock.getTime():.2f}s")
+    
+    thisExp.addData('Current Time', globalClock.getTime())
     # store start times for end_of_experiment
     end_of_experiment.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     end_of_experiment.tStart = globalClock.getTime(format='float')
