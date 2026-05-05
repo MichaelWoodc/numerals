@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on April 28, 2026, at 20:02
+This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
+    on May 04, 2026, at 14:36
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -41,7 +41,7 @@ deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2026.1.3'
+psychopyVersion = '2026.1.1'
 expName = 'numbers'  # from the Builder filename that created this script
 expVersion = ''
 # a list of functions to run when the experiment ends (starts off blank)
@@ -595,6 +595,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     mouse_3 = event.Mouse(win=win)
     x, y = [None, None]
     mouse_3.mouseClock = core.Clock()
+    number_of_correct_text_5 = visual.TextStim(win=win, name='number_of_correct_text_5',
+        text='',
+        font='Arial',
+        pos=(0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-2.0);
+    number_of_incorrect_text_5 = visual.TextStim(win=win, name='number_of_incorrect_text_5',
+        text='',
+        font='Arial',
+        pos=(-0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-3.0);
     
     # --- Initialize components for Routine "error_correction" ---
     # Run 'Begin Experiment' code from code_reprimand
@@ -1894,7 +1908,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             else:
                inner_loop.addData('button_9.timesOn', "")
                inner_loop.addData('button_9.timesOff', "")
-            # Run 'End Routine' code from code_2
+            # Run 'End Routine' code from add_data_num_correct_num_incorrect
             thisExp.addData("Number_correct", correct)
             thisExp.addData("Number_incorrect", incorrect)
             
@@ -2091,7 +2105,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine error_correction_notification
     error_correction_notification = data.Routine(
         name='error_correction_notification',
-        components=[text_6, mouse_3],
+        components=[text_6, mouse_3, number_of_correct_text_5, number_of_incorrect_text_5],
     )
     error_correction_notification.status = NOT_STARTED
     continueRoutine = True
@@ -2104,6 +2118,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     mouse_3.rightButton = []
     mouse_3.time = []
     gotValidClick = False  # until a click is received
+    number_of_correct_text_5.setText(f"Number correct: {correct}")
+    number_of_incorrect_text_5.setText(f"Number incorrect: {incorrect}")
     # store start times for error_correction_notification
     error_correction_notification.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     error_correction_notification.tStart = globalClock.getTime(format='float')
@@ -2185,6 +2201,42 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     mouse_3.time.append(mouse_3.mouseClock.getTime())
                     
                     continueRoutine = False  # end routine on response
+        
+        # *number_of_correct_text_5* updates
+        
+        # if number_of_correct_text_5 is starting this frame...
+        if number_of_correct_text_5.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            number_of_correct_text_5.frameNStart = frameN  # exact frame index
+            number_of_correct_text_5.tStart = t  # local t and not account for scr refresh
+            number_of_correct_text_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(number_of_correct_text_5, 'tStartRefresh')  # time at next scr refresh
+            # update status
+            number_of_correct_text_5.status = STARTED
+            number_of_correct_text_5.setAutoDraw(True)
+        
+        # if number_of_correct_text_5 is active this frame...
+        if number_of_correct_text_5.status == STARTED:
+            # update params
+            pass
+        
+        # *number_of_incorrect_text_5* updates
+        
+        # if number_of_incorrect_text_5 is starting this frame...
+        if number_of_incorrect_text_5.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            number_of_incorrect_text_5.frameNStart = frameN  # exact frame index
+            number_of_incorrect_text_5.tStart = t  # local t and not account for scr refresh
+            number_of_incorrect_text_5.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(number_of_incorrect_text_5, 'tStartRefresh')  # time at next scr refresh
+            # update status
+            number_of_incorrect_text_5.status = STARTED
+            number_of_incorrect_text_5.setAutoDraw(True)
+        
+        # if number_of_incorrect_text_5 is active this frame...
+        if number_of_incorrect_text_5.status == STARTED:
+            # update params
+            pass
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
