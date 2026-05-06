@@ -1,0 +1,37 @@
+import time
+
+exp_start_time = time.time()
+elapsed = time.time() - exp_start_time
+
+if elapsed > total_exp_time:
+    inner_loop.finished = True      # end the inner loop
+    trials.finished = True
+    continueRoutine = False         # end THIS routine immediately
+	
+	
+
+
+started_routine_at = globalClock.getTime()
+routineTimer.reset()
+
+globalClock.reset()
+
+total_exp_time= 30
+
+total_exp_time= 30
+exp_start_time = time.time()
+elapsed = time.time() - exp_start_time
+
+# -----------------------------
+# SCORING + ROUTINE END LOGIC
+# -----------------------------
+
+if globalClock.getTime() > total_time:
+    print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
+    inner_loop.finished = True      # end the inner loop
+    continueRoutine = False         # end THIS routine immediately
+elapsed = time.time() - exp_start_time
+if elapsed > total_exp_time:
+    inner_loop.finished = True      # end the inner loop
+    trials.finished = True
+    continueRoutine = False         # end THIS routine immediately

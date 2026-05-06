@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on May 05, 2026, at 15:03
+    on May 06, 2026, at 19:28
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -43,7 +43,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
 psychopyVersion = '2026.1.3'
 expName = 'numbers_fo_2'  # from the Builder filename that created this script
-expVersion = ''
+expVersion = 'v1.0.0'
 # a list of functions to run when the experiment ends (starts off blank)
 runAtExit = []
 # information about this experiment
@@ -578,6 +578,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-14.0);
+    # Run 'Begin Experiment' code from add_data_num_correct_time
+    import time
+    exp_start_time = time.time()
     
     # --- Initialize components for Routine "blank_screen" ---
     text_3 = visual.TextStim(win=win, name='text_3',
@@ -655,6 +658,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-4.0);
+    number_of_correct_text_2 = visual.TextStim(win=win, name='number_of_correct_text_2',
+        text='',
+        font='Arial',
+        pos=(0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-5.0);
+    number_of_incorrect_text_2 = visual.TextStim(win=win, name='number_of_incorrect_text_2',
+        text='',
+        font='Arial',
+        pos=(-0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-6.0);
     
     # --- Initialize components for Routine "blank_for_next" ---
     text_5 = visual.TextStim(win=win, name='text_5',
@@ -715,7 +732,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # set up handler to look after randomisation of conditions etc
     trials = data.TrialHandler2(
         name='trials',
-        nReps=1.0, 
+        nReps=50.0, 
         method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
@@ -756,7 +773,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             originPath=-1, 
             trialList=[None], 
             seed=None, 
-            isTrials=False, 
+            isTrials=True, 
         )
         thisExp.addLoop(inner_loop)  # add the loop to the experiment
         thisInner_loop = inner_loop.trialList[0]  # so we can initialise stimuli with some values
@@ -764,6 +781,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisInner_loop != None:
             for paramName in thisInner_loop:
                 globals()[paramName] = thisInner_loop[paramName]
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
         for thisInner_loop in inner_loop:
             inner_loop.status = STARTED
@@ -771,6 +791,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisInner_loop.status = STARTED
             currentLoop = inner_loop
             thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+            if thisSession is not None:
+                # if running in a Session with a Liaison client, send data up to now
+                thisSession.sendExperimentData()
             # abbreviate parameter names if possible (e.g. rgb = thisInner_loop.rgb)
             if thisInner_loop != None:
                 for paramName in thisInner_loop:
@@ -834,6 +857,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             button_9.setText(digits[9])
             # reset button_9 to account for continued clicks & clear times on/off
             button_9.reset()
+            # Run 'Begin Routine' code from add_data_num_correct_time
+            elapsed = time.time() - exp_start_time
+            thisExp.addData('this trial start time', round(elapsed, 2))
+            print("Elapsed:", round(elapsed, 2))
             # store start times for trial
             trial.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             trial.tStart = globalClock.getTime(format='float')
@@ -1926,10 +1953,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             else:
                inner_loop.addData('button_9.timesOn', "")
                inner_loop.addData('button_9.timesOff', "")
-            # Run 'End Routine' code from add_data_num_correct_num_incorrect
+            # Run 'End Routine' code from add_data_num_correct_time
             thisExp.addData("Number_correct", correct)
             thisExp.addData("Number_incorrect", incorrect)
             
+            elapsed = time.time() - exp_start_time
+            print("Elapsed:", round(elapsed, 2))
+            thisExp.addData('this trial end time', round(elapsed, 2))
+            #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+            #
             # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
             if trial.maxDurationReached:
                 routineTimer.addTime(-trial.maxDuration)
@@ -1950,9 +1982,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 )
                 # once done pausing, restore running status
                 inner_loop.status = STARTED
+            thisExp.nextEntry()
+            
         # completed 1.0 repeats of 'inner_loop'
         inner_loop.status = FINISHED
         
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
         # --- Prepare to start Routine "blank_screen" ---
         # create an object to store info about Routine blank_screen
@@ -2118,7 +2155,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trials.status = STARTED
         thisExp.nextEntry()
         
-    # completed 1.0 repeats of 'trials'
+    # completed 50.0 repeats of 'trials'
     trials.status = FINISHED
     
     if thisSession is not None:
@@ -2184,14 +2221,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *text_6* updates
         
         # if text_6 is starting this frame...
-        if text_6.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if text_6.status == NOT_STARTED and t >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             text_6.frameNStart = frameN  # exact frame index
             text_6.tStart = t  # local t and not account for scr refresh
             text_6.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(text_6, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_6.started')
             # update status
             text_6.status = STARTED
             text_6.setAutoDraw(True)
@@ -2209,8 +2244,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             mouse_3.tStart = t  # local t and not account for scr refresh
             mouse_3.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(mouse_3, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.addData('mouse_3.started', t)
             # update status
             mouse_3.status = STARTED
             mouse_3.mouseClock.reset()
@@ -2328,8 +2361,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    trials_2 = data.TrialHandler2(
-        name='trials_2',
+    error_correction_trials = data.TrialHandler2(
+        name='error_correction_trials',
         nReps=1, 
         method='random', 
         extraInfo=expInfo, 
@@ -2338,35 +2371,35 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         seed=None, 
         isTrials=True, 
     )
-    thisExp.addLoop(trials_2)  # add the loop to the experiment
-    thisTrial_2 = trials_2.trialList[0]  # so we can initialise stimuli with some values
-    # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
-    if thisTrial_2 != None:
-        for paramName in thisTrial_2:
-            globals()[paramName] = thisTrial_2[paramName]
+    thisExp.addLoop(error_correction_trials)  # add the loop to the experiment
+    thisError_correction_trial = error_correction_trials.trialList[0]  # so we can initialise stimuli with some values
+    # abbreviate parameter names if possible (e.g. rgb = thisError_correction_trial.rgb)
+    if thisError_correction_trial != None:
+        for paramName in thisError_correction_trial:
+            globals()[paramName] = thisError_correction_trial[paramName]
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now
         thisSession.sendExperimentData()
     
-    for thisTrial_2 in trials_2:
-        trials_2.status = STARTED
-        if hasattr(thisTrial_2, 'status'):
-            thisTrial_2.status = STARTED
-        currentLoop = trials_2
+    for thisError_correction_trial in error_correction_trials:
+        error_correction_trials.status = STARTED
+        if hasattr(thisError_correction_trial, 'status'):
+            thisError_correction_trial.status = STARTED
+        currentLoop = error_correction_trials
         thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-        # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
-        if thisTrial_2 != None:
-            for paramName in thisTrial_2:
-                globals()[paramName] = thisTrial_2[paramName]
+        # abbreviate parameter names if possible (e.g. rgb = thisError_correction_trial.rgb)
+        if thisError_correction_trial != None:
+            for paramName in thisError_correction_trial:
+                globals()[paramName] = thisError_correction_trial[paramName]
         
         # --- Prepare to start Routine "error_correction" ---
         # create an object to store info about Routine error_correction
         error_correction = data.Routine(
             name='error_correction',
-            components=[image_2, button, text_2],
+            components=[image_2, button, text_2, number_of_correct_text_2, number_of_incorrect_text_2],
         )
         error_correction.status = NOT_STARTED
         continueRoutine = True
@@ -2378,11 +2411,17 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         #        counted_skipped_incorrect = True
         #        incorrect += 1
         #        
-        image_2.setImage(trials_2.thisTrial[expInfo['Language']]
+        image_2.setImage(error_correction_trials.thisTrial[expInfo['Language']]
         )
         button.setText(digit)
         # reset button to account for continued clicks & clear times on/off
         button.reset()
+        number_of_correct_text_2.setText(f"Number correct: {correct}")
+        number_of_incorrect_text_2.setText(f"Number incorrect: {incorrect}")
+        # Run 'Begin Routine' code from add_data_num_correct_time_2
+        elapsed = time.time() - exp_start_time
+        thisExp.addData('this error correction trial start time', round(elapsed, 2))
+        print("Elapsed:", round(elapsed, 2))
         # store start times for error_correction
         error_correction.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         error_correction.tStart = globalClock.getTime(format='float')
@@ -2408,7 +2447,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         error_correction.forceEnded = routineForceEnded = not continueRoutine
         while continueRoutine and routineTimer.getTime() < 5.0:
             # if trial has changed, end Routine now
-            if hasattr(thisTrial_2, 'status') and thisTrial_2.status == STOPPING:
+            if hasattr(thisError_correction_trial, 'status') and thisError_correction_trial.status == STOPPING:
                 continueRoutine = False
             # get current time
             t = routineTimer.getTime()
@@ -2526,6 +2565,42 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_2.setText(timer_display
                 + str('here we will have them do only the ones they got wrong'), log=False)
             
+            # *number_of_correct_text_2* updates
+            
+            # if number_of_correct_text_2 is starting this frame...
+            if number_of_correct_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                number_of_correct_text_2.frameNStart = frameN  # exact frame index
+                number_of_correct_text_2.tStart = t  # local t and not account for scr refresh
+                number_of_correct_text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(number_of_correct_text_2, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                number_of_correct_text_2.status = STARTED
+                number_of_correct_text_2.setAutoDraw(True)
+            
+            # if number_of_correct_text_2 is active this frame...
+            if number_of_correct_text_2.status == STARTED:
+                # update params
+                pass
+            
+            # *number_of_incorrect_text_2* updates
+            
+            # if number_of_incorrect_text_2 is starting this frame...
+            if number_of_incorrect_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                number_of_incorrect_text_2.frameNStart = frameN  # exact frame index
+                number_of_incorrect_text_2.tStart = t  # local t and not account for scr refresh
+                number_of_incorrect_text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(number_of_incorrect_text_2, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                number_of_incorrect_text_2.status = STARTED
+                number_of_incorrect_text_2.setAutoDraw(True)
+            
+            # if number_of_incorrect_text_2 is active this frame...
+            if number_of_incorrect_text_2.status == STARTED:
+                # update params
+                pass
+            
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
                 thisExp.status = FINISHED
@@ -2568,13 +2643,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         error_correction.tStop = globalClock.getTime(format='float')
         error_correction.tStopRefresh = tThisFlipGlobal
         thisExp.addData('error_correction.stopped', error_correction.tStop)
-        trials_2.addData('button.numClicks', button.numClicks)
+        error_correction_trials.addData('button.numClicks', button.numClicks)
         if button.numClicks:
-           trials_2.addData('button.timesOn', button.timesOn)
-           trials_2.addData('button.timesOff', button.timesOff)
+           error_correction_trials.addData('button.timesOn', button.timesOn)
+           error_correction_trials.addData('button.timesOff', button.timesOff)
         else:
-           trials_2.addData('button.timesOn', "")
-           trials_2.addData('button.timesOff', "")
+           error_correction_trials.addData('button.timesOn', "")
+           error_correction_trials.addData('button.timesOff', "")
+        # Run 'End Routine' code from add_data_num_correct_time_2
+        elapsed = time.time() - exp_start_time
+        print("Elapsed:", round(elapsed, 2))
+        thisExp.addData('this error correction trial end time', round(elapsed, 2))
+        #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+        #
         # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
         if error_correction.maxDurationReached:
             routineTimer.addTime(-error_correction.maxDuration)
@@ -2582,11 +2663,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             routineTimer.reset()
         else:
             routineTimer.addTime(-5.000000)
-        # mark thisTrial_2 as finished
-        if hasattr(thisTrial_2, 'status'):
-            thisTrial_2.status = FINISHED
+        # mark thisError_correction_trial as finished
+        if hasattr(thisError_correction_trial, 'status'):
+            thisError_correction_trial.status = FINISHED
         # if awaiting a pause, pause now
-        if trials_2.status == PAUSED:
+        if error_correction_trials.status == PAUSED:
             thisExp.status = PAUSED
             pauseExperiment(
                 thisExp=thisExp, 
@@ -2594,11 +2675,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 timers=[globalClock], 
             )
             # once done pausing, restore running status
-            trials_2.status = STARTED
+            error_correction_trials.status = STARTED
         thisExp.nextEntry()
         
-    # completed 1 repeats of 'trials_2'
-    trials_2.status = FINISHED
+    # completed 1 repeats of 'error_correction_trials'
+    error_correction_trials.status = FINISHED
     
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now
@@ -2682,7 +2763,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *mouse_2* updates
         
         # if mouse_2 is starting this frame...
-        if mouse_2.status == NOT_STARTED and t >= 10-frameTolerance:
+        if mouse_2.status == NOT_STARTED and t >= 4-frameTolerance:
             # keep track of start time/frame for later
             mouse_2.frameNStart = frameN  # exact frame index
             mouse_2.tStart = t  # local t and not account for scr refresh

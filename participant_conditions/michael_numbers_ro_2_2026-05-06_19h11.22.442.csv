@@ -1,0 +1,3 @@
+digit,arabic_path,hindi_path,mandarin_path,correct_answer,total_time,routine_time,min_time_for_incorrect
+4,digits_output/Arabic/4_Arabic_black.png,digits_output/Hindi/4_Hindi_black.png,digits_output/Mandarin/4_Mandarin_black.png,4,20,5,2
+4,digits_output/Arabic/4_Arabic_black.png,digits_output/Hindi/4_Hindi_black.png,digits_output/Mandarin/4_Mandarin_black.png,4,20,5,2

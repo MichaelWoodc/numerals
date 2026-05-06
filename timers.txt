@@ -1,0 +1,14 @@
+thisExp.addData('Response',response)
+if response == digit:
+    thisExp.addData('This response','Correct')
+    correct += 1
+    print('incremented correct')
+    print(correct)
+
+else:
+    os.makedirs("participant_conditions", exist_ok=True)
+    thisExp.addData('This response','Incorrect')
+    incorrect += 1
+
+thisExp.addData("Correct",currect)
+thisExp.addData("Incorrect",incorrect)	

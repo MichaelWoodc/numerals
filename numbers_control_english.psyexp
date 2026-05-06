@@ -154,7 +154,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[0]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[0]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -190,7 +190,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[1]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[1]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -226,7 +226,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[2]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[2]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -262,7 +262,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[3]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[3]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -298,7 +298,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[4]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[4]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -334,7 +334,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[5]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[5]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -370,7 +370,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[6]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[6]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -406,7 +406,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[7]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[7]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -442,7 +442,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[8]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[8]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -478,7 +478,7 @@
         <Param val="True" valType="bool" updates="constant" name="bold"/>
         <Param val="None" valType="color" updates="constant" name="borderColor"/>
         <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="response = digits[9]&amp;#10;print(response)&amp;#10;if response == digit:&amp;#10; correct += 1&amp;#10; print('incremented correct')&amp;#10; print(correct)&amp;#10;&amp;#10;else:&amp;#10; incorrect += 1&amp;#10; print('incremented incorrect')&amp;#10; print(incorrect)  " valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="response = digits[9]&amp;#10;thisExp.addData('Response',response)&amp;#10;if response == digit:&amp;#10;    thisExp.addData('This response','Correct')&amp;#10;    correct += 1&amp;#10;    print('incremented correct')&amp;#10;    print(correct)&amp;#10;&amp;#10;else:&amp;#10;    os.makedirs(&quot;participant_conditions&quot;, exist_ok=True)&amp;#10;    thisExp.addData('This response','Incorrect')&amp;#10;    incorrect += 1" valType="extendedCode" updates="constant" name="callback"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -616,7 +616,7 @@
         <Param val="height" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
       </ProgressComponent>
-      <CodeComponent name="add data correct inforrect count" plugin="None">
+      <CodeComponent name="add_data_correct_inforrect_count" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
@@ -631,7 +631,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="thisExp.addData(&quot;Number_correct&quot;, correct)&amp;#10;thisExp.addData(&quot;Number_incorrect&quot;, incorrect)&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="add data correct inforrect count" valType="code" updates="None" name="name"/>
+        <Param val="add_data_correct_inforrect_count" valType="code" updates="None" name="name"/>
       </CodeComponent>
       <TextComponent name="display_digit" plugin="None">
         <Param val="white" valType="color" updates="constant" name="color"/>
@@ -902,7 +902,7 @@
         <Param val="0.1" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
-      <CodeComponent name="flip background reset timer" plugin="None">
+      <CodeComponent name="flip_background_reset_timer" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
@@ -917,7 +917,7 @@
         <Param val="psychoJS.window.color = old_bg;&amp;#10;psychoJS.window.flip();&amp;#10;console.log(&quot;Got into the reset_clcoks routine&quot;);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="win.color = old_bg&amp;#10;win.flip()&amp;#10;#globalClock.reset()&amp;#10;print('Got into the reset_clcoks routine')&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="flip background reset timer" valType="code" updates="None" name="name"/>
+        <Param val="flip_background_reset_timer" valType="code" updates="None" name="name"/>
       </CodeComponent>
       <TextComponent name="text_3" plugin="None">
         <Param val="white" valType="color" updates="constant" name="color"/>
@@ -1108,7 +1108,6 @@
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
     <Routine name="trial"/>
-    <Routine name="reprimand"/>
     <LoopTerminator name="inner_loop"/>
     <Routine name="blank_screen"/>
     <LoopTerminator name="trials"/>

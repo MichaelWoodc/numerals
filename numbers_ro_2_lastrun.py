@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2026.1.1),
-    on May 05, 2026, at 11:47
+This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
+    on May 06, 2026, at 19:13
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -56,14 +56,14 @@ deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2026.1.1'
+psychopyVersion = '2026.1.3'
 expName = 'numbers_ro_2'  # from the Builder filename that created this script
-expVersion = ''
+expVersion = 'v1.0.0'
 # a list of functions to run when the experiment ends (starts off blank)
 runAtExit = []
 # information about this experiment
 expInfo = {
-    'participant': f"{randint(0, 999999):06.0f}",
+    'participant*': '',
     'Language': ["arabic_path","hindi_path","mandarin_path"],
     'N_Trials*': '',
     'date|hid': data.getDateStr(),
@@ -90,9 +90,6 @@ if PILOTING:
         _fullScr = False
         # set window size
         _winSize = prefs.piloting['forcedWindowSize']
-    # replace default participant ID
-    if prefs.piloting['replaceParticipantID']:
-        expInfo['participant'] = 'pilot'
 
 def showExpInfoDlg(expInfo):
     """
@@ -684,6 +681,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-4.0);
+    number_of_correct_text_2 = visual.TextStim(win=win, name='number_of_correct_text_2',
+        text='',
+        font='Arial',
+        pos=(0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-5.0);
+    number_of_incorrect_text_2 = visual.TextStim(win=win, name='number_of_incorrect_text_2',
+        text='',
+        font='Arial',
+        pos=(-0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-6.0);
     
     # --- Initialize components for Routine "end_of_experiment" ---
     text_6 = visual.TextStim(win=win, name='text_6',
@@ -785,7 +796,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             originPath=-1, 
             trialList=[None], 
             seed=None, 
-            isTrials=False, 
+            isTrials=True, 
         )
         thisExp.addLoop(inner_loop)  # add the loop to the experiment
         thisInner_loop = inner_loop.trialList[0]  # so we can initialise stimuli with some values
@@ -793,6 +804,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisInner_loop != None:
             for paramName in thisInner_loop:
                 globals()[paramName] = thisInner_loop[paramName]
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
         for thisInner_loop in inner_loop:
             inner_loop.status = STARTED
@@ -800,6 +814,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisInner_loop.status = STARTED
             currentLoop = inner_loop
             thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+            if thisSession is not None:
+                # if running in a Session with a Liaison client, send data up to now
+                thisSession.sendExperimentData()
             # abbreviate parameter names if possible (e.g. rgb = thisInner_loop.rgb)
             if thisInner_loop != None:
                 for paramName in thisInner_loop:
@@ -1015,15 +1032,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[0]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_0 was clicked, so that next frame we know if clicks are new
                 button_0.wasClicked = button_0.isClicked and button_0.status == STARTED
                 # *button_1* updates
@@ -1061,15 +1115,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[1]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_1 was clicked, so that next frame we know if clicks are new
                 button_1.wasClicked = button_1.isClicked and button_1.status == STARTED
                 # *button_2* updates
@@ -1107,15 +1198,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[2]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_2 was clicked, so that next frame we know if clicks are new
                 button_2.wasClicked = button_2.isClicked and button_2.status == STARTED
                 # *button_3* updates
@@ -1153,15 +1281,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[3]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_3 was clicked, so that next frame we know if clicks are new
                 button_3.wasClicked = button_3.isClicked and button_3.status == STARTED
                 # *button_4* updates
@@ -1199,15 +1364,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[4]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_4 was clicked, so that next frame we know if clicks are new
                 button_4.wasClicked = button_4.isClicked and button_4.status == STARTED
                 # *button_5* updates
@@ -1245,15 +1447,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[5]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_5 was clicked, so that next frame we know if clicks are new
                 button_5.wasClicked = button_5.isClicked and button_5.status == STARTED
                 # *button_6* updates
@@ -1291,15 +1530,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[6]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_6 was clicked, so that next frame we know if clicks are new
                 button_6.wasClicked = button_6.isClicked and button_6.status == STARTED
                 # *button_7* updates
@@ -1337,15 +1613,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[7]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_7 was clicked, so that next frame we know if clicks are new
                 button_7.wasClicked = button_7.isClicked and button_7.status == STARTED
                 # *button_8* updates
@@ -1383,15 +1696,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[8]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_8 was clicked, so that next frame we know if clicks are new
                 button_8.wasClicked = button_8.isClicked and button_8.status == STARTED
                 # *button_9* updates
@@ -1429,15 +1779,52 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[9]
                             trials_completed+=1
                             print(response)
+                            thisExp.addData('Response',response)
                             if response == digit:
-                             correct += 1
-                             print('incremented correct')
-                             print(correct)
+                                thisExp.addData('This response','Correct')
+                                correct += 1
+                                print('incremented correct')
+                                print(correct)
+                            
                             
                             else:
-                             incorrect += 1
-                             print('incremented incorrect')
-                             print(incorrect)  
+                                os.makedirs("participant_conditions", exist_ok=True)
+                                thisExp.addData('This response','Incorrect')
+                                incorrect += 1
+                                print('incremented incorrect')
+                                print(incorrect)
+                            
+                                # --- Build participant filename ---
+                                participant_id = expInfo['participant']
+                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                # --- Explicit header order ---
+                                headers = [
+                                    "digit",
+                                    "arabic_path",
+                                    "hindi_path",
+                                    "mandarin_path",
+                                    "correct_answer",
+                                    "total_time",
+                                    "routine_time",
+                                    "min_time_for_incorrect"
+                                ]
+                            
+                                # --- Get the full row of the current trial ---
+                                full_row = trials.thisTrial
+                            
+                                # Filter out unwanted PsychoPy metadata fields
+                                row = {key: full_row[key] for key in headers}
+                            
+                                # --- Write header if file does not exist ---
+                                import csv
+                                write_header = not os.path.exists(outfile)
+                            
+                                with open(outfile, 'a', newline='') as f:
+                                    writer = csv.DictWriter(f, fieldnames=headers)
+                            
+                                    if write_header:
+                                        writer.writeheader()
+                                    writer.writerow(row)
                 # take note of whether button_9 was clicked, so that next frame we know if clicks are new
                 button_9.wasClicked = button_9.isClicked and button_9.status == STARTED
                 
@@ -1783,9 +2170,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 )
                 # once done pausing, restore running status
                 inner_loop.status = STARTED
+            thisExp.nextEntry()
+            
         # completed 100.0 repeats of 'inner_loop'
         inner_loop.status = FINISHED
         
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
         # --- Prepare to start Routine "blank_screen" ---
         # create an object to store info about Routine blank_screen
@@ -2147,45 +2539,45 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    trials_2 = data.TrialHandler2(
-        name='trials_2',
+    error_correction_trials = data.TrialHandler2(
+        name='error_correction_trials',
         nReps=1, 
         method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
-        trialList=data.importConditions('digit_paths_black.csv'), 
+        trialList=data.importConditions(f"{os.path.join('participant_conditions', os.path.basename(filename))}.csv"), 
         seed=None, 
         isTrials=True, 
     )
-    thisExp.addLoop(trials_2)  # add the loop to the experiment
-    thisTrial_2 = trials_2.trialList[0]  # so we can initialise stimuli with some values
-    # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
-    if thisTrial_2 != None:
-        for paramName in thisTrial_2:
-            globals()[paramName] = thisTrial_2[paramName]
+    thisExp.addLoop(error_correction_trials)  # add the loop to the experiment
+    thisError_correction_trial = error_correction_trials.trialList[0]  # so we can initialise stimuli with some values
+    # abbreviate parameter names if possible (e.g. rgb = thisError_correction_trial.rgb)
+    if thisError_correction_trial != None:
+        for paramName in thisError_correction_trial:
+            globals()[paramName] = thisError_correction_trial[paramName]
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now
         thisSession.sendExperimentData()
     
-    for thisTrial_2 in trials_2:
-        trials_2.status = STARTED
-        if hasattr(thisTrial_2, 'status'):
-            thisTrial_2.status = STARTED
-        currentLoop = trials_2
+    for thisError_correction_trial in error_correction_trials:
+        error_correction_trials.status = STARTED
+        if hasattr(thisError_correction_trial, 'status'):
+            thisError_correction_trial.status = STARTED
+        currentLoop = error_correction_trials
         thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-        # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
-        if thisTrial_2 != None:
-            for paramName in thisTrial_2:
-                globals()[paramName] = thisTrial_2[paramName]
+        # abbreviate parameter names if possible (e.g. rgb = thisError_correction_trial.rgb)
+        if thisError_correction_trial != None:
+            for paramName in thisError_correction_trial:
+                globals()[paramName] = thisError_correction_trial[paramName]
         
         # --- Prepare to start Routine "error_correction" ---
         # create an object to store info about Routine error_correction
         error_correction = data.Routine(
             name='error_correction',
-            components=[image_2, button, text_2],
+            components=[image_2, button, text_2, number_of_correct_text_2, number_of_incorrect_text_2],
         )
         error_correction.status = NOT_STARTED
         continueRoutine = True
@@ -2197,11 +2589,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         #        counted_skipped_incorrect = True
         #        incorrect += 1
         #        
-        image_2.setImage(trials_2.thisTrial[expInfo['Language']]
+        image_2.setImage(error_correction_trials.thisTrial[expInfo['Language']]
         )
         button.setText(digit)
         # reset button to account for continued clicks & clear times on/off
         button.reset()
+        number_of_correct_text_2.setText(f"Number correct: {correct}")
+        number_of_incorrect_text_2.setText(f"Number incorrect: {incorrect}")
         # store start times for error_correction
         error_correction.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         error_correction.tStart = globalClock.getTime(format='float')
@@ -2229,7 +2623,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         error_correction.forceEnded = routineForceEnded = not continueRoutine
         while continueRoutine and routineTimer.getTime() < 5.0:
             # if trial has changed, end Routine now
-            if hasattr(thisTrial_2, 'status') and thisTrial_2.status == STOPPING:
+            if hasattr(thisError_correction_trial, 'status') and thisError_correction_trial.status == STOPPING:
                 continueRoutine = False
             # get current time
             t = routineTimer.getTime()
@@ -2351,6 +2745,42 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 text_2.setText(timer_display
                 , log=False)
             
+            # *number_of_correct_text_2* updates
+            
+            # if number_of_correct_text_2 is starting this frame...
+            if number_of_correct_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                number_of_correct_text_2.frameNStart = frameN  # exact frame index
+                number_of_correct_text_2.tStart = t  # local t and not account for scr refresh
+                number_of_correct_text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(number_of_correct_text_2, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                number_of_correct_text_2.status = STARTED
+                number_of_correct_text_2.setAutoDraw(True)
+            
+            # if number_of_correct_text_2 is active this frame...
+            if number_of_correct_text_2.status == STARTED:
+                # update params
+                pass
+            
+            # *number_of_incorrect_text_2* updates
+            
+            # if number_of_incorrect_text_2 is starting this frame...
+            if number_of_incorrect_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                number_of_incorrect_text_2.frameNStart = frameN  # exact frame index
+                number_of_incorrect_text_2.tStart = t  # local t and not account for scr refresh
+                number_of_incorrect_text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(number_of_incorrect_text_2, 'tStartRefresh')  # time at next scr refresh
+                # update status
+                number_of_incorrect_text_2.status = STARTED
+                number_of_incorrect_text_2.setAutoDraw(True)
+            
+            # if number_of_incorrect_text_2 is active this frame...
+            if number_of_incorrect_text_2.status == STARTED:
+                # update params
+                pass
+            
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
                 thisExp.status = FINISHED
@@ -2392,13 +2822,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # store stop times for error_correction
         error_correction.tStop = globalClock.getTime(format='float')
         error_correction.tStopRefresh = tThisFlipGlobal
-        trials_2.addData('button.numClicks', button.numClicks)
+        error_correction_trials.addData('button.numClicks', button.numClicks)
         if button.numClicks:
-           trials_2.addData('button.timesOn', button.timesOn)
-           trials_2.addData('button.timesOff', button.timesOff)
+           error_correction_trials.addData('button.timesOn', button.timesOn)
+           error_correction_trials.addData('button.timesOff', button.timesOff)
         else:
-           trials_2.addData('button.timesOn', "")
-           trials_2.addData('button.timesOff', "")
+           error_correction_trials.addData('button.timesOn', "")
+           error_correction_trials.addData('button.timesOff', "")
         # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
         if error_correction.maxDurationReached:
             routineTimer.addTime(-error_correction.maxDuration)
@@ -2406,11 +2836,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             routineTimer.reset()
         else:
             routineTimer.addTime(-5.000000)
-        # mark thisTrial_2 as finished
-        if hasattr(thisTrial_2, 'status'):
-            thisTrial_2.status = FINISHED
+        # mark thisError_correction_trial as finished
+        if hasattr(thisError_correction_trial, 'status'):
+            thisError_correction_trial.status = FINISHED
         # if awaiting a pause, pause now
-        if trials_2.status == PAUSED:
+        if error_correction_trials.status == PAUSED:
             thisExp.status = PAUSED
             pauseExperiment(
                 thisExp=thisExp, 
@@ -2418,11 +2848,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 timers=[globalClock], 
             )
             # once done pausing, restore running status
-            trials_2.status = STARTED
+            error_correction_trials.status = STARTED
         thisExp.nextEntry()
         
-    # completed 1 repeats of 'trials_2'
-    trials_2.status = FINISHED
+    # completed 1 repeats of 'error_correction_trials'
+    error_correction_trials.status = FINISHED
     
     if thisSession is not None:
         # if running in a Session with a Liaison client, send data up to now

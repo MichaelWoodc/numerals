@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on May 06, 2026, at 17:49
+    on May 05, 2026, at 18:34
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -32,9 +32,10 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
-# Run 'Before Experiment' code from code
+# Run 'Before Experiment' code from timing_and_randomization_code
 import random
-#total_time= 90
+import time
+total_time= 30
 # --- Setup global variables (available in all functions) ---
 # create a device manager to handle hardware (keyboards, mice, mirophones, speakers, etc.)
 deviceManager = hardware.DeviceManager()
@@ -42,8 +43,8 @@ deviceManager = hardware.DeviceManager()
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
 psychopyVersion = '2026.1.3'
-expName = 'numbers_control_endurance_90s'  # from the Builder filename that created this script
-expVersion = 'v1.0.0'
+expName = 'numbers_control'  # from the Builder filename that created this script
+expVersion = ''
 # a list of functions to run when the experiment ends (starts off blank)
 runAtExit = []
 # information about this experiment
@@ -133,7 +134,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\micha\\OneDrive - Georgia Southern University\\4_RESEARCH\\ABA\\numbers\\numerals\\numbers_control_endurance_90s_lastrun.py',
+        originPath='C:\\Users\\micha\\OneDrive - Georgia Southern University\\4_RESEARCH\\ABA\\numbers\\numerals\\numbers_control-fix-timer-end-at-30s-try-control-english_lastrun.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -378,10 +379,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Start Code - component code to be run after the window creation
     
     # --- Initialize components for Routine "trial" ---
-    # Run 'Begin Experiment' code from code
+    # Run 'Begin Experiment' code from timing_and_randomization_code
     digits = [0,1,2,3,4,5,6,7,8,9]
     correct_digits = []
-    total_time= 90
+    total_time = 30
     correct = 0
     incorrect = 0
     print('In begin experiment section of trial routine')
@@ -574,9 +575,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=-14.0);
     
-    # --- Initialize components for Routine "Thanks_Screen" ---
+    # --- Initialize components for Routine "end" ---
     text_4 = visual.TextStim(win=win, name='text_4',
-        text='Thank you for your participation!\nPlease let the researcher know you are done.  ',
+        text='Please alert the researcher you are complete!',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -619,13 +620,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # set up handler to look after randomisation of conditions etc
     trials = data.TrialHandler2(
         name='trials',
-        nReps=200.0, 
+        nReps=300.0, 
         method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
         trialList=data.importConditions('digit_paths_black.csv'), 
         seed=None, 
-        isTrials=True, 
+        isTrials=False, 
     )
     thisExp.addLoop(trials)  # add the loop to the experiment
     thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -633,9 +634,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if thisTrial != None:
         for paramName in thisTrial:
             globals()[paramName] = thisTrial[paramName]
-    if thisSession is not None:
-        # if running in a Session with a Liaison client, send data up to now
-        thisSession.sendExperimentData()
     
     for thisTrial in trials:
         trials.status = STARTED
@@ -643,9 +641,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisTrial.status = STARTED
         currentLoop = trials
         thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
-        if thisSession is not None:
-            # if running in a Session with a Liaison client, send data up to now
-            thisSession.sendExperimentData()
         # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
         if thisTrial != None:
             for paramName in thisTrial:
@@ -689,12 +684,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
-            # Run 'Begin Routine' code from code
+            # Run 'Begin Routine' code from timing_and_randomization_code
             random.shuffle(digits)
             response = None
             point_subtracted = False
             responded = False
             started_routine_at = globalClock.getTime()
+            exp_start_time = time.time()
             routineTimer.reset()
             # setup some python lists for storing info about the mouse
             mouse.x = []
@@ -800,16 +796,34 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     timer_lines.append("Digit: N/A")
                 
                 timer_display = "\n".join(timer_lines)
-                # Run 'Each Frame' code from code
+                # Run 'Each Frame' code from timing_and_randomization_code
                 # -----------------------------
                 # SCORING + ROUTINE END LOGIC
                 # -----------------------------
-                
+                elapsed = time.time() - exp_start_time
                 if globalClock.getTime() > total_time:
                     print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
                     inner_loop.finished = True      # end the inner loop
-                    trials.finished = True
                     continueRoutine = False         # end THIS routine immediately
+                    continueRoutine = False
+                    print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
+                    inner_loop.finished = True
+                    trials.finished = True      # end the inner loop
+                    continueRoutine = False         # end THIS routine immediately
+                    print("Loop objects:", inner_loop, trials)
+                    print("Inner loop name =", inner_loop.name)
+                    print("Outer loop name =", trials.name)
+                
+                
+                if elapsed > 30:
+                    continueRoutine = False
+                    print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
+                    inner_loop.finished = True
+                    trials.finished = True      # end the inner loop
+                    continueRoutine = False         # end THIS routine immediately
+                    print("Loop objects:", inner_loop, trials)
+                    print("Inner loop name =", inner_loop.name)
+                    print("Outer loop name =", trials.name)
                 
                 # *mouse* updates
                 
@@ -1368,12 +1382,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial.tStop = globalClock.getTime(format='float')
             trial.tStopRefresh = tThisFlipGlobal
             thisExp.addData('trial.stopped', trial.tStop)
-            # Run 'End Routine' code from code
+            # Run 'End Routine' code from timing_and_randomization_code
             ended_routine_at = globalClock.getTime()
             
-            if ended_routine_at - min_time_for_incorrect > started_routine_at:
-                if response == None:
-                    incorrect += 1
+            ## This was to force a min time of 2 seconds
+            #if ended_routine_at - min_time_for_incorrect > started_routine_at:
+            #    if response == None:
+            #        incorrect += 1
             #if globalClock.getTime() < total_time:
             #    print("Not enough time — repeating this trial")
             #    trials.thisTrialN -= 1
@@ -1455,7 +1470,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             else:
                inner_loop.addData('button_9.timesOn', "")
                inner_loop.addData('button_9.timesOff', "")
-            # Run 'End Routine' code from code_2
+            # Run 'End Routine' code from logging
             thisExp.addData("Number_correct", correct)
             thisExp.addData("Number_incorrect", incorrect)
             
@@ -1495,22 +1510,17 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             )
             # once done pausing, restore running status
             trials.status = STARTED
-        thisExp.nextEntry()
-        
-    # completed 200.0 repeats of 'trials'
+    # completed 300.0 repeats of 'trials'
     trials.status = FINISHED
     
-    if thisSession is not None:
-        # if running in a Session with a Liaison client, send data up to now
-        thisSession.sendExperimentData()
     
-    # --- Prepare to start Routine "Thanks_Screen" ---
-    # create an object to store info about Routine Thanks_Screen
-    Thanks_Screen = data.Routine(
-        name='Thanks_Screen',
+    # --- Prepare to start Routine "end" ---
+    # create an object to store info about Routine end
+    end = data.Routine(
+        name='end',
         components=[text_4, mouse_2],
     )
-    Thanks_Screen.status = NOT_STARTED
+    end.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
     # setup some python lists for storing info about the mouse_2
@@ -1521,15 +1531,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     mouse_2.rightButton = []
     mouse_2.time = []
     gotValidClick = False  # until a click is received
-    # store start times for Thanks_Screen
-    Thanks_Screen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    Thanks_Screen.tStart = globalClock.getTime(format='float')
-    Thanks_Screen.status = STARTED
-    thisExp.addData('Thanks_Screen.started', Thanks_Screen.tStart)
-    Thanks_Screen.maxDuration = None
+    # store start times for end
+    end.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+    end.tStart = globalClock.getTime(format='float')
+    end.status = STARTED
+    thisExp.addData('end.started', end.tStart)
+    end.maxDuration = None
     # keep track of which components have finished
-    Thanks_ScreenComponents = Thanks_Screen.components
-    for thisComponent in Thanks_Screen.components:
+    endComponents = end.components
+    for thisComponent in end.components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1541,9 +1551,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "Thanks_Screen" ---
-    thisExp.currentRoutine = Thanks_Screen
-    Thanks_Screen.forceEnded = routineForceEnded = not continueRoutine
+    # --- Run Routine "end" ---
+    thisExp.currentRoutine = end
+    end.forceEnded = routineForceEnded = not continueRoutine
     while continueRoutine:
         # get current time
         t = routineTimer.getTime()
@@ -1615,20 +1625,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp=thisExp, 
                 win=win, 
                 timers=[routineTimer, globalClock], 
-                currentRoutine=Thanks_Screen,
+                currentRoutine=end,
             )
             # skip the frame we paused on
             continue
         
         # has a Component requested the Routine to end?
         if not continueRoutine:
-            Thanks_Screen.forceEnded = routineForceEnded = True
+            end.forceEnded = routineForceEnded = True
         # has the Routine been forcibly ended?
-        if Thanks_Screen.forceEnded or routineForceEnded:
+        if end.forceEnded or routineForceEnded:
             break
         # has every Component finished?
         continueRoutine = False
-        for thisComponent in Thanks_Screen.components:
+        for thisComponent in end.components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1637,14 +1647,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "Thanks_Screen" ---
-    for thisComponent in Thanks_Screen.components:
+    # --- Ending Routine "end" ---
+    for thisComponent in end.components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # store stop times for Thanks_Screen
-    Thanks_Screen.tStop = globalClock.getTime(format='float')
-    Thanks_Screen.tStopRefresh = tThisFlipGlobal
-    thisExp.addData('Thanks_Screen.stopped', Thanks_Screen.tStop)
+    # store stop times for end
+    end.tStop = globalClock.getTime(format='float')
+    end.tStopRefresh = tThisFlipGlobal
+    thisExp.addData('end.stopped', end.tStop)
     # store data for thisExp (ExperimentHandler)
     thisExp.addData('mouse_2.x', mouse_2.x)
     thisExp.addData('mouse_2.y', mouse_2.y)
@@ -1653,7 +1663,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisExp.addData('mouse_2.rightButton', mouse_2.rightButton)
     thisExp.addData('mouse_2.time', mouse_2.time)
     thisExp.nextEntry()
-    # the Routine "Thanks_Screen" was not non-slip safe, so reset the non-slip timer
+    # the Routine "end" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
     # mark experiment as finished
