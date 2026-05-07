@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on May 06, 2026, at 19:47
+    on May 06, 2026, at 19:34
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -133,7 +133,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\micha\\OneDrive - Georgia Southern University\\4_RESEARCH\\ABA\\numbers\\numerals\\numbers_fo_2_lastrun.py',
+        originPath='C:\\Users\\micha\\OneDrive - Georgia Southern University\\4_RESEARCH\\ABA\\numbers\\numerals\\numbers_fo_2.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -938,16 +938,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 except:
                     timer_lines.append(f"trials_completed: N/A")
                 
-                elapsed = time.time() - exp_start_time
-                try:
-                    timer_lines.append(f"elapsed: {elapsed:.2f}s")
-                except:
-                    timer_lines.append("Routine: N/A")
-                try:
-                    timer_lines.append(f"elapsed: {experiment_total_time}s")
-                except:
-                    pass
-                
                 timer_display = "\n".join(timer_lines)
                 # Run 'Each Frame' code from end_at_specified_time
                 # -----------------------------
@@ -959,23 +949,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
                     inner_loop.finished = True      # end the inner loop
                     continueRoutine = False         # end THIS routine immediately
+                try:
+                    timer_lines.append(f"elapsed: {elapsed:.2f}s")
+                except:
+                    timer_lines.append("Routine: N/A")
+                try:
+                    timer_lines.append(f"elapsed: {experiment_total_time}s")
+                except:
+                    pass
                 
                 if elapsed > experiment_total_time:
                     print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
                     inner_loop.finished = True      # end the inner loop
-                    trials.finished = True
                     continueRoutine = False         # end THIS routine immediately
                 
-                #elapsed = time.time() - exp_start_time
-                #try:
-                #    timer_lines.append(f"elapsed: {elapsed:.2f}s")
-                #except:
-                #    timer_lines.append("Routine: N/A")
-                #try:
-                #    timer_lines.append(f"elapsed: {experiment_total_time}s")
-                #except:
-                #    pass
-                #
                 
                 # *image* updates
                 
@@ -2387,8 +2374,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisExp.addData('Trials 2 start time', round(elapsed, 2))
     #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
     #
-    # Run 'End Routine' code from reset_timer
-    globalClock.reset()
     thisExp.nextEntry()
     # the Routine "error_correction_notification" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2453,7 +2438,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         number_of_incorrect_text_2.setText(f"Number incorrect: {incorrect}")
         # Run 'Begin Routine' code from add_data_num_correct_time_2
         elapsed = time.time() - exp_start_time
-        
         thisExp.addData('this error correction trial start time', round(elapsed, 2))
         print("Elapsed:", round(elapsed, 2))
         # store start times for error_correction

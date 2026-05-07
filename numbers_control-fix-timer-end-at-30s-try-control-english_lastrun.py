@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on May 05, 2026, at 18:34
+    on May 06, 2026, at 20:01
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -44,7 +44,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
 psychopyVersion = '2026.1.3'
 expName = 'numbers_control'  # from the Builder filename that created this script
-expVersion = ''
+expVersion = 'v1.0.0'
 # a list of functions to run when the experiment ends (starts off blank)
 runAtExit = []
 # information about this experiment
@@ -382,7 +382,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Run 'Begin Experiment' code from timing_and_randomization_code
     digits = [0,1,2,3,4,5,6,7,8,9]
     correct_digits = []
-    total_time = 30
+    exp_total_time = 30
     correct = 0
     incorrect = 0
     print('In begin experiment section of trial routine')
@@ -804,18 +804,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if globalClock.getTime() > total_time:
                     print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
                     inner_loop.finished = True      # end the inner loop
-                    continueRoutine = False         # end THIS routine immediately
-                    continueRoutine = False
-                    print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
-                    inner_loop.finished = True
                     trials.finished = True      # end the inner loop
                     continueRoutine = False         # end THIS routine immediately
-                    print("Loop objects:", inner_loop, trials)
-                    print("Inner loop name =", inner_loop.name)
-                    print("Outer loop name =", trials.name)
                 
-                
-                if elapsed > 30:
+                if elapsed > exp_total_time:
                     continueRoutine = False
                     print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
                     inner_loop.finished = True
