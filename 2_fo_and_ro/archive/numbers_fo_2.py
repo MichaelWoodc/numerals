@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on May 12, 2026, at 14:49
+    on May 12, 2026, at 14:07
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -32,9 +32,10 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
-# Run 'Before Experiment' code from end_at_specified_time
+# Run 'Before Experiment' code from import_modules
 import random
-import csv, os
+import csv
+import time
 # --- Setup global variables (available in all functions) ---
 # create a device manager to handle hardware (keyboards, mice, mirophones, speakers, etc.)
 deviceManager = hardware.DeviceManager()
@@ -378,12 +379,27 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Start Code - component code to be run after the window creation
     
     # --- Initialize components for Routine "trial" ---
-    # Run 'Begin Experiment' code from end_at_specified_time
-    import time
+    # Run 'Begin Experiment' code from import_modules
+    exp_start_time = time.time()
+    # Run 'Begin Experiment' code from setup_experiment_variables_in_begin_tab
+    
     exp_start_time = time.time()
     elapsed = time.time() - exp_start_time
     
-    experiment_total_time = 90
+    experiment_total_time = 12
+    
+    print("Experiment start (system seconds):", exp_start_time)
+    
+    digits = [0,1,2,3,4,5,6,7,8,9]
+    correct_digits = []
+    
+    correct = 0
+    incorrect = 0
+    print('In begin experiment section of trial routine')
+    
+    # Run 'Begin Experiment' code from end_cntrl_timers
+    exp_start_time = time.time()
+    elapsed = time.time() - exp_start_time
     
     print("Experiment start (system seconds):", exp_start_time)
     
@@ -401,7 +417,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0.2), draggable=False, size=(0.3, 0.3),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-2.0)
+        texRes=128.0, interpolate=True, depth=-4.0)
     mouse = event.Mouse(win=win)
     x, y = [None, None]
     mouse.mouseClock = core.Clock()
@@ -419,7 +435,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_0',
-        depth=-4
+        depth=-6
     )
     button_0.buttonClock = core.Clock()
     button_1 = visual.ButtonStim(win, 
@@ -436,7 +452,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_1',
-        depth=-5
+        depth=-7
     )
     button_1.buttonClock = core.Clock()
     button_2 = visual.ButtonStim(win, 
@@ -453,7 +469,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_2',
-        depth=-6
+        depth=-8
     )
     button_2.buttonClock = core.Clock()
     button_3 = visual.ButtonStim(win, 
@@ -470,7 +486,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_3',
-        depth=-7
+        depth=-9
     )
     button_3.buttonClock = core.Clock()
     button_4 = visual.ButtonStim(win, 
@@ -487,7 +503,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_4',
-        depth=-8
+        depth=-10
     )
     button_4.buttonClock = core.Clock()
     button_5 = visual.ButtonStim(win, 
@@ -504,7 +520,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_5',
-        depth=-9
+        depth=-11
     )
     button_5.buttonClock = core.Clock()
     button_6 = visual.ButtonStim(win, 
@@ -521,7 +537,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_6',
-        depth=-10
+        depth=-12
     )
     button_6.buttonClock = core.Clock()
     button_7 = visual.ButtonStim(win, 
@@ -538,7 +554,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_7',
-        depth=-11
+        depth=-13
     )
     button_7.buttonClock = core.Clock()
     button_8 = visual.ButtonStim(win, 
@@ -555,7 +571,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_8',
-        depth=-12
+        depth=-14
     )
     button_8.buttonClock = core.Clock()
     button_9 = visual.ButtonStim(win, 
@@ -572,7 +588,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_9',
-        depth=-13
+        depth=-15
     )
     button_9.buttonClock = core.Clock()
     text = visual.TextStim(win=win, name='text',
@@ -581,10 +597,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         pos=(0.2, 0.2), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-14.0);
-    # Run 'Begin Experiment' code from add_data_num_correct_time
-    import time
-    exp_start_time = time.time()
+        depth=-16.0);
     
     # --- Initialize components for Routine "blank_screen" ---
     text_3 = visual.TextStim(win=win, name='text_3',
@@ -668,6 +681,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-5.0);
+    # Run 'Begin Experiment' code from code
+    participant_conditions_file = os.path.join(
+        "participant_conditions",
+        os.path.basename(filename) + ".csv"
+    )
+    
     
     # --- Initialize components for Routine "blank_for_next" ---
     text_5 = visual.TextStim(win=win, name='text_5',
@@ -804,7 +823,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
-            # Run 'Begin Routine' code from end_at_specified_time
+            # Run 'Begin Routine' code from end_cntrl_timers
             random.shuffle(digits)
             response = None
             point_subtracted = False
@@ -853,7 +872,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             button_9.setText(digits[9])
             # reset button_9 to account for continued clicks & clear times on/off
             button_9.reset()
-            # Run 'Begin Routine' code from add_data_num_correct_time
+            # Run 'Begin Routine' code from add_score_time
             elapsed = time.time() - exp_start_time
             thisExp.addData('this trial start time', round(elapsed, 2))
             print("Elapsed:", round(elapsed, 2))
@@ -890,84 +909,148 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
-                # Run 'Each Frame' code from debug_text_trial
+                # Run 'Each Frame' code from debug_text_trial_each_frame
                 timer_lines = []
-                timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
                 
+                # Global clock
+                try:
+                    timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+                except:
+                    timer_lines.append("Global: N/A")
+                
+                # Routine timer
                 try:
                     timer_lines.append(f"Routine: {routineTimer.getTime():.2f}s")
                 except:
                     timer_lines.append("Routine: N/A")
                 
-                #try:
-                #    timer_lines.append(f"Inner: {innerClock.getTime():.2f}s")
-                #except:
-                #    timer_lines.append("Inner: N/A")
-                #
-                #try:
-                #    timer_lines.append(f"Trial: {trialClock.getTime():.2f}s")
-                #except:
-                #    timer_lines.append("Trial: N/A")
-                
-                #try:
-                #    timer_lines.append(f"Inner remaining: {inner_loop.nRemaining}")
-                #except:
-                #    timer_lines.append("Inner remaining: N/A")
-                
-                # Add the digit being shown this trial
+                # Digit being shown
                 try:
                     timer_lines.append(f"Digit: {digit}")
                 except:
                     timer_lines.append("Digit: N/A")
                 
+                # Incorrect count
                 try:
-                    timer_lines.append(f"number_trials: {number_trials}") 
+                    timer_lines.append(f"Number incorrect: {incorrect}")
                 except:
-                    timer_lines.append(f"number_trials: N/A")
-                    
+                    timer_lines.append("Number incorrect: N/A")
+                
+                # Correct count
+                try:
+                    timer_lines.append(f"Number correct: {correct}")
+                except:
+                    timer_lines.append("Number correct: N/A")
+                
+                # number_trials
+                try:
+                    timer_lines.append(f"number_trials: {number_trials}")
+                except:
+                    timer_lines.append("number_trials: N/A")
+                
+                # trials_completed
                 try:
                     timer_lines.append(f"trials_completed: {trials_completed}")
                 except:
-                    timer_lines.append(f"trials_completed: N/A")
+                    timer_lines.append("trials_completed: N/A")
                 
-                elapsed = time.time() - exp_start_time
+                # elapsed time since experiment start
                 try:
+                    elapsed = time.time() - exp_start_time
                     timer_lines.append(f"elapsed: {elapsed:.2f}s")
                 except:
-                    timer_lines.append("Routine: N/A")
-                try:
-                    timer_lines.append(f"elapsed: {experiment_total_time}s")
-                except:
-                    pass
+                    timer_lines.append("elapsed: N/A")
                 
+                # experiment_total_time
+                try:
+                    timer_lines.append(f"experiment_total_time: {experiment_total_time}s")
+                except:
+                    timer_lines.append("experiment_total_time: N/A")
+                
+                # Final display string
                 timer_display = "\n".join(timer_lines)
-                # Run 'Each Frame' code from end_at_specified_time
+                # Run 'Each Frame' code from end_cntrl_timers
                 # -----------------------------
-                # SCORING + ROUTINE END LOGIC
+                # SCORING + TIMEOUT LOGIC
                 # -----------------------------
+                
+                # Compute elapsed time since experiment start
                 elapsed = time.time() - exp_start_time
                 
+                # Determine if this trial timed out
+                timed_out = (routineTimer.getTime() >= 4.95)
+                
+                # ============================================================
+                # CASE 2 — TIMEOUT OR INCORRECT (only once)
+                # ============================================================
+                if timed_out:
+                
+                    scored_this_trial = True  # prevent double scoring
+                
+                    # Label the response
+                    if timed_out:
+                        thisExp.addData('This response', 'Timeout (Incorrect)')
+                        print("Trial timed out — marking incorrect")
+                    else:
+                        thisExp.addData('This response', 'Incorrect')
+                
+                    incorrect += 1
+                
+                    # --- Write to participant_conditions CSV ---
+                    os.makedirs("participant_conditions", exist_ok=True)
+                
+                    participant_id = expInfo['participant']
+                    outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                
+                    headers = [
+                        "digit",
+                        "arabic_path",
+                        "hindi_path",
+                        "mandarin_path",
+                        "correct_answer",
+                        "total_time",
+                        "routine_time",
+                        "min_time_for_incorrect"
+                    ]
+                
+                    full_row = trials.thisTrial
+                    row = {key: full_row[key] for key in headers}
+                
+                    import csv
+                    write_header = not os.path.exists(outfile)
+                
+                    with open(outfile, 'a', newline='') as f:
+                        writer = csv.DictWriter(f, fieldnames=headers)
+                        if write_header:
+                            writer.writeheader()
+                        writer.writerow(row)
+                
+                    # PRINT BEFORE ENDING ROUTINE
+                    print("ENDING ROUTINE: timeout triggered, continueRoutine=False")
+                    continueRoutine = False
+                    return  # PRINT BEFORE RETURN
+                    print("RETURNING FROM FRAME LOOP (timeout)")  # (won't execute, but included for clarity)
+                
+                
+                # ============================================================
+                # END-OF-EXPERIMENT TIMEOUTS (outer timers)
+                # ============================================================
                 if globalClock.getTime() > total_time:
-                    print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
-                    inner_loop.finished = True      # end the inner loop
-                    continueRoutine = False         # end THIS routine immediately
+                    print(f"ENDING LOOP: globalClock exceeded total_time at {globalClock.getTime():.2f}")
+                    inner_loop.finished = True
+                
                 
                 if elapsed > experiment_total_time:
-                    print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
-                    inner_loop.finished = True      # end the inner loop
+                    print(f"ENDING LOOP + ROUTINE: experiment_total_time exceeded at {elapsed:.2f}")
+                    inner_loop.finished = True
                     trials.finished = True
-                    continueRoutine = False         # end THIS routine immediately
                 
-                #elapsed = time.time() - exp_start_time
-                #try:
-                #    timer_lines.append(f"elapsed: {elapsed:.2f}s")
-                #except:
-                #    timer_lines.append("Routine: N/A")
-                #try:
-                #    timer_lines.append(f"elapsed: {experiment_total_time}s")
-                #except:
-                #    pass
-                #
+                    print("ENDING ROUTINE: experiment_total_time exceeded, continueRoutine=False")
+                    continueRoutine = False
+                
+                    print("RETURNING FROM FRAME LOOP (experiment timeout)")
+                    return
+                
                 
                 # *image* updates
                 
@@ -1889,7 +1972,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial.tStop = globalClock.getTime(format='float')
             trial.tStopRefresh = tThisFlipGlobal
             thisExp.addData('trial.stopped', trial.tStop)
-            # Run 'End Routine' code from end_at_specified_time
+            # Run 'End Routine' code from end_cntrl_timers
             ended_routine_at = globalClock.getTime()
             
             if ended_routine_at - min_time_for_incorrect > started_routine_at:
@@ -1976,7 +2059,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             else:
                inner_loop.addData('button_9.timesOn', "")
                inner_loop.addData('button_9.timesOff', "")
-            # Run 'End Routine' code from add_data_num_correct_time
+            # Run 'End Routine' code from add_score_time
             thisExp.addData("Number_correct", correct)
             thisExp.addData("Number_incorrect", incorrect)
             
@@ -2050,7 +2133,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         blank_screen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         blank_screen.tStart = globalClock.getTime(format='float')
         blank_screen.status = STARTED
-        blank_screen.maxDuration = 0.1
+        blank_screen.maxDuration = 0.05
         # keep track of which components have finished
         blank_screenComponents = blank_screen.components
         for thisComponent in blank_screen.components:
@@ -2068,7 +2151,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Run Routine "blank_screen" ---
         thisExp.currentRoutine = blank_screen
         blank_screen.forceEnded = routineForceEnded = not continueRoutine
-        while continueRoutine and routineTimer.getTime() < 0.1:
+        while continueRoutine and routineTimer.getTime() < 0.05:
             # if trial has changed, end Routine now
             if hasattr(thisTrial, 'status') and thisTrial.status == STOPPING:
                 continueRoutine = False
@@ -2171,7 +2254,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         elif blank_screen.forceEnded:
             routineTimer.reset()
         else:
-            routineTimer.addTime(-0.100000)
+            routineTimer.addTime(-0.050000)
         # mark thisTrial as finished
         if hasattr(thisTrial, 'status'):
             thisTrial.status = FINISHED
@@ -2410,7 +2493,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
-        trialList=data.importConditions(f"{os.path.join('participant_conditions', os.path.basename(filename))}.csv"), 
+        trialList=data.importConditions(participant_conditions_file), 
         seed=None, 
         isTrials=True, 
     )
