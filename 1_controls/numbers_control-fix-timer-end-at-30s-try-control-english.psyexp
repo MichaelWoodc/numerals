@@ -116,9 +116,9 @@
                 <Param name="Code Type" val="Both" valType="str" updates="None" plugin="None"/>
                 <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
                 <Param name="Before Experiment" val="import random&#10;import time&#10;total_time= 30" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="Begin Experiment" val="digits = [0,1,2,3,4,5,6,7,8,9]&#10;correct_digits = []&#10;exp_total_time = 30&#10;correct = 0&#10;incorrect = 0&#10;print('In begin experiment section of trial routine')" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin Experiment" val="digits = [0,1,2,3,4,5,6,7,8,9]&#10;correct_digits = []&#10;exp_total_time = 30&#10;total_time= 30&#10;correct = 0&#10;incorrect = 0&#10;print('In begin experiment section of trial routine')" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="Begin Routine" val="random.shuffle(digits)&#10;response = None&#10;point_subtracted = False&#10;responded = False&#10;started_routine_at = globalClock.getTime()&#10;exp_start_time = time.time()&#10;routineTimer.reset()" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="Each Frame" val="# -----------------------------&#10;# SCORING + ROUTINE END LOGIC&#10;# -----------------------------&#10;elapsed = time.time() - exp_start_time&#10;if globalClock.getTime() &gt; total_time:&#10;    print(f&quot;Timeout in TRIAL routine at {globalClock.getTime():.2f}&quot;)&#10;    inner_loop.finished = True      # end the inner loop&#10;    trials.finished = True      # end the inner loop&#10;    continueRoutine = False         # end THIS routine immediately&#10;&#10;if elapsed &gt; exp_total_time:&#10;    continueRoutine = False&#10;    print(f&quot;Timeout in TRIAL routine at {globalClock.getTime():.2f}&quot;)&#10;    inner_loop.finished = True&#10;    trials.finished = True      # end the inner loop&#10;    continueRoutine = False         # end THIS routine immediately&#10;    print(&quot;Loop objects:&quot;, inner_loop, trials)&#10;    print(&quot;Inner loop name =&quot;, inner_loop.name)&#10;    print(&quot;Outer loop name =&quot;, trials.name)&#10;" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Each Frame" val="# -----------------------------&#10;# SCORING + ROUTINE END LOGIC&#10;# -----------------------------&#10;elapsed = time.time() - exp_start_time&#10;if globalClock.getTime() &gt; exp_total_time:&#10;    print(f&quot;Timeout in TRIAL routine at {globalClock.getTime():.2f}&quot;)&#10;    inner_loop.finished = True      # end the inner loop&#10;    trials.finished = True      # end the inner loop&#10;    continueRoutine = False         # end THIS routine immediately&#10;&#10;if elapsed &gt; exp_total_time:&#10;    continueRoutine = False&#10;    print(f&quot;Timeout in TRIAL routine at {globalClock.getTime():.2f}&quot;)&#10;    inner_loop.finished = True&#10;    trials.finished = True      # end the inner loop&#10;    continueRoutine = False         # end THIS routine immediately&#10;    print(&quot;Loop objects:&quot;, inner_loop, trials)&#10;    print(&quot;Inner loop name =&quot;, inner_loop.name)&#10;    print(&quot;Outer loop name =&quot;, trials.name)&#10;" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="End Routine" val="ended_routine_at = globalClock.getTime()&#10;&#10;## This was to force a min time of 2 seconds&#10;#if ended_routine_at - min_time_for_incorrect &gt; started_routine_at:&#10;#    if response == None:&#10;#        incorrect += 1&#10;#if globalClock.getTime() &lt; total_time:&#10;#    print(&quot;Not enough time — repeating this trial&quot;)&#10;#    trials.thisTrialN -= 1&#10;#" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="End Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
@@ -889,7 +889,7 @@
         <Routine name="blank_screen">
             <RoutineSettingsComponent name="blank_screen" plugin="None">
                 <Param name="name" val="blank_screen" valType="code" updates="None" plugin="None"/>
-                <Param name="stopVal" val="0.1" valType="code" updates="constant" plugin="None"/>
+                <Param name="stopVal" val="0.05" valType="code" updates="constant" plugin="None"/>
                 <Param name="durationEstim" val="" valType="code" updates="None" plugin="None"/>
                 <Param name="stopType" val="duration (s)" valType="str" updates="None" plugin="None"/>
                 <Param name="forceNonSlip" val="False" valType="code" updates="None" plugin="None"/>
@@ -1013,8 +1013,91 @@
                 <Param name="correctAns" val="" valType="list" updates="constant" plugin="None"/>
             </MouseComponent>
         </Routine>
+        <Routine name="Welcome_Screen">
+            <RoutineSettingsComponent name="Welcome_Screen" plugin="None">
+                <Param name="name" val="Welcome_Screen" valType="code" updates="None" plugin="None"/>
+                <Param name="stopVal" val="" valType="code" updates="constant" plugin="None"/>
+                <Param name="durationEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="stopType" val="duration (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="forceNonSlip" val="False" valType="code" updates="None" plugin="None"/>
+                <Param name="skipIf" val="" valType="code" updates="constant" plugin="None"/>
+                <Param name="useWindowParams" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="color" val="$[0,0,0]" valType="color" updates="None" plugin="None"/>
+                <Param name="colorSpace" val="rgb" valType="str" updates="None" plugin="None"/>
+                <Param name="backgroundImg" val="" valType="str" updates="None" plugin="None"/>
+                <Param name="backgroundFit" val="none" valType="str" updates="None" plugin="None"/>
+                <Param name="saveStartStop" val="True" valType="bool" updates="None" plugin="None"/>
+                <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="desc" val="" valType="str" updates="constant" plugin="None"/>
+            </RoutineSettingsComponent>
+            <TextComponent name="Welcome_Text" plugin="None">
+                <Param name="name" val="Welcome_Text" valType="code" updates="None" plugin="None"/>
+                <Param name="startVal" val="0" valType="code" updates="None" plugin="None"/>
+                <Param name="startEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="startType" val="time (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="stopVal" val="" valType="code" updates="constant" plugin="None"/>
+                <Param name="durationEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="stopType" val="duration (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="color" val="white" valType="color" updates="constant" plugin="None"/>
+                <Param name="colorSpace" val="rgb" valType="str" updates="constant" plugin="None"/>
+                <Param name="opacity" val="" valType="num" updates="constant" plugin="None"/>
+                <Param name="pos" val="[0,0]" valType="list" updates="constant" plugin="None"/>
+                <Param name="units" val="from exp settings" valType="str" updates="None" plugin="None"/>
+                <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
+                <Param name="saveStartStop" val="True" valType="bool" updates="None" plugin="None"/>
+                <Param name="syncScreenRefresh" val="True" valType="bool" updates="None" plugin="None"/>
+                <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="contrast" val="1" valType="num" updates="constant" plugin="None"/>
+                <Param name="validator" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="text" val="Welcome!  Please click anywhere to begin." valType="str" updates="constant" plugin="None"/>
+                <Param name="font" val="Arial" valType="str" updates="constant" plugin="None"/>
+                <Param name="draggable" val="False" valType="code" updates="constant" plugin="None"/>
+                <Param name="letterHeight" val="0.05" valType="num" updates="constant" plugin="None"/>
+                <Param name="wrapWidth" val="" valType="num" updates="constant" plugin="None"/>
+                <Param name="flip" val="None" valType="str" updates="constant" plugin="None"/>
+                <Param name="languageStyle" val="LTR" valType="str" updates="None" plugin="None"/>
+            </TextComponent>
+            <MouseComponent name="Welcome_Continue_mouse" plugin="None">
+                <Param name="name" val="Welcome_Continue_mouse" valType="code" updates="None" plugin="None"/>
+                <Param name="startVal" val="3" valType="code" updates="None" plugin="None"/>
+                <Param name="startEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="startType" val="time (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="stopVal" val="" valType="code" updates="constant" plugin="None"/>
+                <Param name="durationEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="stopType" val="duration (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="forceEndRoutineOnPress" val="any click" valType="str" updates="constant" plugin="None"/>
+                <Param name="saveMouseState" val="on click" valType="str" updates="None" plugin="None"/>
+                <Param name="timeRelativeTo" val="mouse onset" valType="str" updates="constant" plugin="None"/>
+                <Param name="newClicksOnly" val="True" valType="bool" updates="constant" plugin="None"/>
+                <Param name="clickable" val="" valType="list" updates="constant" plugin="None"/>
+                <Param name="saveParamsClickable" val="name," valType="list" updates="set every repeat" plugin="None"/>
+                <Param name="saveStartStop" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="syncScreenRefresh" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="storeCorrect" val="False" valType="bool" updates="constant" plugin="None"/>
+                <Param name="correctAns" val="" valType="list" updates="constant" plugin="None"/>
+            </MouseComponent>
+            <CodeComponent name="reset_global_clock" plugin="None">
+                <Param name="name" val="reset_global_clock" valType="code" updates="None" plugin="None"/>
+                <Param name="Code Type" val="Auto-&gt;JS" valType="str" updates="None" plugin="None"/>
+                <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="Before Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin Routine" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Each Frame" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End Routine" val="globalClock.reset()" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End JS Routine" val="globalClock.reset();&#10;" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+            </CodeComponent>
+        </Routine>
     </Routines>
     <Flow>
+        <Routine name="Welcome_Screen"/>
         <LoopInitiator name="trials" plugin="None" loopType="TrialHandler">
             <Param name="name" val="trials" valType="code" updates="None" plugin="None"/>
             <Param name="loopType" val="random" valType="str" updates="None" plugin="None"/>

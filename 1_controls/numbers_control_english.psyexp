@@ -911,12 +911,12 @@
                 <Param name="Each Frame" val="" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="End Routine" val="win.color = old_bg&#10;win.flip()&#10;#globalClock.reset()&#10;print('Got into the reset_clcoks routine')&#10;&#10;" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="End Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="Begin JS Routine" val="old_bg = psychoJS.window.color;&#10;psychoJS.window.color = &quot;black&quot;;&#10;psychoJS.window.flip();&#10;" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="End JS Routine" val="psychoJS.window.color = old_bg;&#10;psychoJS.window.flip();&#10;console.log(&quot;Got into the reset_clcoks routine&quot;);&#10;" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Before JS Experiment" val="// Translating..." valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin JS Experiment" val="// Translating..." valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin JS Routine" val="// Translating..." valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Each JS Frame" val="// Translating..." valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End JS Routine" val="// Translating..." valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End JS Experiment" val="// Translating..." valType="extendedCode" updates="constant" plugin="None"/>
             </CodeComponent>
             <TextComponent name="text_3" plugin="None">
                 <Param name="name" val="text_3" valType="code" updates="None" plugin="None"/>
@@ -1082,8 +1082,91 @@
                 <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
             </CodeComponent>
         </Routine>
+        <Routine name="Welcome_Screen">
+            <RoutineSettingsComponent name="Welcome_Screen" plugin="None">
+                <Param name="name" val="Welcome_Screen" valType="code" updates="None" plugin="None"/>
+                <Param name="stopVal" val="" valType="code" updates="constant" plugin="None"/>
+                <Param name="durationEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="stopType" val="duration (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="forceNonSlip" val="False" valType="code" updates="None" plugin="None"/>
+                <Param name="skipIf" val="" valType="code" updates="constant" plugin="None"/>
+                <Param name="useWindowParams" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="color" val="$[0,0,0]" valType="color" updates="None" plugin="None"/>
+                <Param name="colorSpace" val="rgb" valType="str" updates="None" plugin="None"/>
+                <Param name="backgroundImg" val="" valType="str" updates="None" plugin="None"/>
+                <Param name="backgroundFit" val="none" valType="str" updates="None" plugin="None"/>
+                <Param name="saveStartStop" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="desc" val="" valType="str" updates="constant" plugin="None"/>
+            </RoutineSettingsComponent>
+            <TextComponent name="Welcome_Text" plugin="None">
+                <Param name="name" val="Welcome_Text" valType="code" updates="None" plugin="None"/>
+                <Param name="startVal" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="startEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="startType" val="time (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="stopVal" val="" valType="code" updates="constant" plugin="None"/>
+                <Param name="durationEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="stopType" val="duration (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="color" val="white" valType="color" updates="constant" plugin="None"/>
+                <Param name="colorSpace" val="rgb" valType="str" updates="constant" plugin="None"/>
+                <Param name="opacity" val="" valType="num" updates="constant" plugin="None"/>
+                <Param name="pos" val="[0,0]" valType="list" updates="constant" plugin="None"/>
+                <Param name="units" val="from exp settings" valType="str" updates="None" plugin="None"/>
+                <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
+                <Param name="saveStartStop" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="syncScreenRefresh" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="contrast" val="1" valType="num" updates="constant" plugin="None"/>
+                <Param name="validator" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="text" val="Welcome!  Please click anywhere to begin.  " valType="str" updates="constant" plugin="None"/>
+                <Param name="font" val="Arial" valType="str" updates="constant" plugin="None"/>
+                <Param name="draggable" val="False" valType="code" updates="constant" plugin="None"/>
+                <Param name="letterHeight" val="0.05" valType="num" updates="constant" plugin="None"/>
+                <Param name="wrapWidth" val="" valType="num" updates="constant" plugin="None"/>
+                <Param name="flip" val="None" valType="str" updates="constant" plugin="None"/>
+                <Param name="languageStyle" val="LTR" valType="str" updates="None" plugin="None"/>
+            </TextComponent>
+            <MouseComponent name="Welcome_Continue_mouse" plugin="None">
+                <Param name="name" val="Welcome_Continue_mouse" valType="code" updates="None" plugin="None"/>
+                <Param name="startVal" val="3" valType="code" updates="None" plugin="None"/>
+                <Param name="startEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="startType" val="time (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="stopVal" val="" valType="code" updates="constant" plugin="None"/>
+                <Param name="durationEstim" val="" valType="code" updates="None" plugin="None"/>
+                <Param name="stopType" val="duration (s)" valType="str" updates="None" plugin="None"/>
+                <Param name="forceEndRoutineOnPress" val="any click" valType="str" updates="constant" plugin="None"/>
+                <Param name="saveMouseState" val="on click" valType="str" updates="None" plugin="None"/>
+                <Param name="timeRelativeTo" val="mouse onset" valType="str" updates="constant" plugin="None"/>
+                <Param name="newClicksOnly" val="True" valType="bool" updates="constant" plugin="None"/>
+                <Param name="clickable" val="" valType="list" updates="constant" plugin="None"/>
+                <Param name="saveParamsClickable" val="name," valType="list" updates="set every repeat" plugin="None"/>
+                <Param name="saveStartStop" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="syncScreenRefresh" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="storeCorrect" val="False" valType="bool" updates="constant" plugin="None"/>
+                <Param name="correctAns" val="" valType="list" updates="constant" plugin="None"/>
+            </MouseComponent>
+            <CodeComponent name="reset_global_clock" plugin="None">
+                <Param name="name" val="reset_global_clock" valType="code" updates="None" plugin="None"/>
+                <Param name="Code Type" val="Auto-&gt;JS" valType="str" updates="None" plugin="None"/>
+                <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
+                <Param name="Before Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin Routine" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Each Frame" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End Routine" val="globalClock.reset()" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End JS Routine" val="globalClock.reset();&#10;" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="End JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
+            </CodeComponent>
+        </Routine>
     </Routines>
     <Flow>
+        <Routine name="Welcome_Screen"/>
         <LoopInitiator name="trials" plugin="None" loopType="TrialHandler">
             <Param name="name" val="trials" valType="code" updates="None" plugin="None"/>
             <Param name="loopType" val="random" valType="str" updates="None" plugin="None"/>
