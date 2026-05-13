@@ -116,13 +116,13 @@
                 <Param name="Code Type" val="Auto-&gt;JS" valType="str" updates="None" plugin="None"/>
                 <Param name="disabled" val="False" valType="bool" updates="None" plugin="None"/>
                 <Param name="Before Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="Begin Experiment" val="experiment_total_time = 12&#10;exp_start_time = time.time()&#10;elapsed = time.time() - exp_start_time&#10;correct = 0&#10;incorrect = 0&#10;digits = [0,1,2,3,4,5,6,7,8,9]&#10;correct_digits = []" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin Experiment" val="experiment_total_time = 240&#10;exp_start_time = time.time()&#10;elapsed = time.time() - exp_start_time&#10;correct = 0&#10;incorrect = 0&#10;digits = [0,1,2,3,4,5,6,7,8,9]&#10;correct_digits = []" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="Begin Routine" val="" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="Each Frame" val="" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="End Routine" val="" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="End Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="Before JS Experiment" val="" valType="extendedCode" updates="constant" plugin="None"/>
-                <Param name="Begin JS Experiment" val="experiment_total_time = 12;&#10;exp_start_time = time.time();&#10;elapsed = (time.time() - exp_start_time);&#10;correct = 0;&#10;incorrect = 0;&#10;digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];&#10;correct_digits = [];&#10;" valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="Begin JS Experiment" val="experiment_total_time = 240;&#10;exp_start_time = time.time();&#10;elapsed = (time.time() - exp_start_time);&#10;correct = 0;&#10;incorrect = 0;&#10;digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];&#10;correct_digits = [];&#10;" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="Begin JS Routine" val="" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="Each JS Frame" val="" valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="End JS Routine" val="" valType="extendedCode" updates="constant" plugin="None"/>
