@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.2.3),
-    on September 11, 2026, at 12:11
+    on September 15, 2026, at 14:46
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -134,7 +134,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\micha\\OneDrive - Georgia Southern University\\numerals\\numerals\\1_controls\\numbers_control-fix-timer-end-at-30s-try-control-english.py',
+        originPath='C:\\Users\\micha\\numerals\\1_controls\\numbers_control-fix-timer-end-at-30s-try-control-english.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -823,7 +823,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             originPath=-1, 
             trialList=[None], 
             seed=None, 
-            isTrials=False, 
+            isTrials=True, 
         )
         thisExp.addLoop(inner_loop)  # add the loop to the experiment
         thisInner_loop = inner_loop.trialList[0]  # so we can initialise stimuli with some values
@@ -831,6 +831,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisInner_loop != None:
             for paramName in thisInner_loop:
                 globals()[paramName] = thisInner_loop[paramName]
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         
         for thisInner_loop in inner_loop:
             inner_loop.status = STARTED
@@ -838,6 +841,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisInner_loop.status = STARTED
             currentLoop = inner_loop
             thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
+            if thisSession is not None:
+                # if running in a Session with a Liaison client, send data up to now
+                thisSession.sendExperimentData()
             # abbreviate parameter names if possible (e.g. rgb = thisInner_loop.rgb)
             if thisInner_loop != None:
                 for paramName in thisInner_loop:
@@ -1657,9 +1663,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 )
                 # once done pausing, restore running status
                 inner_loop.status = STARTED
+            thisExp.nextEntry()
+            
         # completed 1.0 repeats of 'inner_loop'
         inner_loop.status = FINISHED
         
+        if thisSession is not None:
+            # if running in a Session with a Liaison client, send data up to now
+            thisSession.sendExperimentData()
         # mark thisTrial as finished
         if hasattr(thisTrial, 'status'):
             thisTrial.status = FINISHED
