@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.2.3),
-    on September 15, 2026, at 14:46
+    on September 15, 2026, at 14:57
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -44,7 +44,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
 psychopyVersion = '2026.2.3'
 expName = 'numbers_control'  # from the Builder filename that created this script
-expVersion = 'v1.0.0'
+expVersion = 'v1.0.1'
 # a list of functions to run when the experiment ends (starts off blank)
 runAtExit = []
 # information about this experiment
@@ -1072,6 +1072,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_0.wasClicked:
                             # run callback code when button_0 is clicked
                             response = digits[0]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1117,6 +1118,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_1.wasClicked:
                             # run callback code when button_1 is clicked
                             response = digits[1]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1162,6 +1164,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_2.wasClicked:
                             # run callback code when button_2 is clicked
                             response = digits[2]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1207,6 +1210,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_3.wasClicked:
                             # run callback code when button_3 is clicked
                             response = digits[3]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1252,6 +1256,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_4.wasClicked:
                             # run callback code when button_4 is clicked
                             response = digits[4]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1297,6 +1302,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_5.wasClicked:
                             # run callback code when button_5 is clicked
                             response = digits[5]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1342,6 +1348,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_6.wasClicked:
                             # run callback code when button_6 is clicked
                             response = digits[6]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1387,6 +1394,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_7.wasClicked:
                             # run callback code when button_7 is clicked
                             response = digits[7]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1432,6 +1440,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_8.wasClicked:
                             # run callback code when button_8 is clicked
                             response = digits[8]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1
@@ -1477,6 +1486,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_9.wasClicked:
                             # run callback code when button_9 is clicked
                             response = digits[9]
+                            thisExp.addData('clicked_response', response)
                             print(response)
                             if response == digit:
                              correct += 1

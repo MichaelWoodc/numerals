@@ -197,7 +197,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[0]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[0]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[0]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -233,7 +233,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[1]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[1]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[1]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -269,7 +269,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[2]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[2]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[2]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -305,7 +305,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[3]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[3]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[3]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -341,7 +341,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[4]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[4]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[4]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -377,7 +377,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[5]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[5]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[5]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -413,7 +413,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[6]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[6]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[6]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -449,7 +449,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[7]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[7]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[7]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -485,7 +485,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[8]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[8]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[8]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
@@ -521,7 +521,7 @@
                 <Param name="ori" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="forceEndRoutine" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="text" val="$digits[9]" valType="str" updates="set every repeat" plugin="None"/>
-                <Param name="callback" val="response = digits[9]&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
+                <Param name="callback" val="response = digits[9]&#10;thisExp.addData('clicked_response', response)&#10;print(response)&#10;if response == digit:&#10; correct += 1&#10; print('incremented correct')&#10; print(correct)&#10;&#10;else:&#10; incorrect += 1&#10; print('incremented incorrect')&#10; print(incorrect)  " valType="extendedCode" updates="constant" plugin="None"/>
                 <Param name="oncePerClick" val="True" valType="bool" updates="constant" plugin="None"/>
                 <Param name="borderWidth" val="0" valType="num" updates="constant" plugin="None"/>
                 <Param name="font" val="Arvo" valType="str" updates="constant" plugin="None"/>
