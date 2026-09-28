@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.2.3),
-    on September 28, 2026, at 15:48
+    on September 28, 2026, at 15:51
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1924,37 +1924,37 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # # -----------------------------------------
             # # INCORRECT (timeout or no response)
             # # -----------------------------------------
-            # if timed_out or no_response:
-            #     incorrect += 1
-            #     print("incremented incorrect:", incorrect)
-            #     thisExp.addData('This response', 'Timeout (Incorrect)')
+            if response == None:
+                incorrect += 1
+                print("incremented incorrect:", incorrect)
+                thisExp.addData('This response', 'Timeout (Incorrect)')
             
-            #     # --- Write to participant_conditions CSV ---
-            #     os.makedirs("participant_conditions", exist_ok=True)
-            #     outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                # --- Write to participant_conditions CSV ---
+                os.makedirs("participant_conditions", exist_ok=True)
+                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
             
-            #     headers = [
-            #         "digit",
-            #         "arabic_path",
-            #         "hindi_path",
-            #         "mandarin_path",
-            #         "correct_answer",
-            #         "total_time",
-            #         "routine_time",
-            #         "min_time_for_incorrect"
-            #     ]
+                headers = [
+                    "digit",
+                    "arabic_path",
+                    "hindi_path",
+                    "mandarin_path",
+                    "correct_answer",
+                    "total_time",
+                    "routine_time",
+                    "min_time_for_incorrect"
+                ]
             
-            #     full_row = trials.thisTrial
-            #     row = {key: full_row[key] for key in headers}
+                full_row = trials.thisTrial
+                row = {key: full_row[key] for key in headers}
             
-            #     write_header = not os.path.exists(outfile)
+                write_header = not os.path.exists(outfile)
             
-            #     import csv
-            #     with open(outfile, 'a', newline='') as f:
-            #         writer = csv.DictWriter(f, fieldnames=headers)
-            #         if write_header:
-            #             writer.writeheader()
-            #         writer.writerow(row)
+                import csv
+                with open(outfile, 'a', newline='') as f:
+                    writer = csv.DictWriter(f, fieldnames=headers)
+                    if write_header:
+                        writer.writeheader()
+                    writer.writerow(row)
             
             # # -----------------------------------------
             # # CORRECT RESPONSE
