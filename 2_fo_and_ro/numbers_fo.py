@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.2.3),
-    on September 28, 2026, at 14:49
+    on September 28, 2026, at 13:41
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -32,6 +32,8 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
+# Run 'Before Experiment' code from code
+import random
 # --- Setup global variables (available in all functions) ---
 # create a device manager to handle hardware (keyboards, mice, mirophones, speakers, etc.)
 deviceManager = hardware.DeviceManager()
@@ -39,8 +41,8 @@ deviceManager = hardware.DeviceManager()
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
 psychopyVersion = '2026.2.3'
-expName = 'numbers_fo_2'  # from the Builder filename that created this script
-expVersion = 'v1.0.0'
+expName = 'numbers_fo'  # from the Builder filename that created this script
+expVersion = 'V1.0.0'
 # a list of functions to run when the experiment ends (starts off blank)
 runAtExit = []
 # information about this experiment
@@ -130,7 +132,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\micha\\numerals\\2_fo_and_ro\\numbers_fo_2.py',
+        originPath='C:\\Users\\micha\\numerals\\2_fo_and_ro\\numbers_fo.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -199,7 +201,7 @@ def setupWindow(expInfo=None, win=None):
     if win is None:
         # if not given a window to setup, make one
         win = visual.Window(
-            size=_winSize, fullscr=_fullScr, screen=3,
+            size=_winSize, fullscr=_fullScr, screen=0,
             winType='pyglet', allowGUI=False, allowStencil=False,
             monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
             backgroundImage='', backgroundFit='none',
@@ -375,28 +377,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Start Code - component code to be run after the window creation
     
     # --- Initialize components for Routine "trial" ---
-    # Run 'Begin Experiment' code from code_imports
-    ## In code_imports begin Exp section
-    
-    import random
-    import csv
-    import time
-    # Run 'Begin Experiment' code from set_variables
-    experiment_total_time = 240
-    exp_start_time = time.time()
-    elapsed = time.time() - exp_start_time
-    correct = 0
-    incorrect = 0
+    # Run 'Begin Experiment' code from code
     digits = [0,1,2,3,4,5,6,7,8,9]
     correct_digits = []
-    # Run 'Begin Experiment' code from end_at_specified_time
-    exp_start_time = time.time()          # overall experiment timer
-    
     
     correct = 0
     incorrect = 0
-    
-    digits = [0,1,2,3,4,5,6,7,8,9]        # required for random.shuffle
+    print('In begin experiment section of trial routine')
     image = visual.ImageStim(
         win=win,
         name='image', 
@@ -404,7 +391,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0.2), draggable=False, size=(0.3, 0.3),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-4.0)
+        texRes=128.0, interpolate=True, depth=-2.0)
     mouse = event.Mouse(win=win)
     x, y = [None, None]
     mouse.mouseClock = core.Clock()
@@ -422,7 +409,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_0',
-        depth=-6
+        depth=-4
     )
     button_0.buttonClock = core.Clock()
     button_1 = visual.ButtonStim(win, 
@@ -439,7 +426,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_1',
-        depth=-7
+        depth=-5
     )
     button_1.buttonClock = core.Clock()
     button_2 = visual.ButtonStim(win, 
@@ -456,7 +443,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_2',
-        depth=-8
+        depth=-6
     )
     button_2.buttonClock = core.Clock()
     button_3 = visual.ButtonStim(win, 
@@ -473,7 +460,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_3',
-        depth=-9
+        depth=-7
     )
     button_3.buttonClock = core.Clock()
     button_4 = visual.ButtonStim(win, 
@@ -490,7 +477,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_4',
-        depth=-10
+        depth=-8
     )
     button_4.buttonClock = core.Clock()
     button_5 = visual.ButtonStim(win, 
@@ -507,7 +494,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_5',
-        depth=-11
+        depth=-9
     )
     button_5.buttonClock = core.Clock()
     button_6 = visual.ButtonStim(win, 
@@ -524,7 +511,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_6',
-        depth=-12
+        depth=-10
     )
     button_6.buttonClock = core.Clock()
     button_7 = visual.ButtonStim(win, 
@@ -541,7 +528,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_7',
-        depth=-13
+        depth=-11
     )
     button_7.buttonClock = core.Clock()
     button_8 = visual.ButtonStim(win, 
@@ -558,7 +545,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_8',
-        depth=-14
+        depth=-12
     )
     button_8.buttonClock = core.Clock()
     button_9 = visual.ButtonStim(win, 
@@ -575,55 +562,37 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         padding=None,
         anchor='bottom-center',
         name='button_9',
-        depth=-15
+        depth=-13
     )
     button_9.buttonClock = core.Clock()
-    text = visual.TextStim(win=win, name='text',
-        text='',
-        font='Arial',
-        pos=(0.2, 0.2), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-16.0);
-    
-    # --- Initialize components for Routine "blank_screen" ---
-    
-    # --- Initialize components for Routine "error_correction_notification" ---
-    text_6 = visual.TextStim(win=win, name='text_6',
-        text='Next, you will see the numbers you got incorrect, and have the opportunity to select the correct answer.  Please click or touch anywhere to continue.',
-        font='Arial',
-        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=0.0);
-    mouse_3 = event.Mouse(win=win)
-    x, y = [None, None]
-    mouse_3.mouseClock = core.Clock()
-    number_of_correct_text_5 = visual.TextStim(win=win, name='number_of_correct_text_5',
+    number_of_correct_text = visual.TextStim(win=win, name='number_of_correct_text',
         text='',
         font='Arial',
         pos=(0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-2.0);
-    number_of_incorrect_text_5 = visual.TextStim(win=win, name='number_of_incorrect_text_5',
+        depth=-14.0);
+    number_of_incorrect_text = visual.TextStim(win=win, name='number_of_incorrect_text',
         text='',
         font='Arial',
         pos=(-0.4, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-3.0);
+        depth=-15.0);
+    # Run 'Begin Experiment' code from add_data_num_correct_num_incorrect_time
+    import time
+    exp_start_time = time.time()
     
     # --- Initialize components for Routine "error_correction" ---
-    numeral_image_ec_phase = visual.ImageStim(
+    image_2 = visual.ImageStim(
         win=win,
-        name='numeral_image_ec_phase', 
+        name='image_2', 
         image='default.png', mask=None, anchor='center',
         ori=0.0, pos=(0, 0.2), draggable=False, size=(0.3, 0.3),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-1.0)
-    numeral_response_button = visual.ButtonStim(win, 
+        texRes=128.0, interpolate=True, depth=-2.0)
+    button = visual.ButtonStim(win, 
         text='', font='Arvo',
         pos=(-.0, -.1),
         letterHeight=0.05,
@@ -636,17 +605,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         bold=True, italic=False,
         padding=None,
         anchor='bottom-center',
-        name='numeral_response_button',
-        depth=-2
+        name='button',
+        depth=-3
     )
-    numeral_response_button.buttonClock = core.Clock()
-    debug_text = visual.TextStim(win=win, name='debug_text',
-        text='',
-        font='Arial',
-        pos=(0.2, 0.2), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-3.0);
+    button.buttonClock = core.Clock()
     number_of_correct_text_2 = visual.TextStim(win=win, name='number_of_correct_text_2',
         text='',
         font='Arial',
@@ -662,9 +624,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=-5.0);
     
+    # --- Initialize components for Routine "blank_screen" ---
+    text_3 = visual.TextStim(win=win, name='text_3',
+        text=' ',
+        font='Arial',
+        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-1.0);
+    
     # --- Initialize components for Routine "blank_for_next" ---
     text_5 = visual.TextStim(win=win, name='text_5',
-        text='The researcher will prepare the computer for the next phase.',
+        text='Please fetch the researcher.  \nThank you!',
         font='Arial',
         pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -727,7 +698,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         originPath=-1, 
         trialList=data.importConditions('digit_paths_black.csv'), 
         seed=None, 
-        isTrials=True, 
+        isTrials=False, 
     )
     thisExp.addLoop(trials)  # add the loop to the experiment
     thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -735,9 +706,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if thisTrial != None:
         for paramName in thisTrial:
             globals()[paramName] = thisTrial[paramName]
-    if thisSession is not None:
-        # if running in a Session with a Liaison client, send data up to now
-        thisSession.sendExperimentData()
     
     for thisTrial in trials:
         trials.status = STARTED
@@ -745,9 +713,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisTrial.status = STARTED
         currentLoop = trials
         thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
-        if thisSession is not None:
-            # if running in a Session with a Liaison client, send data up to now
-            thisSession.sendExperimentData()
         # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
         if thisTrial != None:
             for paramName in thisTrial:
@@ -756,7 +721,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # set up handler to look after randomisation of conditions etc
         inner_loop = data.TrialHandler2(
             name='inner_loop',
-            nReps=30.0, 
+            nReps=200.0, 
             method='sequential', 
             extraInfo=expInfo, 
             originPath=-1, 
@@ -792,24 +757,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine trial
             trial = data.Routine(
                 name='trial',
-                components=[image, mouse, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, text],
+                components=[image, mouse, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, number_of_correct_text, number_of_incorrect_text],
             )
             trial.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
-            # Run 'Begin Routine' code from end_at_specified_time
-            ## In end_at_specified_time begin routine component
-            
+            # Run 'Begin Routine' code from code
             random.shuffle(digits)
             response = None
             point_subtracted = False
             responded = False
             started_routine_at = globalClock.getTime()
             routineTimer.reset()
-            selected_language = trials.thisTrial[expInfo['Language']]
-            trials.thisTrial[expInfo['Language']]
-            timeout_logged = False
-            
             image.setImage(trials.thisTrial[expInfo['Language']]
             )
             # setup some python lists for storing info about the mouse
@@ -850,19 +809,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             button_9.setText(digits[9])
             # reset button_9 to account for continued clicks & clear times on/off
             button_9.reset()
-            # Run 'Begin Routine' code from add_data_num_correct_time
+            number_of_correct_text.setText(f"Number correct: {correct}")
+            number_of_incorrect_text.setText(f"Number incorrect: {incorrect}")
+            # Run 'Begin Routine' code from add_data_num_correct_num_incorrect_time
             elapsed = time.time() - exp_start_time
-            thisExp.addData('this trial start time', round(elapsed, 2))
-            print("Elapsed:", round(elapsed, 2))
+            thisExp.addData('Start Routine Time', round(elapsed, 2))
+            
             # store start times for trial
             trial.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
             trial.tStart = globalClock.getTime(format='float')
             trial.status = STARTED
             thisExp.addData('trial.started', trial.tStart)
             trial.maxDuration = None
-            # skip Routine trial if its 'Skip if' condition is True
-            trial.skipped = continueRoutine and not (globalClock.getTime() > 20)
-            continueRoutine = trial.skipped
             # keep track of which components have finished
             trialComponents = trial.components
             for thisComponent in trial.components:
@@ -920,68 +878,17 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 except:
                     timer_lines.append("Digit: N/A")
                 
-                try:
-                    timer_lines.append(f"number_trials: {number_trials}") 
-                except:
-                    timer_lines.append(f"number_trials: N/A")
-                    
-                try:
-                    timer_lines.append(f"trials_completed: {trials_completed}")
-                except:
-                    timer_lines.append(f"trials_completed: N/A")
-                
-                elapsed = time.time() - exp_start_time
-                try:
-                    timer_lines.append(f"elapsed: {elapsed:.2f}s")
-                except:
-                    timer_lines.append("Routine: N/A")
-                try:
-                    timer_lines.append(f"elapsed: {experiment_total_time}s")
-                except:
-                    pass
-                # Incorrect count
-                try:
-                    timer_lines.append(f"Number incorrect: {incorrect}")
-                except:
-                    timer_lines.append("Number incorrect: N/A")
-                
-                # Correct count
-                try:
-                    timer_lines.append(f"Number correct: {correct}")
-                except:
-                    timer_lines.append("Number correct: N/A")
-                
                 timer_display = "\n".join(timer_lines)
-                # Run 'Each Frame' code from end_at_specified_time
+                # Run 'Each Frame' code from code
                 # -----------------------------
-                # FO_2 — TIMEOUT DETECTION ONLY
+                # SCORING + ROUTINE END LOGIC
                 # -----------------------------
                 
-                elapsed = time.time() - exp_start_time
+                if globalClock.getTime() > total_time:
+                    print(f"Timeout in TRIAL routine at {globalClock.getTime():.2f}")
+                    inner_loop.finished = True      # end the inner loop
+                    continueRoutine = False         # end THIS routine immediately
                 
-                # Per‑trial timeout
-                if (not timeout_logged) and routineTimer.getTime() >= min_time_for_incorrect:
-                    timeout_logged = True
-                
-                # Overall experiment timeout
-                if (not timeout_logged) and elapsed >= experiment_total_time:
-                    timeout_logged = True
-                
-                # elapsed = time.time() - exp_start_time
-                # globalClock.getTime()
-                elapsed = time.time() - exp_start_time
-                
-                if globalClock.getTime() >= 20:
-                
-                    # try:
-                    #     inner_loop.nRemaining = 0
-                    #     trials.nRemaining = 0
-                    # except:
-                    #     pass
-                    # Kill inner loop immediately
-                    inner_loop.finished = True
-                    # # Skip to end of current routine
-                    # continueRoutine = False
                 
                 # *image* updates
                 
@@ -1064,52 +971,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_0 is clicked
                             response = digits[0]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
-                            
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_0 was clicked, so that next frame we know if clicks are new
                 button_0.wasClicked = button_0.isClicked and button_0.status == STARTED
                 # *button_1* updates
@@ -1146,52 +1016,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_1 is clicked
                             response = digits[1]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
-                            
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_1 was clicked, so that next frame we know if clicks are new
                 button_1.wasClicked = button_1.isClicked and button_1.status == STARTED
                 # *button_2* updates
@@ -1228,52 +1061,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_2 is clicked
                             response = digits[2]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
-                            
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_2 was clicked, so that next frame we know if clicks are new
                 button_2.wasClicked = button_2.isClicked and button_2.status == STARTED
                 # *button_3* updates
@@ -1310,52 +1106,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_3 is clicked
                             response = digits[3]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
-                            
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_3 was clicked, so that next frame we know if clicks are new
                 button_3.wasClicked = button_3.isClicked and button_3.status == STARTED
                 # *button_4* updates
@@ -1392,51 +1151,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_4 is clicked
                             response = digits[4]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_4 was clicked, so that next frame we know if clicks are new
                 button_4.wasClicked = button_4.isClicked and button_4.status == STARTED
                 # *button_5* updates
@@ -1473,51 +1196,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_5 is clicked
                             response = digits[5]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_5 was clicked, so that next frame we know if clicks are new
                 button_5.wasClicked = button_5.isClicked and button_5.status == STARTED
                 # *button_6* updates
@@ -1554,51 +1241,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_6 is clicked
                             response = digits[6]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_6 was clicked, so that next frame we know if clicks are new
                 button_6.wasClicked = button_6.isClicked and button_6.status == STARTED
                 # *button_7* updates
@@ -1635,51 +1286,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_7 is clicked
                             response = digits[7]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_7 was clicked, so that next frame we know if clicks are new
                 button_7.wasClicked = button_7.isClicked and button_7.status == STARTED
                 # *button_8* updates
@@ -1716,51 +1331,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_8 is clicked
                             response = digits[8]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_8 was clicked, so that next frame we know if clicks are new
                 button_8.wasClicked = button_8.isClicked and button_8.status == STARTED
                 # *button_9* updates
@@ -1797,72 +1376,55 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             # run callback code when button_9 is clicked
                             response = digits[9]
                             print(response)
-                            thisExp.addData('Response',response)
                             if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
+                             correct += 1
+                             print('incremented correct')
+                             print(correct)
                             
                             else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
-                            
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
-                            
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
-                            
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
-                            
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
-                            
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
-                            
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                             incorrect += 1
+                             print('incremented incorrect')
+                             print(incorrect)  
                 # take note of whether button_9 was clicked, so that next frame we know if clicks are new
                 button_9.wasClicked = button_9.isClicked and button_9.status == STARTED
                 
-                # *text* updates
+                # *number_of_correct_text* updates
                 
-                # if text is starting this frame...
-                if text.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                # if number_of_correct_text is starting this frame...
+                if number_of_correct_text.status == NOT_STARTED and t >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
-                    text.frameNStart = frameN  # exact frame index
-                    text.tStart = t  # local t and not account for scr refresh
-                    text.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+                    number_of_correct_text.frameNStart = frameN  # exact frame index
+                    number_of_correct_text.tStart = t  # local t and not account for scr refresh
+                    number_of_correct_text.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(number_of_correct_text, 'tStartRefresh')  # time at next scr refresh
                     # update status
-                    text.status = STARTED
-                    text.setAutoDraw(True)
+                    number_of_correct_text.status = STARTED
+                    number_of_correct_text.setAutoDraw(True)
                 
-                # if text is active this frame...
-                if text.status == STARTED:
+                # if number_of_correct_text is active this frame...
+                if number_of_correct_text.status == STARTED:
                     # update params
-                    text.setText(timer_display
-                    , log=False)
+                    pass
+                
+                # *number_of_incorrect_text* updates
+                
+                # if number_of_incorrect_text is starting this frame...
+                if number_of_incorrect_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    number_of_incorrect_text.frameNStart = frameN  # exact frame index
+                    number_of_incorrect_text.tStart = t  # local t and not account for scr refresh
+                    number_of_incorrect_text.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(number_of_incorrect_text, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'number_of_incorrect_text.started')
+                    # update status
+                    number_of_incorrect_text.status = STARTED
+                    number_of_incorrect_text.setAutoDraw(True)
+                
+                # if number_of_incorrect_text is active this frame...
+                if number_of_incorrect_text.status == STARTED:
+                    # update params
+                    pass
                 
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1906,76 +1468,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial.tStop = globalClock.getTime(format='float')
             trial.tStopRefresh = tThisFlipGlobal
             thisExp.addData('trial.stopped', trial.tStop)
-            # Run 'End Routine' code from end_at_specified_time
-            # -----------------------------
-            # FO_2 — END ROUTINE
-            # -----------------------------
+            # Run 'End Routine' code from code
             ended_routine_at = globalClock.getTime()
-            routine_elapsed = ended_routine_at - started_routine_at
             
-            timed_out = timeout_logged
-            no_response = (response is None)
-            
-            # -----------------------------------------
-            # INCORRECT (timeout or no response)
-            # -----------------------------------------
-            if timed_out or no_response:
-                incorrect += 1
-                print("incremented incorrect:", incorrect)
-                thisExp.addData('This response', 'Timeout (Incorrect)')
-            
-                # --- Write to participant_conditions CSV ---
-                os.makedirs("participant_conditions", exist_ok=True)
-                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-            
-                headers = [
-                    "digit",
-                    "arabic_path",
-                    "hindi_path",
-                    "mandarin_path",
-                    "correct_answer",
-                    "total_time",
-                    "routine_time",
-                    "min_time_for_incorrect"
-                ]
-            
-                full_row = trials.thisTrial
-                row = {key: full_row[key] for key in headers}
-            
-                write_header = not os.path.exists(outfile)
-            
-                import csv
-                with open(outfile, 'a', newline='') as f:
-                    writer = csv.DictWriter(f, fieldnames=headers)
-                    if write_header:
-                        writer.writeheader()
-                    writer.writerow(row)
-            
-            # -----------------------------------------
-            # CORRECT RESPONSE
-            # -----------------------------------------
-            else:
-                correct += 1
-                print("incremented correct:", correct)
-                thisExp.addData('This response', 'Correct')
-            
-            
-            # -----------------------------------------
-            # END EXPERIMENT ONLY WHEN OVERALL TIMER EXPIRES
-            # -----------------------------------------
-            # -----------------------------------------
-            # OVERALL TIMER EXPIRED
-            # -----------------------------------------
-            elapsed = time.time() - exp_start_time
-            
-            if elapsed >= experiment_total_time:
-                print("Overall experiment time reached")
-            
-                # Let later routines know we're done
-                time_limit_reached = True
-            
-                # Stop presenting more digits
-                inner_loop.finished = True
+            if ended_routine_at - min_time_for_incorrect > started_routine_at:
+                if response == None:
+                    incorrect += 1
+            #if globalClock.getTime() < total_time:
+            #    print("Not enough time — repeating this trial")
+            #    trials.thisTrialN -= 1
+            #
             # store data for inner_loop (TrialHandler)
             inner_loop.addData('mouse.x', mouse.x)
             inner_loop.addData('mouse.y', mouse.y)
@@ -2053,19 +1555,261 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             else:
                inner_loop.addData('button_9.timesOn', "")
                inner_loop.addData('button_9.timesOff', "")
-            # Run 'End Routine' code from add_data_num_correct_time
+            # Run 'End Routine' code from add_data_num_correct_num_incorrect_time
             thisExp.addData("Number_correct", correct)
             thisExp.addData("Number_incorrect", incorrect)
-            
             elapsed = time.time() - exp_start_time
             print("Elapsed:", round(elapsed, 2))
-            thisExp.addData('this trial end time', round(elapsed, 2))
+            thisExp.addData('End Routine Time', round(elapsed, 2))
             #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
             #
             # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
             if trial.maxDurationReached:
                 routineTimer.addTime(-trial.maxDuration)
             elif trial.forceEnded:
+                routineTimer.reset()
+            else:
+                routineTimer.addTime(-5.000000)
+            
+            # --- Prepare to start Routine "error_correction" ---
+            # create an object to store info about Routine error_correction
+            error_correction = data.Routine(
+                name='error_correction',
+                components=[image_2, button, number_of_correct_text_2, number_of_incorrect_text_2],
+            )
+            error_correction.status = NOT_STARTED
+            continueRoutine = True
+            # update component parameters for each repeat
+            # Run 'Begin Routine' code from code_reprimand
+            print('In begin routine of reprimand section')
+            #if response == None:
+            #    if (ended_routine_at - min_time_for_incorrect) >= (started_routine_at):
+            #        counted_skipped_incorrect = True
+            #        incorrect += 1
+            #        
+            image_2.setImage(trials.thisTrial[expInfo['Language']]
+            )
+            button.setText(digit)
+            # reset button to account for continued clicks & clear times on/off
+            button.reset()
+            number_of_correct_text_2.setText(f"Number correct: {correct}")
+            number_of_incorrect_text_2.setText(f"Number incorrect: {incorrect}")
+            # store start times for error_correction
+            error_correction.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+            error_correction.tStart = globalClock.getTime(format='float')
+            error_correction.status = STARTED
+            thisExp.addData('error_correction.started', error_correction.tStart)
+            error_correction.maxDuration = None
+            # skip Routine error_correction if its 'Skip if' condition is True
+            error_correction.skipped = continueRoutine and not (response == digit or globalClock.getTime()>= total_time)
+            continueRoutine = error_correction.skipped
+            # keep track of which components have finished
+            error_correctionComponents = error_correction.components
+            for thisComponent in error_correction.components:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            frameN = -1
+            
+            # --- Run Routine "error_correction" ---
+            thisExp.currentRoutine = error_correction
+            error_correction.forceEnded = routineForceEnded = not continueRoutine
+            while continueRoutine and routineTimer.getTime() < 5.0:
+                # if trial has changed, end Routine now
+                if hasattr(thisInner_loop, 'status') and thisInner_loop.status == STOPPING:
+                    continueRoutine = False
+                # get current time
+                t = routineTimer.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                # Run 'Each Frame' code from debug_text_reprimand
+                timer_lines = []
+                timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
+                
+                try:
+                    timer_lines.append(f"Routine: {routineTimer.getTime():.2f}s")
+                except:
+                    timer_lines.append("Routine: N/A")
+                
+                #try:
+                #    timer_lines.append(f"Inner: {innerClock.getTime():.2f}s")
+                #except:
+                #    timer_lines.append("Inner: N/A")
+                #
+                #try:
+                #    timer_lines.append(f"Trial: {trialClock.getTime():.2f}s")
+                #except:
+                #    timer_lines.append("Trial: N/A")
+                
+                #try:
+                #    timer_lines.append(f"Inner remaining: {inner_loop.nRemaining}")
+                #except:
+                #    timer_lines.append("Inner remaining: N/A")
+                
+                # Add the digit being shown this trial
+                try:
+                    timer_lines.append(f"Digit: {digit}")
+                except:
+                    timer_lines.append("Digit: N/A")
+                
+                timer_display = "\n".join(timer_lines)
+                # Run 'Each Frame' code from code_reprimand
+                
+                if globalClock.getTime() > total_time:
+                    print(f'Global Clock > {total_time} in each frame of reprimand routine')
+                    inner_loop.finished = True
+                    continueRoutine = False
+                
+                # *image_2* updates
+                
+                # if image_2 is starting this frame...
+                if image_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    image_2.frameNStart = frameN  # exact frame index
+                    image_2.tStart = t  # local t and not account for scr refresh
+                    image_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(image_2, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    image_2.status = STARTED
+                    image_2.setAutoDraw(True)
+                
+                # if image_2 is active this frame...
+                if image_2.status == STARTED:
+                    # update params
+                    pass
+                # *button* updates
+                
+                # if button is starting this frame...
+                if button.status == NOT_STARTED and t >= 0-frameTolerance:
+                    # keep track of start time/frame for later
+                    button.frameNStart = frameN  # exact frame index
+                    button.tStart = t  # local t and not account for scr refresh
+                    button.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(button, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    button.status = STARTED
+                    win.callOnFlip(button.buttonClock.reset)
+                    button.setAutoDraw(True)
+                
+                # if button is active this frame...
+                if button.status == STARTED:
+                    # update params
+                    pass
+                    # check whether button has been pressed
+                    if button.isClicked:
+                        if not button.wasClicked:
+                            # if this is a new click, store time of first click and clicked until
+                            button.timesOn.append(routineTimer.getTime())
+                            button.timesOff.append(routineTimer.getTime())
+                        elif len(button.timesOff):
+                            # if click is continuing from last frame, update time of clicked until
+                            button.timesOff[-1] = routineTimer.getTime()
+                        if not button.wasClicked:
+                            # end routine when button is clicked
+                            continueRoutine = False
+                        if not button.wasClicked:
+                            # run callback code when button is clicked
+                            pass
+                # take note of whether button was clicked, so that next frame we know if clicks are new
+                button.wasClicked = button.isClicked and button.status == STARTED
+                
+                # *number_of_correct_text_2* updates
+                
+                # if number_of_correct_text_2 is starting this frame...
+                if number_of_correct_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    number_of_correct_text_2.frameNStart = frameN  # exact frame index
+                    number_of_correct_text_2.tStart = t  # local t and not account for scr refresh
+                    number_of_correct_text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(number_of_correct_text_2, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    number_of_correct_text_2.status = STARTED
+                    number_of_correct_text_2.setAutoDraw(True)
+                
+                # if number_of_correct_text_2 is active this frame...
+                if number_of_correct_text_2.status == STARTED:
+                    # update params
+                    pass
+                
+                # *number_of_incorrect_text_2* updates
+                
+                # if number_of_incorrect_text_2 is starting this frame...
+                if number_of_incorrect_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    number_of_incorrect_text_2.frameNStart = frameN  # exact frame index
+                    number_of_incorrect_text_2.tStart = t  # local t and not account for scr refresh
+                    number_of_incorrect_text_2.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(number_of_incorrect_text_2, 'tStartRefresh')  # time at next scr refresh
+                    # update status
+                    number_of_incorrect_text_2.status = STARTED
+                    number_of_incorrect_text_2.setAutoDraw(True)
+                
+                # if number_of_incorrect_text_2 is active this frame...
+                if number_of_incorrect_text_2.status == STARTED:
+                    # update params
+                    pass
+                
+                # check for quit (typically the Esc key)
+                if defaultKeyboard.getKeys(keyList=["escape"]):
+                    thisExp.status = FINISHED
+                if thisExp.status == FINISHED or endExpNow:
+                    endExperiment(thisExp, win=win)
+                    return
+                # pause experiment here if requested
+                if thisExp.status == PAUSED:
+                    pauseExperiment(
+                        thisExp=thisExp, 
+                        win=win, 
+                        timers=[routineTimer, globalClock], 
+                        currentRoutine=error_correction,
+                    )
+                    # skip the frame we paused on
+                    continue
+                
+                # has a Component requested the Routine to end?
+                if not continueRoutine:
+                    error_correction.forceEnded = routineForceEnded = True
+                # has the Routine been forcibly ended?
+                if error_correction.forceEnded or routineForceEnded:
+                    break
+                # has every Component finished?
+                continueRoutine = False
+                for thisComponent in error_correction.components:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # --- Ending Routine "error_correction" ---
+            for thisComponent in error_correction.components:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            # store stop times for error_correction
+            error_correction.tStop = globalClock.getTime(format='float')
+            error_correction.tStopRefresh = tThisFlipGlobal
+            thisExp.addData('error_correction.stopped', error_correction.tStop)
+            inner_loop.addData('button.numClicks', button.numClicks)
+            if button.numClicks:
+               inner_loop.addData('button.timesOn', button.timesOn)
+               inner_loop.addData('button.timesOff', button.timesOff)
+            else:
+               inner_loop.addData('button.timesOn', "")
+               inner_loop.addData('button.timesOff', "")
+            # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+            if error_correction.maxDurationReached:
+                routineTimer.addTime(-error_correction.maxDuration)
+            elif error_correction.forceEnded:
                 routineTimer.reset()
             else:
                 routineTimer.addTime(-5.000000)
@@ -2084,27 +1828,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 inner_loop.status = STARTED
             thisExp.nextEntry()
             
-        # completed 30.0 repeats of 'inner_loop'
+        # completed 200.0 repeats of 'inner_loop'
         inner_loop.status = FINISHED
         
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-        # get names of stimulus parameters
-        if inner_loop.trialList in ([], [None], None):
-            params = []
-        else:
-            params = inner_loop.trialList[0].keys()
-        # save data for this loop
-        inner_loop.saveAsText(filename + '_inner_loop.csv', delim=',',
-            stimOut=params,
-            dataOut=['n','all_mean','all_std', 'all_raw'])
         
         # --- Prepare to start Routine "blank_screen" ---
         # create an object to store info about Routine blank_screen
         blank_screen = data.Routine(
             name='blank_screen',
-            components=[],
+            components=[text_3],
         )
         blank_screen.status = NOT_STARTED
         continueRoutine = True
@@ -2117,9 +1852,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win.color = 'black'
         win.flip()
         
-        # Run 'Begin Routine' code from log_time_3
         elapsed = time.time() - exp_start_time
-        print("Elapsed:", round(elapsed, 2))
+        
         thisExp.addData('Current time', round(elapsed, 2))
         #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
         #
@@ -2127,10 +1861,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         blank_screen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         blank_screen.tStart = globalClock.getTime(format='float')
         blank_screen.status = STARTED
-        blank_screen.maxDuration = 0.1
-        # skip Routine blank_screen if its 'Skip if' condition is True
-        blank_screen.skipped = continueRoutine and not (globalClock.getTime() > 20)
-        continueRoutine = blank_screen.skipped
+        blank_screen.maxDuration = 1
         # keep track of which components have finished
         blank_screenComponents = blank_screen.components
         for thisComponent in blank_screen.components:
@@ -2148,7 +1879,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Run Routine "blank_screen" ---
         thisExp.currentRoutine = blank_screen
         blank_screen.forceEnded = routineForceEnded = not continueRoutine
-        while continueRoutine and routineTimer.getTime() < 0.1:
+        while continueRoutine and routineTimer.getTime() < 1.0:
             # if trial has changed, end Routine now
             if hasattr(thisTrial, 'status') and thisTrial.status == STOPPING:
                 continueRoutine = False
@@ -2162,6 +1893,40 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if tThisFlip > blank_screen.maxDuration-frameTolerance:
                 blank_screen.maxDurationReached = True
                 continueRoutine = False
+            
+            # *text_3* updates
+            
+            # if text_3 is starting this frame...
+            if text_3.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                text_3.frameNStart = frameN  # exact frame index
+                text_3.tStart = t  # local t and not account for scr refresh
+                text_3.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.addData('text_3.started', t)
+                # update status
+                text_3.status = STARTED
+                text_3.setAutoDraw(True)
+            
+            # if text_3 is active this frame...
+            if text_3.status == STARTED:
+                # update params
+                pass
+            
+            # if text_3 is stopping this frame...
+            if text_3.status == STARTED:
+                # is it time to stop? (based on global clock, using actual start)
+                if tThisFlipGlobal > text_3.tStartRefresh + 1.0-frameTolerance:
+                    # keep track of stop time/frame for later
+                    text_3.tStop = t  # not accounting for scr refresh
+                    text_3.tStopRefresh = tThisFlipGlobal  # on global time
+                    text_3.frameNStop = frameN  # exact frame index
+                    # add timestamp to datafile
+                    thisExp.addData('text_3.stopped', t)
+                    # update status
+                    text_3.status = FINISHED
+                    text_3.setAutoDraw(False)
             
             # check for quit (typically the Esc key)
             if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2209,7 +1974,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win.flip()
         globalClock.reset()
         print('Got into the reset_clcoks routine')
-        inner_loop.finished = False
+        
         
         # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
         if blank_screen.maxDurationReached:
@@ -2217,7 +1982,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         elif blank_screen.forceEnded:
             routineTimer.reset()
         else:
-            routineTimer.addTime(-0.100000)
+            routineTimer.addTime(-1.000000)
         # mark thisTrial as finished
         if hasattr(thisTrial, 'status'):
             thisTrial.status = FINISHED
@@ -2231,547 +1996,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             )
             # once done pausing, restore running status
             trials.status = STARTED
-        thisExp.nextEntry()
-        
     # completed 1.0 repeats of 'trials'
     trials.status = FINISHED
     
-    if thisSession is not None:
-        # if running in a Session with a Liaison client, send data up to now
-        thisSession.sendExperimentData()
-    # get names of stimulus parameters
-    if trials.trialList in ([], [None], None):
-        params = []
-    else:
-        params = trials.trialList[0].keys()
-    # save data for this loop
-    trials.saveAsText(filename + '_trials.csv', delim=',',
-        stimOut=params,
-        dataOut=['n','all_mean','all_std', 'all_raw'])
-    
-    # --- Prepare to start Routine "error_correction_notification" ---
-    # create an object to store info about Routine error_correction_notification
-    error_correction_notification = data.Routine(
-        name='error_correction_notification',
-        components=[text_6, mouse_3, number_of_correct_text_5, number_of_incorrect_text_5],
-    )
-    error_correction_notification.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    # setup some python lists for storing info about the mouse_3
-    mouse_3.x = []
-    mouse_3.y = []
-    mouse_3.leftButton = []
-    mouse_3.midButton = []
-    mouse_3.rightButton = []
-    mouse_3.time = []
-    gotValidClick = False  # until a click is received
-    number_of_correct_text_5.setText(f"Number correct: {correct}")
-    number_of_incorrect_text_5.setText(f"Number incorrect: {incorrect}")
-    # Run 'Begin Routine' code from log_time
-    elapsed = time.time() - exp_start_time
-    print("Elapsed:", round(elapsed, 2))
-    thisExp.addData('Trials 1 end time', round(elapsed, 2))
-    #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
-    #
-    # store start times for error_correction_notification
-    error_correction_notification.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    error_correction_notification.tStart = globalClock.getTime(format='float')
-    error_correction_notification.status = STARTED
-    thisExp.addData('error_correction_notification.started', error_correction_notification.tStart)
-    error_correction_notification.maxDuration = None
-    # keep track of which components have finished
-    error_correction_notificationComponents = error_correction_notification.components
-    for thisComponent in error_correction_notification.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "error_correction_notification" ---
-    thisExp.currentRoutine = error_correction_notification
-    error_correction_notification.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *text_6* updates
-        
-        # if text_6 is starting this frame...
-        if text_6.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_6.frameNStart = frameN  # exact frame index
-            text_6.tStart = t  # local t and not account for scr refresh
-            text_6.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_6, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_6.status = STARTED
-            text_6.setAutoDraw(True)
-        
-        # if text_6 is active this frame...
-        if text_6.status == STARTED:
-            # update params
-            pass
-        # *mouse_3* updates
-        
-        # if mouse_3 is starting this frame...
-        if mouse_3.status == NOT_STARTED and t >= 3-frameTolerance:
-            # keep track of start time/frame for later
-            mouse_3.frameNStart = frameN  # exact frame index
-            mouse_3.tStart = t  # local t and not account for scr refresh
-            mouse_3.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(mouse_3, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            mouse_3.status = STARTED
-            mouse_3.mouseClock.reset()
-            # if button is down already this ISN'T a new click
-            mouse_3.prevButtonState = mouse_3.getPressed()
-        if mouse_3.status == STARTED:  # only update if started and not finished!
-            buttons = mouse_3.getPressed()
-            # button state changed?
-            if buttons != mouse_3.prevButtonState:
-                mouse_3.prevButtonState = buttons
-                # state changed to a new click
-                if sum(buttons) > 0:
-                    pass
-                    x, y = mouse_3.getPos()
-                    mouse_3.x.append(float(x))
-                    mouse_3.y.append(float(y))
-                    buttons = mouse_3.getPressed()
-                    mouse_3.leftButton.append(buttons[0])
-                    mouse_3.midButton.append(buttons[1])
-                    mouse_3.rightButton.append(buttons[2])
-                    mouse_3.time.append(mouse_3.mouseClock.getTime())
-                    
-                    continueRoutine = False  # end routine on response
-        
-        # *number_of_correct_text_5* updates
-        
-        # if number_of_correct_text_5 is starting this frame...
-        if number_of_correct_text_5.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            number_of_correct_text_5.frameNStart = frameN  # exact frame index
-            number_of_correct_text_5.tStart = t  # local t and not account for scr refresh
-            number_of_correct_text_5.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(number_of_correct_text_5, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            number_of_correct_text_5.status = STARTED
-            number_of_correct_text_5.setAutoDraw(True)
-        
-        # if number_of_correct_text_5 is active this frame...
-        if number_of_correct_text_5.status == STARTED:
-            # update params
-            pass
-        
-        # *number_of_incorrect_text_5* updates
-        
-        # if number_of_incorrect_text_5 is starting this frame...
-        if number_of_incorrect_text_5.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            number_of_incorrect_text_5.frameNStart = frameN  # exact frame index
-            number_of_incorrect_text_5.tStart = t  # local t and not account for scr refresh
-            number_of_incorrect_text_5.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(number_of_incorrect_text_5, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            number_of_incorrect_text_5.status = STARTED
-            number_of_incorrect_text_5.setAutoDraw(True)
-        
-        # if number_of_incorrect_text_5 is active this frame...
-        if number_of_incorrect_text_5.status == STARTED:
-            # update params
-            pass
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer, globalClock], 
-                currentRoutine=error_correction_notification,
-            )
-            # skip the frame we paused on
-            continue
-        
-        # has a Component requested the Routine to end?
-        if not continueRoutine:
-            error_correction_notification.forceEnded = routineForceEnded = True
-        # has the Routine been forcibly ended?
-        if error_correction_notification.forceEnded or routineForceEnded:
-            break
-        # has every Component finished?
-        continueRoutine = False
-        for thisComponent in error_correction_notification.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "error_correction_notification" ---
-    for thisComponent in error_correction_notification.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for error_correction_notification
-    error_correction_notification.tStop = globalClock.getTime(format='float')
-    error_correction_notification.tStopRefresh = tThisFlipGlobal
-    thisExp.addData('error_correction_notification.stopped', error_correction_notification.tStop)
-    # store data for thisExp (ExperimentHandler)
-    thisExp.addData('mouse_3.x', mouse_3.x)
-    thisExp.addData('mouse_3.y', mouse_3.y)
-    thisExp.addData('mouse_3.leftButton', mouse_3.leftButton)
-    thisExp.addData('mouse_3.midButton', mouse_3.midButton)
-    thisExp.addData('mouse_3.rightButton', mouse_3.rightButton)
-    thisExp.addData('mouse_3.time', mouse_3.time)
-    # Run 'End Routine' code from log_time
-    elapsed = time.time() - exp_start_time
-    print("Elapsed:", round(elapsed, 2))
-    thisExp.addData('Trials 2 start time', round(elapsed, 2))
-    #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
-    #
-    # Run 'End Routine' code from reset_timer
-    globalClock.reset()
-    thisExp.nextEntry()
-    # the Routine "error_correction_notification" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
-    
-    # set up handler to look after randomisation of conditions etc
-    error_correction_trials = data.TrialHandler2(
-        name='error_correction_trials',
-        nReps=1, 
-        method='random', 
-        extraInfo=expInfo, 
-        originPath=-1, 
-        trialList=data.importConditions(f"{os.path.join('participant_conditions', os.path.basename(filename))}.csv"), 
-        seed=None, 
-        isTrials=True, 
-    )
-    thisExp.addLoop(error_correction_trials)  # add the loop to the experiment
-    thisError_correction_trial = error_correction_trials.trialList[0]  # so we can initialise stimuli with some values
-    # abbreviate parameter names if possible (e.g. rgb = thisError_correction_trial.rgb)
-    if thisError_correction_trial != None:
-        for paramName in thisError_correction_trial:
-            globals()[paramName] = thisError_correction_trial[paramName]
-    if thisSession is not None:
-        # if running in a Session with a Liaison client, send data up to now
-        thisSession.sendExperimentData()
-    
-    for thisError_correction_trial in error_correction_trials:
-        error_correction_trials.status = STARTED
-        if hasattr(thisError_correction_trial, 'status'):
-            thisError_correction_trial.status = STARTED
-        currentLoop = error_correction_trials
-        thisExp.timestampOnFlip(win, 'thisRow.t', format=globalClock.format)
-        if thisSession is not None:
-            # if running in a Session with a Liaison client, send data up to now
-            thisSession.sendExperimentData()
-        # abbreviate parameter names if possible (e.g. rgb = thisError_correction_trial.rgb)
-        if thisError_correction_trial != None:
-            for paramName in thisError_correction_trial:
-                globals()[paramName] = thisError_correction_trial[paramName]
-        
-        # --- Prepare to start Routine "error_correction" ---
-        # create an object to store info about Routine error_correction
-        error_correction = data.Routine(
-            name='error_correction',
-            components=[numeral_image_ec_phase, numeral_response_button, debug_text, number_of_correct_text_2, number_of_incorrect_text_2],
-        )
-        error_correction.status = NOT_STARTED
-        continueRoutine = True
-        # update component parameters for each repeat
-        numeral_image_ec_phase.setImage(error_correction_trials.thisTrial[expInfo['Language']]
-        )
-        numeral_response_button.setText(digit)
-        # reset numeral_response_button to account for continued clicks & clear times on/off
-        numeral_response_button.reset()
-        number_of_correct_text_2.setText(f"Number correct: {correct}")
-        number_of_incorrect_text_2.setText(f"Number incorrect: {incorrect}")
-        # Run 'Begin Routine' code from add_data_num_correct_time_2
-        elapsed = time.time() - exp_start_time
-        
-        thisExp.addData('this error correction trial start time', round(elapsed, 2))
-        print("Elapsed:", round(elapsed, 2))
-        # store start times for error_correction
-        error_correction.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-        error_correction.tStart = globalClock.getTime(format='float')
-        error_correction.status = STARTED
-        thisExp.addData('error_correction.started', error_correction.tStart)
-        error_correction.maxDuration = None
-        # keep track of which components have finished
-        error_correctionComponents = error_correction.components
-        for thisComponent in error_correction.components:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        # reset timers
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        frameN = -1
-        
-        # --- Run Routine "error_correction" ---
-        thisExp.currentRoutine = error_correction
-        error_correction.forceEnded = routineForceEnded = not continueRoutine
-        while continueRoutine:
-            # if trial has changed, end Routine now
-            if hasattr(thisError_correction_trial, 'status') and thisError_correction_trial.status == STOPPING:
-                continueRoutine = False
-            # get current time
-            t = routineTimer.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-            frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-            # update/draw components on each frame
-            # Run 'Each Frame' code from debug_text_reprimand
-            timer_lines = []
-            timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
-            
-            try:
-                timer_lines.append(f"Routine: {routineTimer.getTime():.2f}s")
-            except:
-                timer_lines.append("Routine: N/A")
-            
-            #try:
-            #    timer_lines.append(f"Inner: {innerClock.getTime():.2f}s")
-            #except:
-            #    timer_lines.append("Inner: N/A")
-            #
-            #try:
-            #    timer_lines.append(f"Trial: {trialClock.getTime():.2f}s")
-            #except:
-            #    timer_lines.append("Trial: N/A")
-            
-            #try:
-            #    timer_lines.append(f"Inner remaining: {inner_loop.nRemaining}")
-            #except:
-            #    timer_lines.append("Inner remaining: N/A")
-            
-            # Add the digit being shown this trial
-            try:
-                timer_lines.append(f"Digit: {digit}")
-            except:
-                timer_lines.append("Digit: N/A")
-            
-            timer_display = "\n".join(timer_lines)
-            
-            # *numeral_image_ec_phase* updates
-            
-            # if numeral_image_ec_phase is starting this frame...
-            if numeral_image_ec_phase.status == NOT_STARTED and t >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                numeral_image_ec_phase.frameNStart = frameN  # exact frame index
-                numeral_image_ec_phase.tStart = t  # local t and not account for scr refresh
-                numeral_image_ec_phase.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(numeral_image_ec_phase, 'tStartRefresh')  # time at next scr refresh
-                # update status
-                numeral_image_ec_phase.status = STARTED
-                numeral_image_ec_phase.setAutoDraw(True)
-            
-            # if numeral_image_ec_phase is active this frame...
-            if numeral_image_ec_phase.status == STARTED:
-                # update params
-                pass
-            # *numeral_response_button* updates
-            
-            # if numeral_response_button is starting this frame...
-            if numeral_response_button.status == NOT_STARTED and t >= 0-frameTolerance:
-                # keep track of start time/frame for later
-                numeral_response_button.frameNStart = frameN  # exact frame index
-                numeral_response_button.tStart = t  # local t and not account for scr refresh
-                numeral_response_button.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(numeral_response_button, 'tStartRefresh')  # time at next scr refresh
-                # update status
-                numeral_response_button.status = STARTED
-                win.callOnFlip(numeral_response_button.buttonClock.reset)
-                numeral_response_button.setAutoDraw(True)
-            
-            # if numeral_response_button is active this frame...
-            if numeral_response_button.status == STARTED:
-                # update params
-                pass
-                # check whether numeral_response_button has been pressed
-                if numeral_response_button.isClicked:
-                    if not numeral_response_button.wasClicked:
-                        # if this is a new click, store time of first click and clicked until
-                        numeral_response_button.timesOn.append(routineTimer.getTime())
-                        numeral_response_button.timesOff.append(routineTimer.getTime())
-                    elif len(numeral_response_button.timesOff):
-                        # if click is continuing from last frame, update time of clicked until
-                        numeral_response_button.timesOff[-1] = routineTimer.getTime()
-                    if not numeral_response_button.wasClicked:
-                        # end routine when numeral_response_button is clicked
-                        continueRoutine = False
-                    if not numeral_response_button.wasClicked:
-                        # run callback code when numeral_response_button is clicked
-                        pass
-            # take note of whether numeral_response_button was clicked, so that next frame we know if clicks are new
-            numeral_response_button.wasClicked = numeral_response_button.isClicked and numeral_response_button.status == STARTED
-            
-            # *debug_text* updates
-            
-            # if debug_text is starting this frame...
-            if debug_text.status == NOT_STARTED and t >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                debug_text.frameNStart = frameN  # exact frame index
-                debug_text.tStart = t  # local t and not account for scr refresh
-                debug_text.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(debug_text, 'tStartRefresh')  # time at next scr refresh
-                # update status
-                debug_text.status = STARTED
-                debug_text.setAutoDraw(True)
-            
-            # if debug_text is active this frame...
-            if debug_text.status == STARTED:
-                # update params
-                debug_text.setText(timer_display
-                + str('here we will have them do only the ones they got wrong'), log=False)
-            
-            # *number_of_correct_text_2* updates
-            
-            # if number_of_correct_text_2 is starting this frame...
-            if number_of_correct_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                number_of_correct_text_2.frameNStart = frameN  # exact frame index
-                number_of_correct_text_2.tStart = t  # local t and not account for scr refresh
-                number_of_correct_text_2.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(number_of_correct_text_2, 'tStartRefresh')  # time at next scr refresh
-                # update status
-                number_of_correct_text_2.status = STARTED
-                number_of_correct_text_2.setAutoDraw(True)
-            
-            # if number_of_correct_text_2 is active this frame...
-            if number_of_correct_text_2.status == STARTED:
-                # update params
-                pass
-            
-            # *number_of_incorrect_text_2* updates
-            
-            # if number_of_incorrect_text_2 is starting this frame...
-            if number_of_incorrect_text_2.status == NOT_STARTED and t >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                number_of_incorrect_text_2.frameNStart = frameN  # exact frame index
-                number_of_incorrect_text_2.tStart = t  # local t and not account for scr refresh
-                number_of_incorrect_text_2.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(number_of_incorrect_text_2, 'tStartRefresh')  # time at next scr refresh
-                # update status
-                number_of_incorrect_text_2.status = STARTED
-                number_of_incorrect_text_2.setAutoDraw(True)
-            
-            # if number_of_incorrect_text_2 is active this frame...
-            if number_of_incorrect_text_2.status == STARTED:
-                # update params
-                pass
-            # Run 'Each Frame' code from end_trials
-            if globalClock.getTime() >= 20:
-                trials.finished = True
-                inner_loop.finished = True
-            
-            # check for quit (typically the Esc key)
-            if defaultKeyboard.getKeys(keyList=["escape"]):
-                thisExp.status = FINISHED
-            if thisExp.status == FINISHED or endExpNow:
-                endExperiment(thisExp, win=win)
-                return
-            # pause experiment here if requested
-            if thisExp.status == PAUSED:
-                pauseExperiment(
-                    thisExp=thisExp, 
-                    win=win, 
-                    timers=[routineTimer, globalClock], 
-                    currentRoutine=error_correction,
-                )
-                # skip the frame we paused on
-                continue
-            
-            # has a Component requested the Routine to end?
-            if not continueRoutine:
-                error_correction.forceEnded = routineForceEnded = True
-            # has the Routine been forcibly ended?
-            if error_correction.forceEnded or routineForceEnded:
-                break
-            # has every Component finished?
-            continueRoutine = False
-            for thisComponent in error_correction.components:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
-            
-            # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
-        
-        # --- Ending Routine "error_correction" ---
-        for thisComponent in error_correction.components:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        # store stop times for error_correction
-        error_correction.tStop = globalClock.getTime(format='float')
-        error_correction.tStopRefresh = tThisFlipGlobal
-        thisExp.addData('error_correction.stopped', error_correction.tStop)
-        error_correction_trials.addData('numeral_response_button.numClicks', numeral_response_button.numClicks)
-        if numeral_response_button.numClicks:
-           error_correction_trials.addData('numeral_response_button.timesOn', numeral_response_button.timesOn)
-           error_correction_trials.addData('numeral_response_button.timesOff', numeral_response_button.timesOff)
-        else:
-           error_correction_trials.addData('numeral_response_button.timesOn', "")
-           error_correction_trials.addData('numeral_response_button.timesOff', "")
-        # Run 'End Routine' code from add_data_num_correct_time_2
-        elapsed = time.time() - exp_start_time
-        print("Elapsed:", round(elapsed, 2))
-        thisExp.addData('this error correction trial end time', round(elapsed, 2))
-        #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
-        #
-        # the Routine "error_correction" was not non-slip safe, so reset the non-slip timer
-        routineTimer.reset()
-        # mark thisError_correction_trial as finished
-        if hasattr(thisError_correction_trial, 'status'):
-            thisError_correction_trial.status = FINISHED
-        # if awaiting a pause, pause now
-        if error_correction_trials.status == PAUSED:
-            thisExp.status = PAUSED
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[globalClock], 
-            )
-            # once done pausing, restore running status
-            error_correction_trials.status = STARTED
-        thisExp.nextEntry()
-        
-    # completed 1 repeats of 'error_correction_trials'
-    error_correction_trials.status = FINISHED
-    
-    if thisSession is not None:
-        # if running in a Session with a Liaison client, send data up to now
-        thisSession.sendExperimentData()
-    # get names of stimulus parameters
-    if error_correction_trials.trialList in ([], [None], None):
-        params = []
-    else:
-        params = error_correction_trials.trialList[0].keys()
-    # save data for this loop
-    error_correction_trials.saveAsText(filename + '_error_correction_trials.csv', delim=',',
-        stimOut=params,
-        dataOut=['n','all_mean','all_std', 'all_raw'])
     
     # --- Prepare to start Routine "blank_for_next" ---
     # create an object to store info about Routine blank_for_next
@@ -2792,12 +2019,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     gotValidClick = False  # until a click is received
     number_of_correct_text_4.setText(f"Number correct: {correct}")
     number_of_incorrect_text_4.setText(f"Number incorrect: {incorrect}")
-    # Run 'Begin Routine' code from log_time_2
-    elapsed = time.time() - exp_start_time
-    print("Elapsed:", round(elapsed, 2))
-    thisExp.addData('Experiment End Time', round(elapsed, 2))
-    #timer_lines.append(f"Global: {globalClock.getTime():.2f}s")
-    #
     # store start times for blank_for_next
     blank_for_next.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     blank_for_next.tStart = globalClock.getTime(format='float')
@@ -2851,7 +2072,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # *mouse_2* updates
         
         # if mouse_2 is starting this frame...
-        if mouse_2.status == NOT_STARTED and t >= 4-frameTolerance:
+        if mouse_2.status == NOT_STARTED and t >= 10-frameTolerance:
             # keep track of start time/frame for later
             mouse_2.frameNStart = frameN  # exact frame index
             mouse_2.tStart = t  # local t and not account for scr refresh

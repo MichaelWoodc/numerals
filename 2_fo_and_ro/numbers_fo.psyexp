@@ -4,7 +4,6 @@
         <Param name="expVersion" val="V1.0.0" valType="str" updates="None" plugin="None"/>
         <Param name="Audio lib" val="ptb" valType="str" updates="None" plugin="None"/>
         <Param name="Force stereo" val="True" valType="bool" updates="None" plugin="None"/>
-        <Param name="HTML path" val="" valType="str" updates="None" plugin="None"/>
         <Param name="exportHTML" val="on Sync" valType="str" updates="None" plugin="None"/>
         <Param name="Completed URL" val="" valType="str" updates="None" plugin="None"/>
         <Param name="Incomplete URL" val="" valType="str" updates="None" plugin="None"/>
@@ -45,14 +44,16 @@
         <Param name="consoleLoggingLevel" val="warning" valType="code" updates="None" plugin="None"/>
         <Param name="clockFormat" val="float" valType="str" updates="None" plugin="None"/>
         <Param name="eyetracker" val="None" valType="str" updates="None" plugin="None"/>
+        <Param name="mgMove" val="CONTINUOUS" valType="str" updates="None" plugin="None"/>
+        <Param name="mgBlink" val="[&quot;MIDDLE_BUTTON&quot;]" valType="list" updates="None" plugin="None"/>
+        <Param name="mgSaccade" val="0.5" valType="num" updates="None" plugin="None"/>
+        <Param name="keyboardBackend" val="PsychToolbox" valType="str" updates="None" plugin="None"/>
+        <Param name="HTML path" val="" valType="str" updates="None" plugin="None"/>
         <Param name="gpAddress" val="127.0.0.1" valType="str" updates="None" plugin="None"/>
         <Param name="gpPort" val="4242" valType="num" updates="None" plugin="None"/>
         <Param name="elModel" val="EYELINK 1000 DESKTOP" valType="str" updates="None" plugin="None"/>
         <Param name="elAddress" val="100.1.1.1" valType="str" updates="None" plugin="None"/>
         <Param name="elSimMode" val="False" valType="bool" updates="None" plugin="None"/>
-        <Param name="mgMove" val="CONTINUOUS" valType="str" updates="None" plugin="None"/>
-        <Param name="mgBlink" val="[&quot;MIDDLE_BUTTON&quot;]" valType="list" updates="None" plugin="None"/>
-        <Param name="mgSaccade" val="0.5" valType="num" updates="None" plugin="None"/>
         <Param name="elSampleRate" val="1000" valType="num" updates="None" plugin="None"/>
         <Param name="elTrackEyes" val="RIGHT_EYE" valType="str" updates="None" plugin="None"/>
         <Param name="elLiveFiltering" val="FILTER_LEVEL_OFF" valType="str" updates="None" plugin="None"/>
@@ -74,7 +75,6 @@
         <Param name="plCompanionAddress" val="neon.local" valType="str" updates="None" plugin="None"/>
         <Param name="plCompanionPort" val="8080" valType="num" updates="None" plugin="None"/>
         <Param name="ecSampleRate" val="default" valType="str" updates="None" plugin="None"/>
-        <Param name="keyboardBackend" val="PsychToolbox" valType="str" updates="None" plugin="None"/>
     </Settings>
     <Routines>
         <Routine name="trial">
