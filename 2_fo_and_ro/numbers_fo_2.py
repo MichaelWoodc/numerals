@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.2.3),
-    on September 28, 2026, at 14:49
+    on September 28, 2026, at 15:48
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -586,6 +586,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=-16.0);
     
+    # --- Initialize components for Routine "blank_trial_screen" ---
+    
     # --- Initialize components for Routine "blank_screen" ---
     
     # --- Initialize components for Routine "error_correction_notification" ---
@@ -797,6 +799,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial.status = NOT_STARTED
             continueRoutine = True
             # update component parameters for each repeat
+            # Run 'Begin Routine' code from set_variables
+            response = None
             # Run 'Begin Routine' code from end_at_specified_time
             ## In end_at_specified_time begin routine component
             
@@ -1062,54 +1066,55 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             continueRoutine = False
                         if not button_0.wasClicked:
                             # run callback code when button_0 is clicked
-                            response = digits[0]
-                            print(response)
-                            thisExp.addData('Response',response)
-                            if response == digit:
-                                thisExp.addData('This response','Correct')
-                                correct += 1
-                                print('incremented correct')
-                                print(correct)
+                            if response == None:
+                                response = digits[0]
+                                print(response)
+                                thisExp.addData('Response',response)
+                                if response == digit:
+                                    thisExp.addData('This response','Correct')
+                                    correct += 1
+                                    print('incremented correct')
+                                    print(correct)
                             
                             
-                            else:
-                                os.makedirs("participant_conditions", exist_ok=True)
-                                thisExp.addData('This response','Incorrect')
-                                incorrect += 1
-                                print('incremented incorrect')
-                                print(incorrect)
+                                else:
+                                    os.makedirs("participant_conditions", exist_ok=True)
+                                    thisExp.addData('This response','Incorrect')
+                                    incorrect += 1
+                                    print('incremented incorrect')
+                                    print(incorrect)
                             
-                                # --- Build participant filename ---
-                                participant_id = expInfo['participant']
-                                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
-                                # --- Explicit header order ---
-                                headers = [
-                                    "digit",
-                                    "arabic_path",
-                                    "hindi_path",
-                                    "mandarin_path",
-                                    "correct_answer",
-                                    "total_time",
-                                    "routine_time",
-                                    "min_time_for_incorrect"
-                                ]
+                                    # --- Build participant filename ---
+                                    participant_id = expInfo['participant']
+                                    outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+                                    # --- Explicit header order ---
+                                    headers = [
+                                        "digit",
+                                        "arabic_path",
+                                        "hindi_path",
+                                        "mandarin_path",
+                                        "correct_answer",
+                                        "total_time",
+                                        "routine_time",
+                                        "min_time_for_incorrect"
+                                    ]
                             
-                                # --- Get the full row of the current trial ---
-                                full_row = trials.thisTrial
+                                    # --- Get the full row of the current trial ---
+                                    full_row = trials.thisTrial
                             
-                                # Filter out unwanted PsychoPy metadata fields
-                                row = {key: full_row[key] for key in headers}
+                                    # Filter out unwanted PsychoPy metadata fields
+                                    row = {key: full_row[key] for key in headers}
                             
-                                # --- Write header if file does not exist ---
-                                import csv
-                                write_header = not os.path.exists(outfile)
+                                    # --- Write header if file does not exist ---
+                                    import csv
+                                    write_header = not os.path.exists(outfile)
                             
-                                with open(outfile, 'a', newline='') as f:
-                                    writer = csv.DictWriter(f, fieldnames=headers)
+                                    with open(outfile, 'a', newline='') as f:
+                                        writer = csv.DictWriter(f, fieldnames=headers)
                             
-                                    if write_header:
-                                        writer.writeheader()
-                                    writer.writerow(row)
+                                        if write_header:
+                                            writer.writeheader()
+                                        writer.writerow(row)
                 # take note of whether button_0 was clicked, so that next frame we know if clicks are new
                 button_0.wasClicked = button_0.isClicked and button_0.status == STARTED
                 # *button_1* updates
@@ -1907,75 +1912,75 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trial.tStopRefresh = tThisFlipGlobal
             thisExp.addData('trial.stopped', trial.tStop)
             # Run 'End Routine' code from end_at_specified_time
-            # -----------------------------
-            # FO_2 — END ROUTINE
-            # -----------------------------
-            ended_routine_at = globalClock.getTime()
-            routine_elapsed = ended_routine_at - started_routine_at
+            # # -----------------------------
+            # # FO_2 — END ROUTINE
+            # # -----------------------------
+            # ended_routine_at = globalClock.getTime()
+            # routine_elapsed = ended_routine_at - started_routine_at
             
-            timed_out = timeout_logged
-            no_response = (response is None)
+            # timed_out = timeout_logged
+            # no_response = (response is None)
             
-            # -----------------------------------------
-            # INCORRECT (timeout or no response)
-            # -----------------------------------------
-            if timed_out or no_response:
-                incorrect += 1
-                print("incremented incorrect:", incorrect)
-                thisExp.addData('This response', 'Timeout (Incorrect)')
+            # # -----------------------------------------
+            # # INCORRECT (timeout or no response)
+            # # -----------------------------------------
+            # if timed_out or no_response:
+            #     incorrect += 1
+            #     print("incremented incorrect:", incorrect)
+            #     thisExp.addData('This response', 'Timeout (Incorrect)')
             
-                # --- Write to participant_conditions CSV ---
-                os.makedirs("participant_conditions", exist_ok=True)
-                outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
+            #     # --- Write to participant_conditions CSV ---
+            #     os.makedirs("participant_conditions", exist_ok=True)
+            #     outfile = os.path.join("participant_conditions", os.path.basename(filename) + ".csv")
             
-                headers = [
-                    "digit",
-                    "arabic_path",
-                    "hindi_path",
-                    "mandarin_path",
-                    "correct_answer",
-                    "total_time",
-                    "routine_time",
-                    "min_time_for_incorrect"
-                ]
+            #     headers = [
+            #         "digit",
+            #         "arabic_path",
+            #         "hindi_path",
+            #         "mandarin_path",
+            #         "correct_answer",
+            #         "total_time",
+            #         "routine_time",
+            #         "min_time_for_incorrect"
+            #     ]
             
-                full_row = trials.thisTrial
-                row = {key: full_row[key] for key in headers}
+            #     full_row = trials.thisTrial
+            #     row = {key: full_row[key] for key in headers}
             
-                write_header = not os.path.exists(outfile)
+            #     write_header = not os.path.exists(outfile)
             
-                import csv
-                with open(outfile, 'a', newline='') as f:
-                    writer = csv.DictWriter(f, fieldnames=headers)
-                    if write_header:
-                        writer.writeheader()
-                    writer.writerow(row)
+            #     import csv
+            #     with open(outfile, 'a', newline='') as f:
+            #         writer = csv.DictWriter(f, fieldnames=headers)
+            #         if write_header:
+            #             writer.writeheader()
+            #         writer.writerow(row)
             
-            # -----------------------------------------
-            # CORRECT RESPONSE
-            # -----------------------------------------
-            else:
-                correct += 1
-                print("incremented correct:", correct)
-                thisExp.addData('This response', 'Correct')
+            # # -----------------------------------------
+            # # CORRECT RESPONSE
+            # # -----------------------------------------
+            # else:
+            #     correct += 1
+            #     print("incremented correct:", correct)
+            #     thisExp.addData('This response', 'Correct')
             
             
-            # -----------------------------------------
-            # END EXPERIMENT ONLY WHEN OVERALL TIMER EXPIRES
-            # -----------------------------------------
-            # -----------------------------------------
-            # OVERALL TIMER EXPIRED
-            # -----------------------------------------
-            elapsed = time.time() - exp_start_time
+            # # -----------------------------------------
+            # # END EXPERIMENT ONLY WHEN OVERALL TIMER EXPIRES
+            # # -----------------------------------------
+            # # -----------------------------------------
+            # # OVERALL TIMER EXPIRED
+            # # -----------------------------------------
+            # elapsed = time.time() - exp_start_time
             
-            if elapsed >= experiment_total_time:
-                print("Overall experiment time reached")
+            # if elapsed >= experiment_total_time:
+            #     print("Overall experiment time reached")
             
-                # Let later routines know we're done
-                time_limit_reached = True
+            #     # Let later routines know we're done
+            #     time_limit_reached = True
             
-                # Stop presenting more digits
-                inner_loop.finished = True
+            #     # Stop presenting more digits
+            #     inner_loop.finished = True
             # store data for inner_loop (TrialHandler)
             inner_loop.addData('mouse.x', mouse.x)
             inner_loop.addData('mouse.y', mouse.y)
@@ -2069,6 +2074,119 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 routineTimer.reset()
             else:
                 routineTimer.addTime(-5.000000)
+            
+            # --- Prepare to start Routine "blank_trial_screen" ---
+            # create an object to store info about Routine blank_trial_screen
+            blank_trial_screen = data.Routine(
+                name='blank_trial_screen',
+                components=[],
+            )
+            blank_trial_screen.status = NOT_STARTED
+            continueRoutine = True
+            # update component parameters for each repeat
+            # Run 'Begin Routine' code from change_background_color
+            # 1. Initialize the background rect once at the start of your script/routine
+            original_color = 'gray'  # Replace with your experiment's original background color
+            bg_rect = visual.Rect(win, width=2, height=2, units='norm', fillColor=original_color, lineColor=None)
+            
+            # 2. CHANGE TO BLACK
+            bg_rect.fillColor = 'black'
+            bg_rect.draw()  # Draw the background first so it sits behind everything else
+            # ... draw any other stimuli here if needed ...
+            win.flip()
+            
+            
+            # store start times for blank_trial_screen
+            blank_trial_screen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+            blank_trial_screen.tStart = globalClock.getTime(format='float')
+            blank_trial_screen.status = STARTED
+            blank_trial_screen.maxDuration = 0.05
+            # keep track of which components have finished
+            blank_trial_screenComponents = blank_trial_screen.components
+            for thisComponent in blank_trial_screen.components:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            frameN = -1
+            
+            # --- Run Routine "blank_trial_screen" ---
+            thisExp.currentRoutine = blank_trial_screen
+            blank_trial_screen.forceEnded = routineForceEnded = not continueRoutine
+            while continueRoutine and routineTimer.getTime() < 0.05:
+                # if trial has changed, end Routine now
+                if hasattr(thisInner_loop, 'status') and thisInner_loop.status == STOPPING:
+                    continueRoutine = False
+                # get current time
+                t = routineTimer.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                # is it time to end the Routine? (based on local clock)
+                if tThisFlip > blank_trial_screen.maxDuration-frameTolerance:
+                    blank_trial_screen.maxDurationReached = True
+                    continueRoutine = False
+                
+                # check for quit (typically the Esc key)
+                if defaultKeyboard.getKeys(keyList=["escape"]):
+                    thisExp.status = FINISHED
+                if thisExp.status == FINISHED or endExpNow:
+                    endExperiment(thisExp, win=win)
+                    return
+                # pause experiment here if requested
+                if thisExp.status == PAUSED:
+                    pauseExperiment(
+                        thisExp=thisExp, 
+                        win=win, 
+                        timers=[routineTimer, globalClock], 
+                        currentRoutine=blank_trial_screen,
+                    )
+                    # skip the frame we paused on
+                    continue
+                
+                # has a Component requested the Routine to end?
+                if not continueRoutine:
+                    blank_trial_screen.forceEnded = routineForceEnded = True
+                # has the Routine been forcibly ended?
+                if blank_trial_screen.forceEnded or routineForceEnded:
+                    break
+                # has every Component finished?
+                continueRoutine = False
+                for thisComponent in blank_trial_screen.components:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # --- Ending Routine "blank_trial_screen" ---
+            for thisComponent in blank_trial_screen.components:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            # store stop times for blank_trial_screen
+            blank_trial_screen.tStop = globalClock.getTime(format='float')
+            blank_trial_screen.tStopRefresh = tThisFlipGlobal
+            # Run 'End Routine' code from change_background_color
+            # 3. CHANGE BACK TO ORIGINAL COLOR
+            bg_rect.fillColor = original_color
+            bg_rect.draw()
+            # ... draw any other stimuli here if needed ...
+            win.flip()
+            # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+            if blank_trial_screen.maxDurationReached:
+                routineTimer.addTime(-blank_trial_screen.maxDuration)
+            elif blank_trial_screen.forceEnded:
+                routineTimer.reset()
+            else:
+                routineTimer.addTime(-0.050000)
             # mark thisInner_loop as finished
             if hasattr(thisInner_loop, 'status'):
                 thisInner_loop.status = FINISHED
