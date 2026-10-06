@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.2.3),
-    on October 06, 2026, at 08:44
+    on October 06, 2026, at 12:26
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -607,6 +607,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     import time
     exp_start_time = time.time()
     
+    # --- Initialize components for Routine "blank_trial_screen" ---
+    
     # --- Initialize components for Routine "roo" ---
     text_5 = visual.TextStim(win=win, name='text_5',
         text='',
@@ -615,6 +617,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-1.0);
+    
+    # --- Initialize components for Routine "blank_trial_screen1" ---
     
     # --- Initialize components for Routine "blank_screen" ---
     text_3 = visual.TextStim(win=win, name='text_3',
@@ -2091,6 +2095,119 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             else:
                 routineTimer.addTime(-5.000000)
             
+            # --- Prepare to start Routine "blank_trial_screen" ---
+            # create an object to store info about Routine blank_trial_screen
+            blank_trial_screen = data.Routine(
+                name='blank_trial_screen',
+                components=[],
+            )
+            blank_trial_screen.status = NOT_STARTED
+            continueRoutine = True
+            # update component parameters for each repeat
+            # Run 'Begin Routine' code from change_background_color
+            # 1. Initialize the background rect once at the start of your script/routine
+            original_color = 'gray'  # Replace with your experiment's original background color
+            bg_rect = visual.Rect(win, width=2, height=2, units='norm', fillColor=original_color, lineColor=None)
+            
+            # 2. CHANGE TO BLACK
+            bg_rect.fillColor = 'black'
+            bg_rect.draw()  # Draw the background first so it sits behind everything else
+            # ... draw any other stimuli here if needed ...
+            win.flip()
+            
+            
+            # store start times for blank_trial_screen
+            blank_trial_screen.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+            blank_trial_screen.tStart = globalClock.getTime(format='float')
+            blank_trial_screen.status = STARTED
+            blank_trial_screen.maxDuration = 0.05
+            # keep track of which components have finished
+            blank_trial_screenComponents = blank_trial_screen.components
+            for thisComponent in blank_trial_screen.components:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            frameN = -1
+            
+            # --- Run Routine "blank_trial_screen" ---
+            thisExp.currentRoutine = blank_trial_screen
+            blank_trial_screen.forceEnded = routineForceEnded = not continueRoutine
+            while continueRoutine and routineTimer.getTime() < 0.05:
+                # if trial has changed, end Routine now
+                if hasattr(thisInner_loop, 'status') and thisInner_loop.status == STOPPING:
+                    continueRoutine = False
+                # get current time
+                t = routineTimer.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                # is it time to end the Routine? (based on local clock)
+                if tThisFlip > blank_trial_screen.maxDuration-frameTolerance:
+                    blank_trial_screen.maxDurationReached = True
+                    continueRoutine = False
+                
+                # check for quit (typically the Esc key)
+                if defaultKeyboard.getKeys(keyList=["escape"]):
+                    thisExp.status = FINISHED
+                if thisExp.status == FINISHED or endExpNow:
+                    endExperiment(thisExp, win=win)
+                    return
+                # pause experiment here if requested
+                if thisExp.status == PAUSED:
+                    pauseExperiment(
+                        thisExp=thisExp, 
+                        win=win, 
+                        timers=[routineTimer, globalClock], 
+                        currentRoutine=blank_trial_screen,
+                    )
+                    # skip the frame we paused on
+                    continue
+                
+                # has a Component requested the Routine to end?
+                if not continueRoutine:
+                    blank_trial_screen.forceEnded = routineForceEnded = True
+                # has the Routine been forcibly ended?
+                if blank_trial_screen.forceEnded or routineForceEnded:
+                    break
+                # has every Component finished?
+                continueRoutine = False
+                for thisComponent in blank_trial_screen.components:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # --- Ending Routine "blank_trial_screen" ---
+            for thisComponent in blank_trial_screen.components:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            # store stop times for blank_trial_screen
+            blank_trial_screen.tStop = globalClock.getTime(format='float')
+            blank_trial_screen.tStopRefresh = tThisFlipGlobal
+            # Run 'End Routine' code from change_background_color
+            # 3. CHANGE BACK TO ORIGINAL COLOR
+            bg_rect.fillColor = original_color
+            bg_rect.draw()
+            # ... draw any other stimuli here if needed ...
+            win.flip()
+            # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+            if blank_trial_screen.maxDurationReached:
+                routineTimer.addTime(-blank_trial_screen.maxDuration)
+            elif blank_trial_screen.forceEnded:
+                routineTimer.reset()
+            else:
+                routineTimer.addTime(-0.050000)
+            
             # --- Prepare to start Routine "roo" ---
             # create an object to store info about Routine roo
             roo = data.Routine(
@@ -2256,6 +2373,119 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 routineTimer.reset()
             else:
                 routineTimer.addTime(-5.000000)
+            
+            # --- Prepare to start Routine "blank_trial_screen1" ---
+            # create an object to store info about Routine blank_trial_screen1
+            blank_trial_screen1 = data.Routine(
+                name='blank_trial_screen1',
+                components=[],
+            )
+            blank_trial_screen1.status = NOT_STARTED
+            continueRoutine = True
+            # update component parameters for each repeat
+            # Run 'Begin Routine' code from change_background_color1
+            # 1. Initialize the background rect once at the start of your script/routine
+            original_color = 'gray'  # Replace with your experiment's original background color
+            bg_rect = visual.Rect(win, width=2, height=2, units='norm', fillColor=original_color, lineColor=None)
+            
+            # 2. CHANGE TO BLACK
+            bg_rect.fillColor = 'black'
+            bg_rect.draw()  # Draw the background first so it sits behind everything else
+            # ... draw any other stimuli here if needed ...
+            win.flip()
+            
+            
+            # store start times for blank_trial_screen1
+            blank_trial_screen1.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
+            blank_trial_screen1.tStart = globalClock.getTime(format='float')
+            blank_trial_screen1.status = STARTED
+            blank_trial_screen1.maxDuration = 0.05
+            # keep track of which components have finished
+            blank_trial_screen1Components = blank_trial_screen1.components
+            for thisComponent in blank_trial_screen1.components:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            frameN = -1
+            
+            # --- Run Routine "blank_trial_screen1" ---
+            thisExp.currentRoutine = blank_trial_screen1
+            blank_trial_screen1.forceEnded = routineForceEnded = not continueRoutine
+            while continueRoutine and routineTimer.getTime() < 0.05:
+                # if trial has changed, end Routine now
+                if hasattr(thisInner_loop, 'status') and thisInner_loop.status == STOPPING:
+                    continueRoutine = False
+                # get current time
+                t = routineTimer.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                # is it time to end the Routine? (based on local clock)
+                if tThisFlip > blank_trial_screen1.maxDuration-frameTolerance:
+                    blank_trial_screen1.maxDurationReached = True
+                    continueRoutine = False
+                
+                # check for quit (typically the Esc key)
+                if defaultKeyboard.getKeys(keyList=["escape"]):
+                    thisExp.status = FINISHED
+                if thisExp.status == FINISHED or endExpNow:
+                    endExperiment(thisExp, win=win)
+                    return
+                # pause experiment here if requested
+                if thisExp.status == PAUSED:
+                    pauseExperiment(
+                        thisExp=thisExp, 
+                        win=win, 
+                        timers=[routineTimer, globalClock], 
+                        currentRoutine=blank_trial_screen1,
+                    )
+                    # skip the frame we paused on
+                    continue
+                
+                # has a Component requested the Routine to end?
+                if not continueRoutine:
+                    blank_trial_screen1.forceEnded = routineForceEnded = True
+                # has the Routine been forcibly ended?
+                if blank_trial_screen1.forceEnded or routineForceEnded:
+                    break
+                # has every Component finished?
+                continueRoutine = False
+                for thisComponent in blank_trial_screen1.components:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # --- Ending Routine "blank_trial_screen1" ---
+            for thisComponent in blank_trial_screen1.components:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            # store stop times for blank_trial_screen1
+            blank_trial_screen1.tStop = globalClock.getTime(format='float')
+            blank_trial_screen1.tStopRefresh = tThisFlipGlobal
+            # Run 'End Routine' code from change_background_color1
+            # 3. CHANGE BACK TO ORIGINAL COLOR
+            bg_rect.fillColor = original_color
+            bg_rect.draw()
+            # ... draw any other stimuli here if needed ...
+            win.flip()
+            # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
+            if blank_trial_screen1.maxDurationReached:
+                routineTimer.addTime(-blank_trial_screen1.maxDuration)
+            elif blank_trial_screen1.forceEnded:
+                routineTimer.reset()
+            else:
+                routineTimer.addTime(-0.050000)
             # mark thisInner_loop as finished
             if hasattr(thisInner_loop, 'status'):
                 thisInner_loop.status = FINISHED
