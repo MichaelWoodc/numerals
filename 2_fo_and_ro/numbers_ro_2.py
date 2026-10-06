@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2026.1.3),
-    on May 12, 2026, at 22:06
+This experiment was created using PsychoPy3 Experiment Builder (v2026.2.3),
+    on October 06, 2026, at 08:44
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -56,7 +56,7 @@ deviceManager = hardware.DeviceManager()
 # ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 # store info about the experiment session
-psychopyVersion = '2026.1.3'
+psychopyVersion = '2026.2.3'
 expName = 'numbers_ro_2'  # from the Builder filename that created this script
 expVersion = 'v1.0.0'
 # a list of functions to run when the experiment ends (starts off blank)
@@ -148,7 +148,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version=expVersion,
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\micha\\OneDrive - Georgia Southern University\\4_RESEARCH\\ABA\\numbers\\numerals\\2_fo_and_ro\\numbers_ro_2.py',
+        originPath='C:\\Users\\micha\\numerals\\2_fo_and_ro\\numbers_ro_2.py',
         savePickle=True, saveWideText=True,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -217,7 +217,7 @@ def setupWindow(expInfo=None, win=None):
     if win is None:
         # if not given a window to setup, make one
         win = visual.Window(
-            size=_winSize, fullscr=_fullScr, screen=0,
+            size=_winSize, fullscr=_fullScr, screen=2,
             winType='pyglet', allowGUI=False, allowStencil=False,
             monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
             backgroundImage='', backgroundFit='none',
@@ -596,7 +596,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         depth=-13
     )
     button_9.buttonClock = core.Clock()
-    text = visual.TextStim(win=win, name='text',
+    debug_text = visual.TextStim(win=win, name='debug_text',
         text='',
         font='Arial',
         pos=(0.2, 0.2), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
@@ -829,7 +829,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # create an object to store info about Routine trial
             trial = data.Routine(
                 name='trial',
-                components=[image, mouse, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, text],
+                components=[image, mouse, button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, debug_text],
             )
             trial.status = NOT_STARTED
             continueRoutine = True
@@ -1017,12 +1017,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     # update status
                     mouse.status = STARTED
                     mouse.mouseClock.reset()
-                    prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
+                    # if button is down already this ISN'T a new click
+                    mouse.prevButtonState = mouse.getPressed()
                 if mouse.status == STARTED:  # only update if started and not finished!
                     buttons = mouse.getPressed()
-                    if buttons != prevButtonState:  # button state changed?
-                        prevButtonState = buttons
-                        if sum(buttons) > 0:  # state changed to a new click
+                    # button state changed?
+                    if buttons != mouse.prevButtonState:
+                        mouse.prevButtonState = buttons
+                        # state changed to a new click
+                        if sum(buttons) > 0:
                             pass
                             x, y = mouse.getPos()
                             mouse.x.append(float(x))
@@ -1067,6 +1070,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             response = digits[0]
                             trials_completed += 1
                             print(response)
+                            responded = True
                             thisExp.addData('Response',response)
                             if response == digit:
                                 thisExp.addData('This response','Correct')
@@ -1148,6 +1152,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_1.wasClicked:
                             # run callback code when button_1 is clicked
                             response = digits[1]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1231,6 +1236,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_2.wasClicked:
                             # run callback code when button_2 is clicked
                             response = digits[2]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1314,6 +1320,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_3.wasClicked:
                             # run callback code when button_3 is clicked
                             response = digits[3]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1397,6 +1404,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_4.wasClicked:
                             # run callback code when button_4 is clicked
                             response = digits[4]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1480,6 +1488,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_5.wasClicked:
                             # run callback code when button_5 is clicked
                             response = digits[5]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1563,6 +1572,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_6.wasClicked:
                             # run callback code when button_6 is clicked
                             response = digits[6]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1646,6 +1656,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_7.wasClicked:
                             # run callback code when button_7 is clicked
                             response = digits[7]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1729,6 +1740,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_8.wasClicked:
                             # run callback code when button_8 is clicked
                             response = digits[8]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1812,6 +1824,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if not button_9.wasClicked:
                             # run callback code when button_9 is clicked
                             response = digits[9]
+                            responded = True
                             trials_completed+=1
                             print(response)
                             thisExp.addData('Response',response)
@@ -1863,23 +1876,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 # take note of whether button_9 was clicked, so that next frame we know if clicks are new
                 button_9.wasClicked = button_9.isClicked and button_9.status == STARTED
                 
-                # *text* updates
+                # *debug_text* updates
                 
-                # if text is starting this frame...
-                if text.status == NOT_STARTED and t >= 0.0-frameTolerance:
+                # if debug_text is starting this frame...
+                if debug_text.status == NOT_STARTED and t >= 0.0-frameTolerance:
                     # keep track of start time/frame for later
-                    text.frameNStart = frameN  # exact frame index
-                    text.tStart = t  # local t and not account for scr refresh
-                    text.tStartRefresh = tThisFlipGlobal  # on global time
-                    win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+                    debug_text.frameNStart = frameN  # exact frame index
+                    debug_text.tStart = t  # local t and not account for scr refresh
+                    debug_text.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(debug_text, 'tStartRefresh')  # time at next scr refresh
                     # update status
-                    text.status = STARTED
-                    text.setAutoDraw(True)
+                    debug_text.status = STARTED
+                    debug_text.setAutoDraw(True)
                 
-                # if text is active this frame...
-                if text.status == STARTED:
+                # if debug_text is active this frame...
+                if debug_text.status == STARTED:
                     # update params
-                    text.setText(timer_display
+                    debug_text.setText(timer_display
                     , log=False)
                 
                 # check for quit (typically the Esc key)
@@ -1936,7 +1949,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             timed_out = (ended_routine_at - started_routine_at) >= min_time_for_incorrect
             no_response = (response is None)
             
-            if timed_out or no_response:
+            # Button callbacks already score responses; only score unanswered trials here.
+            if not responded:
                 import csv
                 # Increment incorrect
                 incorrect += 1
@@ -1971,14 +1985,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     if write_header:
                         writer.writeheader()
                     writer.writerow(row)
-            
-            else:
-                # -----------------------------------------
-                # 3. CORRECT RESPONSE
-                # -----------------------------------------
-                correct += 1
-                thisExp.addData('This response','Correct')
-                print("incremented correct:", correct)
             
             # -----------------------------------------
             # 4. LOOP ENDING LOGIC (unchanged)
@@ -2524,12 +2530,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update status
             mouse_3.status = STARTED
             mouse_3.mouseClock.reset()
-            prevButtonState = mouse_3.getPressed()  # if button is down already this ISN'T a new click
+            # if button is down already this ISN'T a new click
+            mouse_3.prevButtonState = mouse_3.getPressed()
         if mouse_3.status == STARTED:  # only update if started and not finished!
             buttons = mouse_3.getPressed()
-            if buttons != prevButtonState:  # button state changed?
-                prevButtonState = buttons
-                if sum(buttons) > 0:  # state changed to a new click
+            # button state changed?
+            if buttons != mouse_3.prevButtonState:
+                mouse_3.prevButtonState = buttons
+                # state changed to a new click
+                if sum(buttons) > 0:
                     pass
                     x, y = mouse_3.getPos()
                     mouse_3.x.append(float(x))
@@ -3035,12 +3044,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update status
             mouse_2.status = STARTED
             mouse_2.mouseClock.reset()
-            prevButtonState = mouse_2.getPressed()  # if button is down already this ISN'T a new click
+            # if button is down already this ISN'T a new click
+            mouse_2.prevButtonState = mouse_2.getPressed()
         if mouse_2.status == STARTED:  # only update if started and not finished!
             buttons = mouse_2.getPressed()
-            if buttons != prevButtonState:  # button state changed?
-                prevButtonState = buttons
-                if sum(buttons) > 0:  # state changed to a new click
+            # button state changed?
+            if buttons != mouse_2.prevButtonState:
+                mouse_2.prevButtonState = buttons
+                # state changed to a new click
+                if sum(buttons) > 0:
                     pass
                     x, y = mouse_2.getPos()
                     mouse_2.x.append(float(x))
