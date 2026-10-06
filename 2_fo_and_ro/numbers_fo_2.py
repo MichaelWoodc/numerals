@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2026.2.3),
-    on September 28, 2026, at 15:51
+    on October 06, 2026, at 08:07
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -985,7 +985,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     # Kill inner loop immediately
                     inner_loop.finished = True
                     # # Skip to end of current routine
-                    # continueRoutine = False
+                    continueRoutine = False
                 
                 # *image* updates
                 
